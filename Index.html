@@ -11,201 +11,262 @@
 <title>DebtFree</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{height:100%}
-body{
-  min-height:100%;
-  background:#0a0a0f;
-  color:#e8e4f0;
-  font-family:Georgia,'Times New Roman',serif;
-  /* iOS momentum scrolling */
-  -webkit-overflow-scrolling:touch;
-  overflow-y:auto;
-  /* Safe area insets for notch/Dynamic Island */
-  padding-top:env(safe-area-inset-top);
-  padding-bottom:env(safe-area-inset-bottom);
-  padding-left:env(safe-area-inset-left);
-  padding-right:env(safe-area-inset-right);
-}
-/* Prevent iOS text size adjustment */
-html{-webkit-text-size-adjust:100%}
-/* Remove tap highlight */
+html{height:100%;-webkit-text-size-adjust:100%}
+body{min-height:100%;background:#0a0a0f;color:#e8e4f0;font-family:Georgia,'Times New Roman',serif;-webkit-overflow-scrolling:touch;overflow-y:auto;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
 *{-webkit-tap-highlight-color:transparent}
-/* Native-feeling buttons */
 button{-webkit-appearance:none;appearance:none;touch-action:manipulation}
-input{-webkit-appearance:none;appearance:none}
+input,select{-webkit-appearance:none;appearance:none}
 
-header{
-padding:20px 20px 20px;
-padding-top:calc(20px + env(safe-area-inset-top));
-border-bottom:1px solid #1e1e2e;
-background:linear-gradient(135deg,#0a0a0f,#12101e);
-position:sticky;top:0;z-index:10;
-/* iOS frosted glass effect */
-backdrop-filter:blur(20px);
--webkit-backdrop-filter:blur(20px);
-}
-.eyebrow{font-size:11px;letter-spacing:4px;color:#7c6fa0;text-transform:uppercase;margin-bottom:6px}
-h1{
-font-size:clamp(22px,5vw,32px);font-weight:400;letter-spacing:-1px;
-background:linear-gradient(90deg,#e8e4f0,#9f7aea);
--webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
-.subtitle{margin-top:6px;color:#6b6080;font-size:14px}
-main{max-width:600px;margin:0 auto;padding:20px 16px 80px}
+/* NAV */
+nav{position:sticky;top:0;z-index:20;background:#0a0a0f;border-bottom:1px solid #1e1e2e;display:flex;overflow-x:auto;scrollbar-width:none;padding-top:env(safe-area-inset-top)}
+nav::-webkit-scrollbar{display:none}
+.nav-tab{flex-shrink:0;padding:14px 18px;font-size:13px;letter-spacing:1px;color:#5a5270;background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;font-family:inherit;white-space:nowrap}
+.nav-tab.active{color:#9f7aea;border-bottom-color:#9f7aea}
 
-.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
-.summary-card{background:#12101e;border:1px solid #1e1e2e;border-radius:14px;padding:14px 12px}
-.summary-label{font-size:10px;letter-spacing:2px;color:#5a5270;text-transform:uppercase;margin-bottom:4px}
-.summary-value{font-size:clamp(15px,3.5vw,20px);font-weight:300}
+main{max-width:640px;margin:0 auto;padding:20px 16px 80px}
 
-.section-label{font-size:11px;letter-spacing:2px;color:#7c6fa0;text-transform:uppercase;margin-bottom:10px}
+/* SECTION HEADERS */
+.eyebrow{font-size:10px;letter-spacing:4px;color:#7c6fa0;text-transform:uppercase;margin-bottom:6px}
+h2{font-size:22px;font-weight:400;letter-spacing:-0.5px;background:linear-gradient(90deg,#e8e4f0,#9f7aea);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px}
+.section-desc{font-size:13px;color:#6b6080;margin-bottom:20px}
 
-.card-list{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
-.card-item{background:#12101e;border:1px solid #1e1e2e;border-radius:14px;padding:16px;border-left:3px solid var(–accent)}
-.card-item.editing{border-color:#4a3080}
-.card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+/* CARDS */
+.card-box{background:#12101e;border:1px solid #1e1e2e;border-radius:14px;padding:16px;margin-bottom:12px;border-left:3px solid var(–accent,#9f7aea)}
+.card-box.editing{border-color:#4a3080}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .card-name{font-size:15px;font-weight:500}
-.card-actions{display:flex;gap:6px}
-.btn-small{
-background:none;border:1px solid #2a2040;color:#9f7aea;
-padding:6px 14px;border-radius:8px;cursor:pointer;font-size:13px;font-family:inherit;
-/* Larger touch target */
-min-height:36px;
-}
-.btn-small.remove{color:#5a5270}
-.card-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
+.btn-row{display:flex;gap:6px}
+.btn-sm{background:none;border:1px solid #2a2040;color:#9f7aea;padding:6px 14px;border-radius:8px;cursor:pointer;font-size:12px;font-family:inherit;min-height:36px}
+.btn-sm.del{color:#5a5270}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
 .stat-label{font-size:10px;letter-spacing:2px;color:#5a5270;text-transform:uppercase}
-.stat-value{font-size:16px}
-.stat-value.debt{color:#FF6B6B}
+.stat-val{font-size:15px}
+.stat-val.red{color:#FF6B6B}
 .util-bar{height:4px;background:#1e1e2e;border-radius:2px;overflow:hidden;margin-top:2px}
-.util-fill{height:100%;border-radius:2px;background:var(–accent)}
-.util-text{font-size:10px;color:#5a5270;margin-top:3px}
+.util-fill{height:100%;border-radius:2px;background:var(–accent,#9f7aea)}
+.util-txt{font-size:10px;color:#5a5270;margin-top:3px}
 
-.edit-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+/* EDIT FORM */
+.edit-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
 .edit-full{grid-column:1/-1}
-.field-label{font-size:10px;letter-spacing:2px;color:#5a5270;text-transform:uppercase;display:block;margin-bottom:5px}
-.field-input{
-width:100%;background:#0a0a0f;border:1px solid #2a2040;
-border-radius:8px;color:#e8e4f0;padding:10px 12px;
-font-size:16px;/* 16px prevents iOS auto-zoom */
-font-family:inherit;
-}
+.field-label{font-size:10px;letter-spacing:2px;color:#5a5270;text-transform:uppercase;display:block;margin-bottom:4px}
+.field-input{width:100%;background:#0a0a0f;border:1px solid #2a2040;border-radius:8px;color:#e8e4f0;padding:10px 12px;font-size:16px;font-family:inherit}
+select.field-input{color:#e8e4f0}
 .edit-actions{display:flex;gap:8px}
 .btn-save{background:#4a2ea0;border:none;color:#fff;padding:12px 20px;border-radius:10px;cursor:pointer;font-size:15px;font-family:inherit;min-height:44px}
 .btn-cancel{background:none;border:1px solid #2a2040;color:#7c6fa0;padding:12px 20px;border-radius:10px;cursor:pointer;font-size:15px;font-family:inherit;min-height:44px}
+.btn-add{width:100%;background:none;border:1px dashed #3d2e6b;color:#9f7aea;padding:14px;border-radius:12px;cursor:pointer;font-size:15px;font-family:inherit;margin-bottom:20px;min-height:44px}
 
-.btn-add{
-width:100%;background:none;border:1px dashed #3d2e6b;color:#9f7aea;
-padding:14px;border-radius:12px;cursor:pointer;font-size:15px;
-font-family:inherit;margin-bottom:20px;letter-spacing:1px;
-min-height:44px;
-}
+/* SUMMARY PILLS */
+.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
+.sum-card{background:#12101e;border:1px solid #1e1e2e;border-radius:12px;padding:12px}
+.sum-label{font-size:10px;letter-spacing:2px;color:#5a5270;text-transform:uppercase;margin-bottom:3px}
+.sum-val{font-size:clamp(14px,3.5vw,20px);font-weight:300}
 
-.extra-box{
-background:#12101e;border:1px solid #1e1e2e;border-radius:14px;
-padding:16px;margin-bottom:24px;
-display:flex;align-items:center;justify-content:space-between;gap:12px;
-}
+/* EXTRA PAYMENT */
+.extra-box{background:#12101e;border:1px solid #1e1e2e;border-radius:14px;padding:16px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .extra-label{font-size:11px;letter-spacing:3px;color:#7c6fa0;text-transform:uppercase;margin-bottom:4px}
 .extra-desc{font-size:12px;color:#5a5270}
-.extra-input-wrap{display:flex;align-items:center;gap:6px;flex-shrink:0}
-.dollar-sign{color:#7c6fa0;font-size:18px}
-.extra-input{
-background:#0a0a0f;border:1px solid #2a2040;border-radius:8px;
-color:#e8e4f0;padding:10px 10px;font-size:20px;
-width:90px;text-align:right;font-family:inherit;
-}
+.extra-wrap{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.dollar{color:#7c6fa0;font-size:18px}
+.extra-input{background:#0a0a0f;border:1px solid #2a2040;border-radius:8px;color:#e8e4f0;padding:10px;font-size:20px;width:90px;text-align:right;font-family:inherit}
 
-.strategy-grid{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
-.strategy-card{background:#12101e;border:1px solid #1e1e2e;border-radius:16px;padding:20px;cursor:pointer;position:relative;transition:background 0.15s}
-.strategy-card:active{background:#1a1030}
-.strategy-card.recommended{border-color:#9f7aea}
-.strategy-card.active{background:#1a1030;border-color:#4a3080}
+/* STRATEGY CARDS */
+.strat-grid{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+.strat-card{background:#12101e;border:1px solid #1e1e2e;border-radius:14px;padding:18px;cursor:pointer;position:relative;transition:background 0.15s}
+.strat-card:active,.strat-card.active{background:#1a1030}
+.strat-card.recommended{border-color:#9f7aea}
 .rec-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:#4a2ea0;color:#e8e4f0;font-size:10px;letter-spacing:2px;padding:3px 12px;border-radius:20px;white-space:nowrap;text-transform:uppercase}
-.strategy-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
-.strategy-name{font-size:18px;font-weight:500}
-.strategy-icon{font-size:24px}
-.strategy-desc{font-size:12px;color:#5a5270;margin-bottom:14px}
-.strategy-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.sstat-label{font-size:10px;letter-spacing:2px;color:#5a5270;text-transform:uppercase}
-.sstat-value{font-size:20px}
-.sstat-value.time{color:#4DABF7}
-.sstat-value.interest{color:#FF6B6B}
-.savings-pill{margin-top:12px;padding:8px 12px;border-radius:8px;font-size:12px}
-.savings-pill.positive{background:#0d1f0d;color:#69DB7C}
-.savings-pill.negative{background:#1f0d0d;color:#FF6B6B}
+.strat-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px}
+.strat-name{font-size:17px;font-weight:500}
+.strat-icon{font-size:22px}
+.strat-desc{font-size:12px;color:#5a5270;margin-bottom:12px}
+.strat-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ss-label{font-size:10px;letter-spacing:2px;color:#5a5270;text-transform:uppercase}
+.ss-val{font-size:19px}
+.ss-val.blue{color:#4DABF7}
+.ss-val.red{color:#FF6B6B}
+.savings-pill{margin-top:10px;padding:8px 12px;border-radius:8px;font-size:12px}
+.savings-pill.pos{background:#0d1f0d;color:#69DB7C}
+.savings-pill.neg{background:#1f0d0d;color:#FF6B6B}
 
-.rec-box{background:linear-gradient(135deg,#1a1030,#12101e);border:1px solid #3d2e6b;border-radius:16px;padding:22px 18px}
-.rec-title{font-size:11px;letter-spacing:3px;color:#7c6fa0;text-transform:uppercase;margin-bottom:10px}
-.rec-headline{font-size:17px;margin-bottom:10px;line-height:1.4}
-.rec-body{font-size:14px;color:#a09ab8;line-height:1.7}
-.rec-footer{margin-top:12px;font-size:12px;color:#6b6080}
+/* REC BOX */
+.rec-box{background:linear-gradient(135deg,#1a1030,#12101e);border:1px solid #3d2e6b;border-radius:14px;padding:20px;margin-bottom:24px}
+.rec-title{font-size:10px;letter-spacing:3px;color:#7c6fa0;text-transform:uppercase;margin-bottom:10px}
+.rec-headline{font-size:16px;margin-bottom:8px;line-height:1.4}
+.rec-body{font-size:13px;color:#a09ab8;line-height:1.7}
+.rec-footer{margin-top:10px;font-size:12px;color:#6b6080}
 
-.empty{text-align:center;padding:60px 0;color:#3a3050}
-.empty-icon{font-size:48px;margin-bottom:16px}
+/* CHART */
+.chart-wrap{background:#12101e;border:1px solid #1e1e2e;border-radius:14px;padding:16px;margin-bottom:20px;overflow-x:auto}
+.chart-title{font-size:11px;letter-spacing:2px;color:#7c6fa0;text-transform:uppercase;margin-bottom:14px}
+.chart-legend{display:flex;gap:16px;margin-bottom:14px;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:12px;color:#a09ab8}
+.legend-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.chart-inner{display:flex;align-items:flex-end;gap:6px;min-width:min-content}
+.chart-group{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0}
+.chart-bars{display:flex;align-items:flex-end;gap:3px}
+.bar{width:22px;border-radius:4px 4px 0 0;position:relative;min-height:4px;transition:height 0.3s}
+.bar-label{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:9px;color:#a09ab8;white-space:nowrap}
+.group-label{font-size:10px;color:#5a5270;text-align:center;max-width:60px;line-height:1.2}
+.chart-axis{border-top:1px solid #2a2040;margin-top:4px;padding-top:6px;width:100%;display:flex;justify-content:flex-end}
+.axis-label{font-size:10px;color:#3a3050}
 
-/* iOS install banner */
-.install-banner{
-display:none;
-position:fixed;bottom:0;left:0;right:0;
-background:#1a1030;border-top:1px solid #3d2e6b;
-padding:14px 20px;padding-bottom:calc(14px + env(safe-area-inset-bottom));
-z-index:100;text-align:center;
-}
+/* ALLOCATOR */
+.alloc-controls{background:#12101e;border:1px solid #1e1e2e;border-radius:14px;padding:16px;margin-bottom:16px}
+.alloc-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.alloc-full{grid-column:1/-1}
+.goal-tabs{display:flex;gap:8px;margin-bottom:4px}
+.goal-tab{flex:1;padding:10px;border-radius:8px;border:1px solid #2a2040;background:none;color:#5a5270;font-size:13px;font-family:inherit;cursor:pointer}
+.goal-tab.active{background:#4a2ea0;border-color:#4a2ea0;color:#fff}
+.btn-calc{width:100%;background:#4a2ea0;border:none;color:#fff;padding:14px;border-radius:10px;cursor:pointer;font-size:15px;font-family:inherit;margin-top:4px;min-height:44px}
+
+.alloc-results{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.alloc-card{background:#12101e;border:1px solid #1e1e2e;border-radius:12px;padding:14px;border-left:3px solid var(–accent)}
+.alloc-card-name{font-size:14px;font-weight:500;margin-bottom:8px}
+.alloc-amount{font-size:22px;color:#9f7aea;margin-bottom:4px}
+.alloc-detail{font-size:12px;color:#5a5270}
+.alloc-summary{background:linear-gradient(135deg,#1a1030,#12101e);border:1px solid #3d2e6b;border-radius:12px;padding:16px;margin-bottom:20px}
+.alloc-sum-row{display:flex;justify-content:space-between;font-size:13px;padding:4px 0;border-bottom:1px solid #1e1e2e}
+.alloc-sum-row:last-child{border-bottom:none;font-weight:500;color:#9f7aea;padding-top:8px}
+
+/* UTIL TARGET */
+.util-controls{background:#12101e;border:1px solid #1e1e2e;border-radius:14px;padding:16px;margin-bottom:16px}
+.util-results{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.util-card{background:#12101e;border:1px solid #1e1e2e;border-radius:12px;padding:14px;border-left:3px solid var(–accent)}
+.util-card-name{font-size:14px;font-weight:500;margin-bottom:6px}
+.util-already{font-size:13px;color:#69DB7C}
+.util-amount{font-size:22px;color:#9f7aea;margin-bottom:2px}
+.util-months{font-size:12px;color:#5a5270}
+.util-impossible{font-size:13px;color:#FF6B6B}
+.progress-bar{height:6px;background:#1e1e2e;border-radius:3px;overflow:hidden;margin:8px 0 4px}
+.progress-fill{height:100%;border-radius:3px;background:var(–accent)}
+.progress-labels{display:flex;justify-content:space-between;font-size:10px;color:#5a5270}
+
+.empty{text-align:center;padding:50px 0;color:#3a3050}
+.empty-icon{font-size:40px;margin-bottom:12px}
+
+/* INSTALL BANNER */
+.install-banner{display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1030;border-top:1px solid #3d2e6b;padding:14px 20px;padding-bottom:calc(14px + env(safe-area-inset-bottom));z-index:100;text-align:center}
 .install-banner.show{display:block}
 .install-text{font-size:13px;color:#a09ab8;line-height:1.5}
-.install-text strong{color:#e8e4f0}
-.install-close{
-position:absolute;top:12px;right:16px;
-background:none;border:none;color:#5a5270;font-size:18px;cursor:pointer;
-}
+.install-close{position:absolute;top:12px;right:16px;background:none;border:none;color:#5a5270;font-size:18px;cursor:pointer}
 </style>
 
 </head>
 <body>
 
-<header>
-  <div class="eyebrow">Debt Strategy Analyzer</div>
-  <h1>Find Your Path to Zero</h1>
-  <p class="subtitle">Enter your cards and find the cheapest way out.</p>
-</header>
+<nav id="nav">
+  <button class="nav-tab active" onclick="showTab('cards')">💳 Cards</button>
+  <button class="nav-tab" onclick="showTab('compare')">📊 Compare</button>
+  <button class="nav-tab" onclick="showTab('allocator')">🎯 Allocator</button>
+  <button class="nav-tab" onclick="showTab('utilization')">📉 Utilization</button>
+</nav>
 
 <main>
+
+<!-- CARDS TAB -->
+
+<div id="tab-cards">
+  <div style="margin-bottom:20px">
+    <div class="eyebrow">Debt Manager</div>
+    <h2>Your Cards</h2>
+    <div class="section-desc">Add your cards to get started across all tools.</div>
+  </div>
   <div id="summary-grid" class="summary-grid" style="display:none"></div>
-  <div class="section-label">Your Cards</div>
-  <div id="card-list" class="card-list"></div>
+  <div id="card-list"></div>
   <button class="btn-add" onclick="addCard()">+ Add Card</button>
   <div class="extra-box">
     <div>
       <div class="extra-label">Extra Monthly Payment</div>
-      <div class="extra-desc">Amount above all minimums</div>
+      <div class="extra-desc">Above all minimums</div>
     </div>
-    <div class="extra-input-wrap">
-      <span class="dollar-sign">$</span>
+    <div class="extra-wrap">
+      <span class="dollar">$</span>
       <input class="extra-input" type="number" inputmode="decimal" id="extra" value="100" oninput="render()"/>
     </div>
   </div>
-  <div class="section-label">Strategy Comparison</div>
-  <div id="strategy-grid" class="strategy-grid"></div>
-  <div id="rec-box"></div>
-  <div id="empty" class="empty" style="display:none">
-    <div class="empty-icon">💳</div>
-    <div>Add your cards above to see your strategy comparison</div>
-  </div>
-</main>
+</div>
 
-<!-- iOS install prompt -->
+<!-- COMPARE TAB -->
+
+<div id="tab-compare" style="display:none">
+  <div style="margin-bottom:20px">
+    <div class="eyebrow">Strategy Compare</div>
+    <h2>Payoff by Method</h2>
+    <div class="section-desc">See how each strategy plays out per card, side by side.</div>
+  </div>
+  <div id="compare-chart"></div>
+  <div id="strat-grid" class="strat-grid"></div>
+  <div id="rec-box"></div>
+</div>
+
+<!-- ALLOCATOR TAB -->
+
+<div id="tab-allocator" style="display:none">
+  <div style="margin-bottom:20px">
+    <div class="eyebrow">Budget Allocator</div>
+    <h2>Optimal Split</h2>
+    <div class="section-desc">Enter your monthly budget and goal. We'll show the optimal payment split.</div>
+  </div>
+  <div class="alloc-controls">
+    <div class="alloc-row">
+      <div>
+        <label class="field-label">Monthly Budget ($)</label>
+        <input class="field-input" type="number" inputmode="decimal" id="alloc-budget" value="500"/>
+      </div>
+      <div>
+        <label class="field-label">Strategy</label>
+        <select class="field-input" id="alloc-strat">
+          <option value="avalanche">Avalanche</option>
+          <option value="snowball">Snowball</option>
+          <option value="hybrid">Hybrid</option>
+        </select>
+      </div>
+    </div>
+    <div class="alloc-full" style="margin-bottom:12px">
+      <label class="field-label" style="margin-bottom:8px">Goal</label>
+      <div class="goal-tabs">
+        <button class="goal-tab active" id="goal-payoff" onclick="setGoal('payoff')">Full Payoff</button>
+        <button class="goal-tab" id="goal-date" onclick="setGoal('date')">By Date</button>
+      </div>
+    </div>
+    <div id="goal-date-input" style="display:none;margin-bottom:12px">
+      <label class="field-label">Target Date</label>
+      <input class="field-input" type="month" id="alloc-date"/>
+    </div>
+    <button class="btn-calc" onclick="calcAllocator()">Calculate Split</button>
+  </div>
+  <div id="alloc-results"></div>
+</div>
+
+<!-- UTILIZATION TAB -->
+
+<div id="tab-utilization" style="display:none">
+  <div style="margin-bottom:20px">
+    <div class="eyebrow">Utilization Planner</div>
+    <h2>Hit 30% or Less</h2>
+    <div class="section-desc">Pick a target date. We'll show the minimum monthly payment needed per card.</div>
+  </div>
+  <div class="util-controls">
+    <div style="margin-bottom:12px">
+      <label class="field-label">Target Date</label>
+      <input class="field-input" type="month" id="util-date"/>
+    </div>
+    <button class="btn-calc" onclick="calcUtil()">Calculate</button>
+  </div>
+  <div id="util-results"></div>
+</div>
+
+</main>
 
 <div class="install-banner" id="install-banner">
   <button class="install-close" onclick="dismissBanner()">✕</button>
-  <div class="install-text">
-    <strong>Install this app</strong><br/>
-    Tap <strong>Share</strong> then <strong>Add to Home Screen</strong> for offline access
-  </div>
+  <div class="install-text"><strong>Install this app</strong><br/>Tap <strong>Share</strong> → <strong>Add to Home Screen</strong></div>
 </div>
 
 <script>
-const COLORS=["#FF6B6B","#FFA94D","#FFD43B","#69DB7C","#4DABF7","#DA77F2","#F783AC","#63E6BE"];
+const COLORS=["#4DABF7","#69DB7C","#FF6B6B","#FFA94D","#DA77F2","#F783AC","#FFD43B","#63E6BE"];
 const STRATS=[
   {id:"avalanche",name:"Avalanche",icon:"❄️",desc:"Pay highest APR first. Minimizes total interest paid."},
   {id:"snowball", name:"Snowball", icon:"🔮",desc:"Pay smallest balance first. Fastest psychological wins."},
@@ -216,19 +277,22 @@ let cards=JSON.parse(localStorage.getItem("dsa_cards")||"null")||[
   {id:1,name:"Chase Sapphire",         balance:4200,limit:8000,apr:24.99,minPayment:84},
   {id:2,name:"Capital One Quicksilver",balance:1850,limit:5000,apr:19.99,minPayment:37},
 ];
-let editingId=null,activeStrat=null;
+let editingId=null,activeStrat=null,currentTab="cards",allocGoal="payoff";
 
 function save(){localStorage.setItem("dsa_cards",JSON.stringify(cards));}
 
+// ── PAYOFF CALC ─────────────────────────────────────────────────────────────
 function calcPayoff(list,strategy,ex){
   if(!list.length)return null;
-  let bal=list.map(c=>({...c,remaining:c.balance}));
+  let bal=list.map(c=>({...c,remaining:c.balance,paidOffMonth:null}));
   let months=0,totalInterest=0;
   while(bal.some(c=>c.remaining>0.01)&&months<600){
     months++;
-    bal.forEach(c=>{if(c.remaining>0){const i=c.remaining*(c.apr/100/12);totalInterest+=i;c.remaining+=i;}});
-    const active=bal.filter(c=>c.remaining>0.01);
+    bal.forEach(c=>{
+      if(c.remaining>0){const i=c.remaining*(c.apr/100/12);totalInterest+=i;c.remaining+=i;}
+    });
     let ord;
+    const active=bal.filter(c=>c.remaining>0.01);
     if(strategy==="avalanche")ord=[...active].sort((a,b)=>b.apr-a.apr);
     else if(strategy==="snowball")ord=[...active].sort((a,b)=>a.remaining-b.remaining);
     else ord=[...active].sort((a,b)=>{
@@ -242,9 +306,13 @@ function calcPayoff(list,strategy,ex){
       let pay=min+(i===0?e2:0);
       if(pay>c.remaining){e2=pay-c.remaining;pay=c.remaining;}else e2=0;
       c.remaining=Math.max(0,c.remaining-pay);
+      if(c.remaining<=0.01&&!c.paidOffMonth)c.paidOffMonth=months;
     });
   }
-  return{months,totalInterest};
+  // map back by id
+  const byId={};
+  bal.forEach(c=>byId[c.id]=c.paidOffMonth||months);
+  return{months,totalInterest,byCard:byId};
 }
 
 function getResults(){
@@ -257,10 +325,24 @@ function getResults(){
   return{avalanche:av,snowball:sb,hybrid:hy,recommended:rec};
 }
 
+// ── FORMATTERS ──────────────────────────────────────────────────────────────
 const fmt=n=>n.toLocaleString("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0});
 const fmtM=m=>m>=12?`${Math.floor(m/12)}y ${m%12}m`:`${m}mo`;
 
-function render(){renderSummary();renderCards();renderStrategies();}
+// ── TABS ─────────────────────────────────────────────────────────────────────
+function showTab(id){
+  currentTab=id;
+  ["cards","compare","allocator","utilization"].forEach(t=>{
+    document.getElementById("tab-"+t).style.display=t===id?"block":"none";
+  });
+  document.querySelectorAll(".nav-tab").forEach((btn,i)=>{
+    btn.classList.toggle("active",["cards","compare","allocator","utilization"][i]===id);
+  });
+  if(id==="compare")renderCompare();
+}
+
+// ── RENDER CARDS TAB ────────────────────────────────────────────────────────
+function render(){renderSummary();renderCardList();if(currentTab==="compare")renderCompare();}
 
 function renderSummary(){
   const td=cards.reduce((s,c)=>s+c.balance,0),tl=cards.reduce((s,c)=>s+c.limit,0);
@@ -271,14 +353,14 @@ function renderSummary(){
   el.innerHTML=[
     {label:"Total Debt",  value:fmt(td),   color:"#FF6B6B"},
     {label:"Credit Limit",value:fmt(tl),   color:"#4DABF7"},
-    {label:"Utilization", value:`${util}%`,color:util>30?"#FFA94D":"#69DB7C"},
-  ].map(s=>`<div class="summary-card"><div class="summary-label">${s.label}</div><div class="summary-value" style="color:${s.color}">${s.value}</div></div>`).join("");
+    {label:"Utilization", value:`${util}%`,color:+util>30?"#FFA94D":"#69DB7C"},
+  ].map(s=>`<div class="sum-card"><div class="sum-label">${s.label}</div><div class="sum-val" style="color:${s.color}">${s.value}</div></div>`).join("");
 }
 
-function renderCards(){
+function renderCardList(){
   document.getElementById("card-list").innerHTML=cards.map((card,i)=>{
     const color=COLORS[i%COLORS.length],util=card.limit>0?(card.balance/card.limit*100):0;
-    if(editingId===card.id)return`<div class="card-item editing" style="--accent:${color}">
+    if(editingId===card.id)return`<div class="card-box editing" style="--accent:${color}">
       <div class="edit-grid">
         <div class="edit-full"><label class="field-label">Card Name</label><input class="field-input" id="ef-name" value="${card.name}"/></div>
         <div><label class="field-label">Balance ($)</label><input class="field-input" type="number" inputmode="decimal" id="ef-balance" value="${card.balance}"/></div>
@@ -291,62 +373,277 @@ function renderCards(){
         <button class="btn-cancel" onclick="cancelEdit()">Cancel</button>
       </div>
     </div>`;
-    return`<div class="card-item" style="--accent:${color}">
-      <div class="card-header">
+    return`<div class="card-box" style="--accent:${color}">
+      <div class="row">
         <div class="card-name">${card.name}</div>
-        <div class="card-actions">
-          <button class="btn-small" onclick="startEdit(${card.id})">Edit</button>
-          <button class="btn-small remove" onclick="removeCard(${card.id})">✕</button>
+        <div class="btn-row">
+          <button class="btn-sm" onclick="startEdit(${card.id})">Edit</button>
+          <button class="btn-sm del" onclick="removeCard(${card.id})">✕</button>
         </div>
       </div>
-      <div class="card-stats">
-        <div><div class="stat-label">Balance</div><div class="stat-value debt">${fmt(card.balance)}</div></div>
-        <div><div class="stat-label">APR</div><div class="stat-value">${card.apr}%</div></div>
-        <div><div class="stat-label">Min Pay</div><div class="stat-value">${fmt(card.minPayment)}</div></div>
+      <div class="stats-row">
+        <div><div class="stat-label">Balance</div><div class="stat-val red">${fmt(card.balance)}</div></div>
+        <div><div class="stat-label">APR</div><div class="stat-val">${card.apr}%</div></div>
+        <div><div class="stat-label">Min Pay</div><div class="stat-val">${fmt(card.minPayment)}</div></div>
       </div>
       <div class="util-bar"><div class="util-fill" style="width:${Math.min(util,100)}%"></div></div>
-      <div class="util-text">${util.toFixed(0)}% utilized</div>
+      <div class="util-txt">${util.toFixed(0)}% utilized</div>
     </div>`;
   }).join("");
 }
 
-function renderStrategies(){
+// ── RENDER COMPARE TAB ───────────────────────────────────────────────────────
+function renderCompare(){
   const R=getResults();
-  const grid=document.getElementById("strategy-grid"),recBox=document.getElementById("rec-box"),empty=document.getElementById("empty");
-  if(!R){grid.innerHTML="";recBox.innerHTML="";empty.style.display="block";return;}
-  empty.style.display="none";
-  grid.innerHTML=STRATS.map(s=>{
-    const r=R[s.id],isRec=R.recommended===s.id,isActive=activeStrat===s.id;
-    const sav=R.avalanche.totalInterest-r.totalInterest,md=R.avalanche.months-r.months;
-    const pill=s.id!=="avalanche"?`<div class="savings-pill ${sav>=0?"positive":"negative"}">${sav>=0?`Saves ${fmt(sav)} vs avalanche`:`Costs ${fmt(Math.abs(sav))} more vs avalanche`}${md!==0?` · ${Math.abs(md)}mo ${md>0?"faster":"slower"}`:""}</div>`:"";
-    return`<div class="strategy-card${isRec?" recommended":""}${isActive?" active":""}" onclick="toggleStrat('${s.id}')">
-      ${isRec?`<div class="rec-badge">⭐ Recommended</div>`:""}
-      <div class="strategy-top"><div class="strategy-name">${s.name}</div><div class="strategy-icon">${s.icon}</div></div>
-      <div class="strategy-desc">${s.desc}</div>
-      <div class="strategy-stats">
-        <div><div class="sstat-label">Payoff time</div><div class="sstat-value time">${fmtM(r.months)}</div></div>
-        <div><div class="sstat-label">Total interest</div><div class="sstat-value interest">${fmt(r.totalInterest)}</div></div>
-      </div>
-      ${pill}
+  const chartEl=document.getElementById("compare-chart");
+  const stratEl=document.getElementById("strat-grid");
+  const recEl=document.getElementById("rec-box");
+  if(!R){
+    chartEl.innerHTML=`<div class="empty"><div class="empty-icon">📊</div>Add cards to compare strategies</div>`;
+    stratEl.innerHTML="";recEl.innerHTML="";return;
+  }
+
+  // ── BAR CHART ──
+  const valid=cards.filter(c=>c.balance>0&&c.apr>0);
+  const maxM=Math.max(...valid.map(c=>Math.max(R.avalanche.byCard[c.id]||0,R.snowball.byCard[c.id]||0,R.hybrid.byCard[c.id]||0)));
+  const barH=120;
+
+  const stratColors={avalanche:"#4DABF7",snowball:"#69DB7C",hybrid:"#DA77F2"};
+  const groups=valid.map((card,i)=>{
+    const color=COLORS[i%COLORS.length];
+    const bars=["avalanche","snowball","hybrid"].map(sid=>{
+      const m=R[sid].byCard[card.id]||0;
+      const h=maxM>0?Math.round((m/maxM)*barH):4;
+      return`<div style="display:flex;flex-direction:column;align-items:center">
+        <div class="bar" style="height:${h}px;background:${stratColors[sid]}">
+          <span class="bar-label">${m}</span>
+        </div>
+      </div>`;
+    }).join("");
+    return`<div class="chart-group">
+      <div class="chart-bars">${bars}</div>
+      <div class="group-label" style="color:${color}">${card.name}</div>
     </div>`;
   }).join("");
 
+  chartEl.innerHTML=`<div class="chart-wrap">
+    <div class="chart-title">Payoff Month by Card & Strategy</div>
+    <div class="chart-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#4DABF7"></div>Avalanche</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#69DB7C"></div>Snowball</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#DA77F2"></div>Hybrid</div>
+    </div>
+    <div class="chart-inner" style="min-height:${barH+40}px;align-items:flex-end;padding-top:24px">${groups}</div>
+  </div>`;
+
+  // ── STRATEGY CARDS ──
+  stratEl.innerHTML=STRATS.map(s=>{
+    const r=R[s.id],isRec=R.recommended===s.id,isActive=activeStrat===s.id;
+    const sav=R.avalanche.totalInterest-r.totalInterest,md=R.avalanche.months-r.months;
+    const pill=s.id!=="avalanche"?`<div class="savings-pill ${sav>=0?"pos":"neg"}">${sav>=0?`Saves ${fmt(sav)} vs avalanche`:`Costs ${fmt(Math.abs(sav))} more`}${md!==0?` · ${Math.abs(md)}mo ${md>0?"faster":"slower"}`:""}</div>`:"";
+    return`<div class="strat-card${isRec?" recommended":""}${isActive?" active":""}" onclick="toggleStrat('${s.id}')">
+      ${isRec?`<div class="rec-badge">⭐ Recommended</div>`:""}
+      <div class="strat-top"><div class="strat-name">${s.name}</div><div class="strat-icon">${s.icon}</div></div>
+      <div class="strat-desc">${s.desc}</div>
+      <div class="strat-stats">
+        <div><div class="ss-label">Payoff time</div><div class="ss-val blue">${fmtM(r.months)}</div></div>
+        <div><div class="ss-label">Total interest</div><div class="ss-val red">${fmt(r.totalInterest)}</div></div>
+      </div>${pill}
+    </div>`;
+  }).join("");
+
+  // ── REC BOX ──
   const rec=R.recommended,r=R[rec],s=STRATS.find(x=>x.id===rec);
   const iDiff=Math.abs(R.avalanche.totalInterest-R.snowball.totalInterest);
   const mDiff=Math.abs(R.avalanche.months-R.snowball.months);
   const body={
-    avalanche:`The avalanche method saves you the most money — mathematically the best choice when you can stay committed. Your highest-rate card is the priority target.`,
-    snowball:`Given your card balances, the snowball method gets you quick wins that build momentum. The interest difference vs. avalanche is small (${fmt(iDiff)}), so the psychological boost is worth it.`,
-    hybrid:`The hybrid approach threads the needle — knocking out small balances for motivation while targeting high-APR cards before they compound further.`,
+    avalanche:`The avalanche method saves you the most money. Your highest-rate card is the priority target.`,
+    snowball:`The snowball method gets you quick wins. The interest difference vs. avalanche is only ${fmt(iDiff)}, so the motivation is worth it.`,
+    hybrid:`The hybrid approach clears small balances fast then targets high-APR cards before they compound.`,
   }[rec];
-  recBox.innerHTML=`<div class="rec-box">
-    <div class="rec-title">Our Recommendation</div>
-    <div class="rec-headline">${s.icon} <strong>${s.name}</strong> — ${fmtM(r.months)} to payoff, ${fmt(r.totalInterest)} in interest</div>
+  recEl.innerHTML=`<div class="rec-box">
+    <div class="rec-title">Recommendation</div>
+    <div class="rec-headline">${s.icon} <strong>${s.name}</strong> — ${fmtM(r.months)} payoff, ${fmt(r.totalInterest)} interest</div>
     <div class="rec-body">${body}</div>
-    ${iDiff>0?`<div class="rec-footer">Avalanche vs Snowball: ${fmt(iDiff)} interest difference · ${mDiff} month${mDiff!==1?"s":""} difference</div>`:""}
+    ${iDiff>0?`<div class="rec-footer">Avalanche vs Snowball: ${fmt(iDiff)} difference · ${mDiff}mo</div>`:""}
   </div>`;
 }
 
+// ── ALLOCATOR ────────────────────────────────────────────────────────────────
+function setGoal(g){
+  allocGoal=g;
+  document.getElementById("goal-payoff").classList.toggle("active",g==="payoff");
+  document.getElementById("goal-date").classList.toggle("active",g==="date");
+  document.getElementById("goal-date-input").style.display=g==="date"?"block":"none";
+}
+
+function calcAllocator(){
+  const valid=cards.filter(c=>c.balance>0&&c.apr>0);
+  if(!valid.length){document.getElementById("alloc-results").innerHTML=`<div class="empty"><div class="empty-icon">💳</div>Add cards first</div>`;return;}
+
+  const budget=+(document.getElementById("alloc-budget").value)||0;
+  const strategy=document.getElementById("alloc-strat").value;
+  let targetMonths=null;
+
+  if(allocGoal==="date"){
+    const dateVal=document.getElementById("alloc-date").value;
+    if(!dateVal){alert("Please pick a target date.");return;}
+    const [y,m]=dateVal.split("-").map(Number);
+    const now=new Date();
+    targetMonths=(y-now.getFullYear())*12+(m-now.getMonth());
+    if(targetMonths<1){alert("Target date must be in the future.");return;}
+  }
+
+  // Determine priority order
+  let ordered;
+  if(strategy==="avalanche")ordered=[...valid].sort((a,b)=>b.apr-a.apr);
+  else if(strategy==="snowball")ordered=[...valid].sort((a,b)=>a.balance-b.balance);
+  else ordered=[...valid].sort((a,b)=>{
+    if(a.balance<500&&b.balance>=500)return -1;
+    if(b.balance<500&&a.balance>=500)return 1;
+    return b.apr-a.apr;
+  });
+
+  // Min payments first
+  const totalMin=valid.reduce((s,c)=>s+c.minPayment,0);
+  if(budget<totalMin){
+    document.getElementById("alloc-results").innerHTML=`<div class="rec-box"><div class="rec-title">Warning</div><div class="rec-body">Your budget of ${fmt(budget)} is less than total minimums of ${fmt(totalMin)}. Increase your budget to at least ${fmt(Math.ceil(totalMin))}.</div></div>`;
+    return;
+  }
+
+  // Allocate: minimums to all, extra to priority card
+  const allocs=valid.map(c=>({...c,payment:c.minPayment}));
+  let remaining=budget-totalMin;
+
+  if(targetMonths){
+    // Try to hit target: binary search on extra to priority card isn't needed;
+    // just allocate all extra to priority card and show if goal is achievable
+  }
+
+  // Pour extra into priority order
+  for(const priority of ordered){
+    const slot=allocs.find(a=>a.id===priority.id);
+    slot.payment+=remaining;
+    break;
+  }
+
+  // Simulate with these payments to get payoff per card
+  const payoffMonths={};
+  valid.forEach(card=>{
+    const alloc=allocs.find(a=>a.id===card.id);
+    let bal=card.balance,m=0;
+    while(bal>0.01&&m<600){
+      m++;
+      bal+=bal*(card.apr/100/12);
+      bal=Math.max(0,bal-alloc.payment);
+    }
+    payoffMonths[card.id]=m;
+  });
+
+  const totalMonths=Math.max(...Object.values(payoffMonths));
+  const goalMet=targetMonths?totalMonths<=targetMonths:true;
+
+  const html=allocs.map((a,i)=>{
+    const color=COLORS[cards.findIndex(c=>c.id===a.id)%COLORS.length];
+    const isPriority=ordered[0].id===a.id;
+    return`<div class="alloc-card" style="--accent:${color}">
+      <div class="alloc-card-name">${a.name}${isPriority?` <span style="font-size:11px;color:#9f7aea;letter-spacing:1px">PRIORITY</span>`:""}</div>
+      <div class="alloc-amount">${fmt(a.payment)}<span style="font-size:13px;color:#5a5270">/mo</span></div>
+      <div class="alloc-detail">Min ${fmt(a.minPayment)} + ${fmt(a.payment-a.minPayment)} extra · Paid off in ${fmtM(payoffMonths[a.id])}</div>
+    </div>`;
+  }).join("");
+
+  const warningHtml=targetMonths&&!goalMet?`<div class="rec-box" style="margin-bottom:12px;border-color:#FF6B6B">
+    <div class="rec-title" style="color:#FF6B6B">Goal Not Reachable</div>
+    <div class="rec-body">At ${fmt(budget)}/mo you'll finish in ${fmtM(totalMonths)}, not by your target. You'd need approximately ${fmt(Math.ceil(budget*(totalMonths/targetMonths)))}/mo to hit that date.</div>
+  </div>`:"";
+
+  const successHtml=targetMonths&&goalMet?`<div class="rec-box" style="margin-bottom:12px">
+    <div class="rec-title">Goal Achievable ✓</div>
+    <div class="rec-body">At ${fmt(budget)}/mo you'll be debt free in ${fmtM(totalMonths)}, which is within your target.</div>
+  </div>`:"";
+
+  document.getElementById("alloc-results").innerHTML=warningHtml+successHtml+html+`
+  <div class="alloc-summary">
+    <div class="alloc-sum-row"><span>Monthly budget</span><span>${fmt(budget)}</span></div>
+    <div class="alloc-sum-row"><span>Total minimums</span><span>${fmt(totalMin)}</span></div>
+    <div class="alloc-sum-row"><span>Extra allocated</span><span>${fmt(budget-totalMin)}</span></div>
+    <div class="alloc-sum-row"><span>Total payoff time</span><span>${fmtM(totalMonths)}</span></div>
+  </div>`;
+}
+
+// ── UTILIZATION ──────────────────────────────────────────────────────────────
+function calcUtil(){
+  const dateVal=document.getElementById("util-date").value;
+  if(!dateVal){alert("Please pick a target date.");return;}
+  const [y,m]=dateVal.split("-").map(Number);
+  const now=new Date();
+  const months=(y-now.getFullYear())*12+(m-now.getMonth());
+  if(months<1){alert("Target date must be in the future.");return;}
+
+  const valid=cards.filter(c=>c.limit>0);
+  if(!valid.length){document.getElementById("util-results").innerHTML=`<div class="empty"><div class="empty-icon">📉</div>Add cards with credit limits first</div>`;return;}
+
+  const html=valid.map(card=>{
+    const color=COLORS[cards.findIndex(c=>c.id===card.id)%COLORS.length];
+    const currentUtil=card.limit>0?(card.balance/card.limit*100):0;
+    const target30=card.limit*0.30;
+
+    if(card.balance<=target30){
+      return`<div class="util-card" style="--accent:${color}">
+        <div class="util-card-name">${card.name}</div>
+        <div class="util-already">✓ Already at ${currentUtil.toFixed(0)}% — under 30%</div>
+        <div class="progress-bar"><div class="progress-fill" style="width:${Math.min(currentUtil,100)}%;background:#69DB7C"></div></div>
+        <div class="progress-labels"><span>0%</span><span style="color:#69DB7C">30%</span><span>100%</span></div>
+      </div>`;
+    }
+
+    // Need to reduce balance from card.balance to target30 in `months` months
+    // Each month: bal = bal*(1+r) - pay → solve for pay
+    // pay = bal*r*(1+r)^n / ((1+r)^n - 1) where target is final balance = target30
+    // Adjusted: we want bal after n months = target30
+    // bal_n = bal*(1+r)^n - pay*((1+r)^n-1)/r = target30
+    // pay = (bal*(1+r)^n - target30) * r / ((1+r)^n - 1)
+    const r=card.apr/100/12;
+    let payment;
+    if(r===0){
+      payment=(card.balance-target30)/months;
+    } else {
+      const factor=Math.pow(1+r,months);
+      payment=(card.balance*factor-target30)*r/(factor-1);
+    }
+
+    if(payment<0||!isFinite(payment)){
+      return`<div class="util-card" style="--accent:${color}">
+        <div class="util-card-name">${card.name}</div>
+        <div class="util-impossible">Interest alone prevents reaching 30% by this date. Try a later date or a 0% APR transfer.</div>
+      </div>`;
+    }
+
+    const minPay=card.minPayment||Math.max(25,card.balance*0.02);
+    const actualPay=Math.max(payment,minPay);
+    const extra=actualPay>minPay?actualPay-minPay:0;
+
+    return`<div class="util-card" style="--accent:${color}">
+      <div class="util-card-name">${card.name}</div>
+      <div class="util-amount">${fmt(Math.ceil(actualPay))}<span style="font-size:13px;color:#5a5270">/mo</span></div>
+      <div class="util-months">Pay ${fmt(Math.ceil(actualPay))}/mo for ${months} months → ${(target30/card.limit*100).toFixed(0)}% utilization
+        ${extra>0?`<br>Min ${fmt(minPay)} + ${fmt(Math.ceil(extra))} extra`:""}
+      </div>
+      <div class="progress-bar" style="margin-top:10px">
+        <div class="progress-fill" style="width:${Math.min(currentUtil,100)}%"></div>
+      </div>
+      <div class="progress-labels">
+        <span>Now: ${currentUtil.toFixed(0)}%</span>
+        <span style="color:${color}">Goal: 30%</span>
+      </div>
+    </div>`;
+  }).join("");
+
+  document.getElementById("util-results").innerHTML=html;
+}
+
+// ── CARD ACTIONS ─────────────────────────────────────────────────────────────
 function addCard(){
   const id=Date.now();
   cards.push({id,name:"New Card",balance:0,limit:0,apr:0,minPayment:25});
@@ -365,19 +662,21 @@ function saveEdit(id){
   }:c);
   editingId=null;save();render();
 }
-function toggleStrat(id){activeStrat=activeStrat===id?null:id;render();}
+function toggleStrat(id){activeStrat=activeStrat===id?null:id;renderCompare();}
 
-// Show iOS install banner if in Safari but not installed
-function dismissBanner(){
-  localStorage.setItem("banner_dismissed","1");
-  document.getElementById("install-banner").classList.remove("show");
-}
+// ── iOS INSTALL BANNER ───────────────────────────────────────────────────────
+function dismissBanner(){localStorage.setItem("banner_dismissed","1");document.getElementById("install-banner").classList.remove("show");}
 const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
 const isInstalled=window.navigator.standalone===true;
-const dismissed=localStorage.getItem("banner_dismissed");
-if(isIOS&&!isInstalled&&!dismissed){
+if(isIOS&&!isInstalled&&!localStorage.getItem("banner_dismissed")){
   setTimeout(()=>document.getElementById("install-banner").classList.add("show"),2000);
 }
+
+// ── SET DEFAULT DATE INPUTS ───────────────────────────────────────────────────
+const now=new Date();
+const defaultDate=`${now.getFullYear()+1}-${String(now.getMonth()+1).padStart(2,"0")}`;
+document.getElementById("alloc-date").value=defaultDate;
+document.getElementById("util-date").value=defaultDate;
 
 render();
 </script>
