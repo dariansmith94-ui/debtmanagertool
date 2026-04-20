@@ -16,19 +16,15 @@ body{min-height:100%;background:#0a0a0f;color:#e8e4f0;font-family:Georgia,'Times
 *{-webkit-tap-highlight-color:transparent}
 button{-webkit-appearance:none;appearance:none;touch-action:manipulation}
 input,select{-webkit-appearance:none;appearance:none}
-
 nav{position:sticky;top:0;z-index:20;background:#0a0a0f;border-bottom:1px solid #1e1e2e;display:flex;overflow-x:auto;scrollbar-width:none;padding-top:env(safe-area-inset-top)}
 nav::-webkit-scrollbar{display:none}
 .nav-tab{flex-shrink:0;padding:14px 18px;font-size:13px;letter-spacing:1px;color:#5a5270;background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;font-family:inherit;white-space:nowrap}
 .nav-tab.active{color:#9f7aea;border-bottom-color:#9f7aea}
-
 main{max-width:640px;margin:0 auto;padding:20px 16px 80px}
-
 .eyebrow{font-size:10px;letter-spacing:4px;color:#7c6fa0;text-transform:uppercase;margin-bottom:6px}
 h2{font-size:22px;font-weight:400;letter-spacing:-0.5px;background:linear-gradient(90deg,#e8e4f0,#9f7aea);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px}
 .section-desc{font-size:13px;color:#6b6080;margin-bottom:20px}
-
-.card-box{background:#12101e;border:1px solid #1e1e2e;border-radius:14px;padding:16px;margin-bottom:12px;border-left:3px solid var(–accent,#9f7aea)}
+.card-box{background:#12101e;border:1px solid #1e1e2e;border-radius:14px;padding:16px;margin-bottom:12px;border-left:3px solid var(--accent,#9f7aea)}
 .card-box.editing{border-color:#4a3080}
 .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .card-name{font-size:15px;font-weight:500}
@@ -40,9 +36,8 @@ h2{font-size:22px;font-weight:400;letter-spacing:-0.5px;background:linear-gradie
 .stat-val{font-size:15px}
 .stat-val.red{color:#FF6B6B}
 .util-bar{height:4px;background:#1e1e2e;border-radius:2px;overflow:hidden;margin-top:2px}
-.util-fill{height:100%;border-radius:2px;background:var(–accent,#9f7aea)}
+.util-fill{height:100%;border-radius:2px;background:var(--accent,#9f7aea)}
 .util-txt{font-size:10px;color:#5a5270;margin-top:3px}
-
 .edit-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
 .edit-full{grid-column:1/-1}
 .field-label{font-size:10px;letter-spacing:2px;color:#5a5270;text-transform:uppercase;display:block;margin-bottom:4px}
@@ -52,19 +47,16 @@ select.field-input option{background:#12101e}
 .btn-save{background:#4a2ea0;border:none;color:#fff;padding:12px 20px;border-radius:10px;cursor:pointer;font-size:15px;font-family:inherit;min-height:44px}
 .btn-cancel{background:none;border:1px solid #2a2040;color:#7c6fa0;padding:12px 20px;border-radius:10px;cursor:pointer;font-size:15px;font-family:inherit;min-height:44px}
 .btn-add{width:100%;background:none;border:1px dashed #3d2e6b;color:#9f7aea;padding:14px;border-radius:12px;cursor:pointer;font-size:15px;font-family:inherit;margin-bottom:20px;min-height:44px}
-
 .summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
 .sum-card{background:#12101e;border:1px solid #1e1e2e;border-radius:12px;padding:12px}
 .sum-label{font-size:10px;letter-spacing:2px;color:#5a5270;text-transform:uppercase;margin-bottom:3px}
 .sum-val{font-size:clamp(14px,3.5vw,20px);font-weight:300}
-
 .extra-box{background:#12101e;border:1px solid #1e1e2e;border-radius:14px;padding:16px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .extra-label{font-size:11px;letter-spacing:3px;color:#7c6fa0;text-transform:uppercase;margin-bottom:4px}
 .extra-desc{font-size:12px;color:#5a5270}
 .extra-wrap{display:flex;align-items:center;gap:6px;flex-shrink:0}
 .dollar{color:#7c6fa0;font-size:18px}
 .extra-input{background:#0a0a0f;border:1px solid #2a2040;border-radius:8px;color:#e8e4f0;padding:10px;font-size:20px;width:90px;text-align:right;font-family:inherit}
-
 .strat-grid{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
 .strat-card{background:#12101e;border:1px solid #1e1e2e;border-radius:14px;padding:18px;cursor:pointer;position:relative;transition:background 0.15s}
 .strat-card:active,.strat-card.active{background:#1a1030}
@@ -82,13 +74,11 @@ select.field-input option{background:#12101e}
 .savings-pill{margin-top:10px;padding:8px 12px;border-radius:8px;font-size:12px}
 .savings-pill.pos{background:#0d1f0d;color:#69DB7C}
 .savings-pill.neg{background:#1f0d0d;color:#FF6B6B}
-
 .rec-box{background:linear-gradient(135deg,#1a1030,#12101e);border:1px solid #3d2e6b;border-radius:14px;padding:20px;margin-bottom:20px}
 .rec-title{font-size:10px;letter-spacing:3px;color:#7c6fa0;text-transform:uppercase;margin-bottom:10px}
 .rec-headline{font-size:16px;margin-bottom:8px;line-height:1.4}
 .rec-body{font-size:13px;color:#a09ab8;line-height:1.7}
 .rec-footer{margin-top:10px;font-size:12px;color:#6b6080}
-
 .chart-wrap{background:#12101e;border:1px solid #1e1e2e;border-radius:14px;padding:16px;margin-bottom:20px}
 .chart-title{font-size:11px;letter-spacing:2px;color:#7c6fa0;text-transform:uppercase;margin-bottom:12px}
 .chart-legend{display:flex;gap:16px;margin-bottom:14px;flex-wrap:wrap}
@@ -101,43 +91,37 @@ select.field-input option{background:#12101e}
 .bar{width:24px;border-radius:4px 4px 0 0;position:relative;min-height:4px}
 .bar-val{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:9px;color:#a09ab8;white-space:nowrap}
 .group-label{font-size:10px;color:#7c6fa0;text-align:center;max-width:70px;line-height:1.3;word-break:break-word}
-
 .alloc-controls,.util-controls{background:#12101e;border:1px solid #1e1e2e;border-radius:14px;padding:16px;margin-bottom:16px}
 .alloc-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
 .goal-tabs{display:flex;gap:8px;margin-bottom:4px}
 .goal-tab{flex:1;padding:10px;border-radius:8px;border:1px solid #2a2040;background:none;color:#5a5270;font-size:13px;font-family:inherit;cursor:pointer;min-height:44px}
 .goal-tab.active{background:#4a2ea0;border-color:#4a2ea0;color:#fff}
 .btn-calc{width:100%;background:#4a2ea0;border:none;color:#fff;padding:14px;border-radius:10px;cursor:pointer;font-size:15px;font-family:inherit;margin-top:8px;min-height:44px}
-
-.alloc-results,.util-results{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
-.alloc-card,.util-card{background:#12101e;border:1px solid #1e1e2e;border-radius:12px;padding:14px;border-left:3px solid var(–accent,#9f7aea)}
+.result-cards{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.alloc-card,.util-card{background:#12101e;border:1px solid #1e1e2e;border-radius:12px;padding:14px;border-left:3px solid var(--accent,#9f7aea)}
 .alloc-card-name,.util-card-name{font-size:14px;font-weight:500;margin-bottom:8px}
 .alloc-amount,.util-amount{font-size:22px;color:#9f7aea;margin-bottom:4px}
 .alloc-detail,.util-months{font-size:12px;color:#5a5270;line-height:1.5}
 .util-already{font-size:13px;color:#69DB7C}
 .util-impossible{font-size:13px;color:#FF6B6B}
-.alloc-summary{background:linear-gradient(135deg,#1a1030,#12101e);border:1px solid #3d2e6b;border-radius:12px;padding:16px}
+.summary-box{background:linear-gradient(135deg,#1a1030,#12101e);border:1px solid #3d2e6b;border-radius:12px;padding:16px;margin-bottom:16px}
 .sum-row{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;border-bottom:1px solid #1e1e2e}
 .sum-row:last-child{border-bottom:none;font-weight:500;color:#9f7aea;padding-top:8px}
 .progress-bar{height:6px;background:#1e1e2e;border-radius:3px;overflow:hidden;margin:8px 0 4px}
-.progress-fill{height:100%;border-radius:3px;background:var(–accent,#9f7aea)}
+.progress-fill{height:100%;border-radius:3px;background:var(--accent,#9f7aea)}
 .progress-labels{display:flex;justify-content:space-between;font-size:10px;color:#5a5270}
-
 .warn-box{background:#1f0d0d;border:1px solid #5a1a1a;border-radius:12px;padding:16px;margin-bottom:12px}
 .warn-title{font-size:10px;letter-spacing:3px;color:#FF6B6B;text-transform:uppercase;margin-bottom:8px}
 .warn-body{font-size:13px;color:#c07070;line-height:1.6}
 .ok-box{background:#0d1f0d;border:1px solid #1a5a1a;border-radius:12px;padding:16px;margin-bottom:12px}
 .ok-title{font-size:10px;letter-spacing:3px;color:#69DB7C;text-transform:uppercase;margin-bottom:8px}
 .ok-body{font-size:13px;color:#70c070;line-height:1.6}
-
 .empty{text-align:center;padding:50px 0;color:#3a3050}
 .empty-icon{font-size:40px;margin-bottom:12px}
 .empty-text{font-size:14px}
-
-.save-notice{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#4a2ea0;color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:50}
-.save-notice.show{opacity:1}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#4a2ea0;color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:50;white-space:nowrap}
+.toast.show{opacity:1}
 </style>
-
 </head>
 <body>
 
@@ -149,542 +133,548 @@ select.field-input option{background:#12101e}
 </nav>
 
 <main>
-
-<!-- CARDS -->
-
-<div id="tab-cards">
-  <div style="margin-bottom:20px">
-    <div class="eyebrow">Debt Manager</div>
-    <h2>Your Cards</h2>
-    <div class="section-desc">Add your cards. Data is saved to this device automatically.</div>
-  </div>
-  <div id="summary-grid" class="summary-grid" style="display:none"></div>
-  <div id="card-list"></div>
-  <button class="btn-add" onclick="addCard()">+ Add Card</button>
-  <div class="extra-box">
-    <div>
-      <div class="extra-label">Extra Monthly Payment</div>
-      <div class="extra-desc">Above all minimums</div>
+  <!-- CARDS -->
+  <div id="tab-cards">
+    <div style="margin-bottom:20px">
+      <div class="eyebrow">Debt Manager</div>
+      <h2>Your Cards</h2>
+      <div class="section-desc">Add your cards. All tabs share this data.</div>
     </div>
-    <div class="extra-wrap">
-      <span class="dollar">$</span>
-      <input class="extra-input" type="number" inputmode="decimal" id="extra" value="100" oninput="saveExtra();render()"/>
-    </div>
-  </div>
-</div>
-
-<!-- COMPARE -->
-
-<div id="tab-compare" style="display:none">
-  <div style="margin-bottom:20px">
-    <div class="eyebrow">Strategy Compare</div>
-    <h2>Payoff by Method</h2>
-    <div class="section-desc">Payoff month per card for each strategy, side by side.</div>
-  </div>
-  <div id="compare-content"></div>
-</div>
-
-<!-- ALLOCATOR -->
-
-<div id="tab-allocator" style="display:none">
-  <div style="margin-bottom:20px">
-    <div class="eyebrow">Budget Allocator</div>
-    <h2>Optimal Split</h2>
-    <div class="section-desc">Enter your budget and goal. We'll find the best payment split.</div>
-  </div>
-  <div class="alloc-controls">
-    <div class="alloc-row">
+    <div id="summary-grid" class="summary-grid" style="display:none"></div>
+    <div id="card-list"></div>
+    <button class="btn-add" onclick="addCard()">+ Add Card</button>
+    <div class="extra-box">
       <div>
-        <label class="field-label">Monthly Budget ($)</label>
-        <input class="field-input" type="number" inputmode="decimal" id="alloc-budget" value="500"/>
+        <div class="extra-label">Extra Monthly Payment</div>
+        <div class="extra-desc">Above all minimums</div>
       </div>
-      <div>
-        <label class="field-label">Strategy</label>
-        <select class="field-input" id="alloc-strat">
-          <option value="avalanche">Avalanche</option>
-          <option value="snowball">Snowball</option>
-          <option value="hybrid">Hybrid</option>
-        </select>
+      <div class="extra-wrap">
+        <span class="dollar">$</span>
+        <input class="extra-input" type="number" inputmode="decimal" id="extra" value="100" oninput="onExtraChange()"/>
       </div>
     </div>
-    <div style="margin-bottom:12px">
-      <label class="field-label" style="margin-bottom:8px">Goal</label>
-      <div class="goal-tabs">
-        <button class="goal-tab active" id="goal-payoff" onclick="setGoal('payoff')">Full Payoff</button>
-        <button class="goal-tab" id="goal-date" onclick="setGoal('date')">By Date</button>
+  </div>
+
+  <!-- COMPARE -->
+
+  <div id="tab-compare" style="display:none">
+    <div style="margin-bottom:20px">
+      <div class="eyebrow">Strategy Compare</div>
+      <h2>Payoff by Method</h2>
+      <div class="section-desc">Payoff month per card for each strategy.</div>
+    </div>
+    <div id="compare-content"></div>
+  </div>
+
+  <!-- ALLOCATOR -->
+
+  <div id="tab-allocator" style="display:none">
+    <div style="margin-bottom:20px">
+      <div class="eyebrow">Budget Allocator</div>
+      <h2>Optimal Split</h2>
+      <div class="section-desc">Enter your budget and goal. We'll find the best payment split.</div>
+    </div>
+    <div class="alloc-controls">
+      <div class="alloc-row">
+        <div>
+          <label class="field-label">Monthly Budget ($)</label>
+          <input class="field-input" type="number" inputmode="decimal" id="alloc-budget" value="500"/>
+        </div>
+        <div>
+          <label class="field-label">Strategy</label>
+          <select class="field-input" id="alloc-strat">
+            <option value="avalanche">Avalanche</option>
+            <option value="snowball">Snowball</option>
+            <option value="hybrid">Hybrid</option>
+          </select>
+        </div>
       </div>
+      <div style="margin-bottom:12px">
+        <label class="field-label" style="margin-bottom:8px">Goal</label>
+        <div class="goal-tabs">
+          <button class="goal-tab active" id="goal-payoff" onclick="setGoal('payoff')">Full Payoff</button>
+          <button class="goal-tab" id="goal-date" onclick="setGoal('date')">By Date</button>
+        </div>
+      </div>
+      <div id="goal-date-input" style="display:none;margin-bottom:12px">
+        <label class="field-label">Target Date</label>
+        <input class="field-input" type="month" id="alloc-date"/>
+      </div>
+      <button class="btn-calc" onclick="calcAllocator()">Calculate Split</button>
     </div>
-    <div id="goal-date-input" style="display:none;margin-bottom:12px">
-      <label class="field-label">Target Date</label>
-      <input class="field-input" type="month" id="alloc-date"/>
+    <div id="alloc-output"></div>
+  </div>
+
+  <!-- UTILIZATION -->
+
+  <div id="tab-utilization" style="display:none">
+    <div style="margin-bottom:20px">
+      <div class="eyebrow">Utilization Planner</div>
+      <h2>Hit 30% or Less</h2>
+      <div class="section-desc">Pick a target date. We'll show minimum payments to get under 30%.</div>
     </div>
-    <button class="btn-calc" onclick="calcAllocator()">Calculate Split</button>
-  </div>
-  <div id="alloc-results"></div>
-</div>
-
-<!-- UTILIZATION -->
-
-<div id="tab-utilization" style="display:none">
-  <div style="margin-bottom:20px">
-    <div class="eyebrow">Utilization Planner</div>
-    <h2>Hit 30% or Less</h2>
-    <div class="section-desc">Pick a target date. We'll show the minimum payment per card to get under 30%.</div>
-  </div>
-  <div class="util-controls">
-    <div style="margin-bottom:12px">
-      <label class="field-label">Target Date</label>
-      <input class="field-input" type="month" id="util-date"/>
+    <div class="util-controls">
+      <div style="margin-bottom:12px">
+        <label class="field-label">Target Date</label>
+        <input class="field-input" type="month" id="util-date"/>
+      </div>
+      <button class="btn-calc" onclick="calcUtil()">Calculate</button>
     </div>
-    <button class="btn-calc" onclick="calcUtil()">Calculate</button>
+    <div id="util-output"></div>
   </div>
-  <div id="util-results"></div>
-</div>
-
 </main>
 
-<div class="save-notice" id="save-notice">Saved to device ✓</div>
+<div class="toast" id="toast">Saved ✓</div>
 
 <script>
-// ── CONSTANTS ──────────────────────────────────────────────────────────────
-const COLORS=["#4DABF7","#69DB7C","#FF6B6B","#FFA94D","#DA77F2","#F783AC","#FFD43B","#63E6BE"];
-const STRAT_COLORS={avalanche:"#4DABF7",snowball:"#69DB7C",hybrid:"#DA77F2"};
-const STRATS=[
-  {id:"avalanche",name:"Avalanche",icon:"❄️",desc:"Pay highest APR first. Minimizes total interest paid."},
-  {id:"snowball", name:"Snowball", icon:"🔮",desc:"Pay smallest balance first. Fastest psychological wins."},
-  {id:"hybrid",   name:"Hybrid",  icon:"⚡",desc:"Clear small balances fast, then attack high APR cards."},
+// ── COLORS & CONFIG ────────────────────────────────────────────────────────
+var COLORS = ["#4DABF7","#69DB7C","#FF6B6B","#FFA94D","#DA77F2","#F783AC","#FFD43B","#63E6BE"];
+var STRAT_COLORS = {avalanche:"#4DABF7", snowball:"#69DB7C", hybrid:"#DA77F2"};
+var STRATS = [
+  {id:"avalanche", name:"Avalanche", icon:"❄️", desc:"Pay highest APR first. Minimizes total interest."},
+  {id:"snowball",  name:"Snowball",  icon:"🔮", desc:"Pay smallest balance first. Fastest wins."},
+  {id:"hybrid",    name:"Hybrid",   icon:"⚡", desc:"Clear small balances, then attack high APR."}
 ];
 
-// ── STATE ──────────────────────────────────────────────────────────────────
-// Single source of truth — all tabs read from this
-let STATE = loadState();
-let editingId=null, activeStrat=null, currentTab="cards", allocGoal="payoff";
+// ── CARDS ARRAY — single source of truth ──────────────────────────────────
+var cards = [];
+var extraPayment = 100;
+var editingId = null;
+var activeStrat = null;
+var allocGoal = "payoff";
+var currentTab = "cards";
 
-// ── PERSISTENCE ────────────────────────────────────────────────────────────
-function defaultState(){
-  return{
-    cards:[
-      {id:1,name:"Chase Sapphire",         balance:4200,limit:8000,apr:24.99,minPayment:84},
-      {id:2,name:"Capital One Quicksilver",balance:1850,limit:5000,apr:19.99,minPayment:37},
-    ],
-    extra:100
-  };
-}
-
-function loadState(){
-  try{
-    const raw=localStorage.getItem("debtfree_v3");
-    if(raw)return JSON.parse(raw);
-  }catch(e){}
-  return defaultState();
-}
-
-function saveState(){
-  try{
-    localStorage.setItem("debtfree_v3",JSON.stringify(STATE));
-    flashSave();
-  }catch(e){
-    // localStorage not available (Textastic) — state lives in memory only
+// ── INIT ───────────────────────────────────────────────────────────────────
+(function init(){
+  var saved = null;
+  try { saved = JSON.parse(localStorage.getItem("debtfree_v4")); } catch(e){}
+  if(saved && saved.cards){
+    cards = saved.cards;
+    extraPayment = saved.extra || 100;
+  } else {
+    cards = [
+      {id:1, name:"Chase Sapphire",          balance:4200, limit:8000, apr:24.99, minPayment:84},
+      {id:2, name:"Capital One Quicksilver",  balance:1850, limit:5000, apr:19.99, minPayment:37}
+    ];
+    extraPayment = 100;
   }
+  document.getElementById("extra").value = extraPayment;
+
+  var now = new Date();
+  var yr = now.getFullYear()+1;
+  var mo = String(now.getMonth()+1).padStart(2,"0");
+  document.getElementById("alloc-date").value = yr+"-"+mo;
+  document.getElementById("util-date").value  = yr+"-"+mo;
+
+  renderCards();
+})();
+
+// ── SAVE ───────────────────────────────────────────────────────────────────
+function persist(){
+  try {
+    localStorage.setItem("debtfree_v4", JSON.stringify({cards:cards, extra:extraPayment}));
+  } catch(e){}
+  var t = document.getElementById("toast");
+  t.classList.add("show");
+  clearTimeout(persist._timer);
+  persist._timer = setTimeout(function(){ t.classList.remove("show"); }, 1400);
 }
 
-function flashSave(){
-  const el=document.getElementById("save-notice");
-  el.classList.add("show");
-  clearTimeout(flashSave._t);
-  flashSave._t=setTimeout(()=>el.classList.remove("show"),1500);
-}
+// ── HELPERS ────────────────────────────────────────────────────────────────
+function fmt(n){ return n.toLocaleString("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0}); }
+function fmtM(m){ return m>=12 ? Math.floor(m/12)+"y "+m%12+"m" : m+"mo"; }
+function validCards(){ return cards.filter(function(c){ return c.balance>0 && c.apr>0; }); }
 
-function saveExtra(){
-  STATE.extra=+(document.getElementById("extra").value)||0;
-  saveState();
-}
-
-// ── MATH ───────────────────────────────────────────────────────────────────
-function calcPayoff(list,strategy,ex){
-  if(!list.length)return null;
-  let bal=list.map(c=>({...c,remaining:c.balance,paidOffMonth:null}));
-  let months=0,totalInterest=0;
-  while(bal.some(c=>c.remaining>0.01)&&months<600){
+// ── PAYOFF MATH ────────────────────────────────────────────────────────────
+function calcPayoff(list, strategy, ex){
+  if(!list.length) return null;
+  var bal = list.map(function(c){ return {id:c.id, name:c.name, remaining:c.balance, apr:c.apr, minPayment:c.minPayment, paidMonth:null}; });
+  var months=0, totalInterest=0;
+  while(bal.some(function(c){return c.remaining>0.01;}) && months<600){
     months++;
-    bal.forEach(c=>{
-      if(c.remaining>0){const i=c.remaining*(c.apr/100/12);totalInterest+=i;c.remaining+=i;}
+    bal.forEach(function(c){
+      if(c.remaining>0){ var i=c.remaining*(c.apr/100/12); totalInterest+=i; c.remaining+=i; }
     });
-    const active=bal.filter(c=>c.remaining>0.01);
-    let ord;
-    if(strategy==="avalanche")ord=[...active].sort((a,b)=>b.apr-a.apr);
-    else if(strategy==="snowball")ord=[...active].sort((a,b)=>a.remaining-b.remaining);
-    else ord=[...active].sort((a,b)=>{
-      if(a.remaining<500&&b.remaining>=500)return -1;
-      if(b.remaining<500&&a.remaining>=500)return 1;
+    var active = bal.filter(function(c){return c.remaining>0.01;});
+    var ord;
+    if(strategy==="avalanche") ord=active.slice().sort(function(a,b){return b.apr-a.apr;});
+    else if(strategy==="snowball") ord=active.slice().sort(function(a,b){return a.remaining-b.remaining;});
+    else ord=active.slice().sort(function(a,b){
+      if(a.remaining<500&&b.remaining>=500) return -1;
+      if(b.remaining<500&&a.remaining>=500) return 1;
       return b.apr-a.apr;
     });
-    let e2=ex;
-    ord.forEach((c,i)=>{
-      const min=Math.min(c.minPayment||Math.max(25,c.remaining*0.02),c.remaining);
-      let pay=min+(i===0?e2:0);
+    var e2=ex;
+    ord.forEach(function(c,i){
+      var min=Math.min(c.minPayment||Math.max(25,c.remaining*0.02), c.remaining);
+      var pay=min+(i===0?e2:0);
       if(pay>c.remaining){e2=pay-c.remaining;pay=c.remaining;}else e2=0;
       c.remaining=Math.max(0,c.remaining-pay);
-      if(c.remaining<=0.01&&!c.paidOffMonth)c.paidOffMonth=months;
+      if(c.remaining<=0.01&&!c.paidMonth) c.paidMonth=months;
     });
   }
-  const byCard={};
-  bal.forEach(c=>byCard[c.id]=c.paidOffMonth||months);
-  return{months,totalInterest,byCard};
+  var byCard={};
+  bal.forEach(function(c){ byCard[c.id]=c.paidMonth||months; });
+  return {months:months, totalInterest:totalInterest, byCard:byCard};
 }
 
 function getResults(){
-  const valid=STATE.cards.filter(c=>c.balance>0&&c.apr>0);
-  if(!valid.length)return null;
-  const ex=STATE.extra;
-  const av=calcPayoff(valid,"avalanche",ex);
-  const sb=calcPayoff(valid,"snowball",ex);
-  const hy=calcPayoff(valid,"hybrid",ex);
-  const rec=[{...av,id:"avalanche"},{...sb,id:"snowball"},{...hy,id:"hybrid"}]
-    .sort((a,b)=>a.totalInterest-b.totalInterest)[0].id;
-  return{avalanche:av,snowball:sb,hybrid:hy,recommended:rec};
+  var v = validCards();
+  if(!v.length) return null;
+  var av=calcPayoff(v,"avalanche",extraPayment);
+  var sb=calcPayoff(v,"snowball",extraPayment);
+  var hy=calcPayoff(v,"hybrid",extraPayment);
+  var list=[{r:av,id:"avalanche"},{r:sb,id:"snowball"},{r:hy,id:"hybrid"}];
+  list.sort(function(a,b){return a.r.totalInterest-b.r.totalInterest;});
+  return {avalanche:av, snowball:sb, hybrid:hy, recommended:list[0].id};
 }
 
-// ── FORMATTERS ─────────────────────────────────────────────────────────────
-const fmt=n=>n.toLocaleString("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0});
-const fmtM=m=>m>=12?`${Math.floor(m/12)}y ${m%12}m`:`${m}mo`;
-
-// ── TABS ───────────────────────────────────────────────────────────────────
+// ── TAB SWITCHING ──────────────────────────────────────────────────────────
 function showTab(id){
-  currentTab=id;
-  ["cards","compare","allocator","utilization"].forEach(t=>{
-    document.getElementById("tab-"+t).style.display=t===id?"block":"none";
+  currentTab = id;
+  ["cards","compare","allocator","utilization"].forEach(function(t){
+    document.getElementById("tab-"+t).style.display = (t===id)?"block":"none";
   });
-  document.querySelectorAll(".nav-tab").forEach((btn,i)=>{
-    btn.classList.toggle("active",["cards","compare","allocator","utilization"][i]===id);
+  document.querySelectorAll(".nav-tab").forEach(function(btn,i){
+    btn.classList.toggle("active", ["cards","compare","allocator","utilization"][i]===id);
   });
-  if(id==="compare")renderCompare();
+  if(id==="compare") renderCompare();
+  if(id==="allocator") document.getElementById("alloc-output").innerHTML="";
+  if(id==="utilization") document.getElementById("util-output").innerHTML="";
 }
 
 // ── CARDS TAB ──────────────────────────────────────────────────────────────
-function render(){
+function onExtraChange(){
+  extraPayment = parseFloat(document.getElementById("extra").value)||0;
+  persist();
+}
+
+function renderCards(){
   renderSummary();
   renderCardList();
-  // Refresh other tabs if visible
-  if(currentTab==="compare")renderCompare();
 }
 
 function renderSummary(){
-  const td=STATE.cards.reduce((s,c)=>s+c.balance,0);
-  const tl=STATE.cards.reduce((s,c)=>s+c.limit,0);
-  const util=tl>0?(td/tl*100).toFixed(1):0;
-  const el=document.getElementById("summary-grid");
+  var td=cards.reduce(function(s,c){return s+c.balance;},0);
+  var tl=cards.reduce(function(s,c){return s+c.limit;},0);
+  var util=tl>0?(td/tl*100).toFixed(1):0;
+  var el=document.getElementById("summary-grid");
   if(!td){el.style.display="none";return;}
   el.style.display="grid";
   el.innerHTML=[
-    {label:"Total Debt",  value:fmt(td),   color:"#FF6B6B"},
-    {label:"Credit Limit",value:fmt(tl),   color:"#4DABF7"},
-    {label:"Utilization", value:`${util}%`,color:+util>30?"#FFA94D":"#69DB7C"},
-  ].map(s=>`<div class="sum-card"><div class="sum-label">${s.label}</div><div class="sum-val" style="color:${s.color}">${s.value}</div></div>`).join("");
+    {label:"Total Debt",   value:fmt(td),   color:"#FF6B6B"},
+    {label:"Credit Limit", value:fmt(tl),   color:"#4DABF7"},
+    {label:"Utilization",  value:util+"%",  color:util>30?"#FFA94D":"#69DB7C"}
+  ].map(function(s){
+    return '<div class="sum-card"><div class="sum-label">'+s.label+'</div><div class="sum-val" style="color:'+s.color+'">'+s.value+'</div></div>';
+  }).join("");
 }
 
 function renderCardList(){
-  document.getElementById("card-list").innerHTML=STATE.cards.map((card,i)=>{
-    const color=COLORS[i%COLORS.length];
-    const util=card.limit>0?(card.balance/card.limit*100):0;
-    if(editingId===card.id)return`<div class="card-box editing" style="--accent:${color}">
-      <div class="edit-grid">
-        <div class="edit-full"><label class="field-label">Card Name</label><input class="field-input" id="ef-name" value="${card.name}"/></div>
-        <div><label class="field-label">Balance ($)</label><input class="field-input" type="number" inputmode="decimal" id="ef-balance" value="${card.balance}"/></div>
-        <div><label class="field-label">Limit ($)</label><input class="field-input" type="number" inputmode="decimal" id="ef-limit" value="${card.limit}"/></div>
-        <div><label class="field-label">APR (%)</label><input class="field-input" type="number" inputmode="decimal" id="ef-apr" value="${card.apr}"/></div>
-        <div><label class="field-label">Min Pay ($)</label><input class="field-input" type="number" inputmode="decimal" id="ef-min" value="${card.minPayment}"/></div>
-      </div>
-      <div class="edit-actions">
-        <button class="btn-save" onclick="saveEdit(${card.id})">Save</button>
-        <button class="btn-cancel" onclick="cancelEdit()">Cancel</button>
-      </div>
-    </div>`;
-    return`<div class="card-box" style="--accent:${color}">
-      <div class="row">
-        <div class="card-name">${card.name}</div>
-        <div class="btn-row">
-          <button class="btn-sm" onclick="startEdit(${card.id})">Edit</button>
-          <button class="btn-sm del" onclick="removeCard(${card.id})">✕</button>
-        </div>
-      </div>
-      <div class="stats-row">
-        <div><div class="stat-label">Balance</div><div class="stat-val red">${fmt(card.balance)}</div></div>
-        <div><div class="stat-label">APR</div><div class="stat-val">${card.apr}%</div></div>
-        <div><div class="stat-label">Min Pay</div><div class="stat-val">${fmt(card.minPayment)}</div></div>
-      </div>
-      <div class="util-bar"><div class="util-fill" style="width:${Math.min(util,100)}%"></div></div>
-      <div class="util-txt">${util.toFixed(0)}% utilized</div>
-    </div>`;
+  document.getElementById("card-list").innerHTML = cards.map(function(card,i){
+    var color=COLORS[i%COLORS.length];
+    var util=card.limit>0?(card.balance/card.limit*100):0;
+    if(editingId===card.id){
+      return '<div class="card-box editing" style="--accent:'+color+'">'+
+        '<div class="edit-grid">'+
+          '<div class="edit-full"><label class="field-label">Card Name</label><input class="field-input" id="ef-name" value="'+card.name+'"/></div>'+
+          '<div><label class="field-label">Balance ($)</label><input class="field-input" type="number" inputmode="decimal" id="ef-balance" value="'+card.balance+'"/></div>'+
+          '<div><label class="field-label">Limit ($)</label><input class="field-input" type="number" inputmode="decimal" id="ef-limit" value="'+card.limit+'"/></div>'+
+          '<div><label class="field-label">APR (%)</label><input class="field-input" type="number" inputmode="decimal" id="ef-apr" value="'+card.apr+'"/></div>'+
+          '<div><label class="field-label">Min Pay ($)</label><input class="field-input" type="number" inputmode="decimal" id="ef-min" value="'+card.minPayment+'"/></div>'+
+        '</div>'+
+        '<div class="edit-actions">'+
+          '<button class="btn-save" onclick="saveEdit('+card.id+')">Save</button>'+
+          '<button class="btn-cancel" onclick="cancelEdit()">Cancel</button>'+
+        '</div>'+
+      '</div>';
+    }
+    return '<div class="card-box" style="--accent:'+color+'">'+
+      '<div class="row">'+
+        '<div class="card-name">'+card.name+'</div>'+
+        '<div class="btn-row">'+
+          '<button class="btn-sm" onclick="startEdit('+card.id+')">Edit</button>'+
+          '<button class="btn-sm del" onclick="removeCard('+card.id+')">✕</button>'+
+        '</div>'+
+      '</div>'+
+      '<div class="stats-row">'+
+        '<div><div class="stat-label">Balance</div><div class="stat-val red">'+fmt(card.balance)+'</div></div>'+
+        '<div><div class="stat-label">APR</div><div class="stat-val">'+card.apr+'%</div></div>'+
+        '<div><div class="stat-label">Min Pay</div><div class="stat-val">'+fmt(card.minPayment)+'</div></div>'+
+      '</div>'+
+      '<div class="util-bar"><div class="util-fill" style="width:'+Math.min(util,100)+'%"></div></div>'+
+      '<div class="util-txt">'+util.toFixed(0)+'% utilized</div>'+
+    '</div>';
   }).join("");
+}
+
+function addCard(){
+  var id=Date.now();
+  cards.push({id:id, name:"New Card", balance:0, limit:0, apr:0, minPayment:25});
+  editingId=id;
+  persist();
+  renderCards();
+}
+function removeCard(id){
+  cards=cards.filter(function(c){return c.id!==id;});
+  if(editingId===id) editingId=null;
+  persist();
+  renderCards();
+}
+function startEdit(id){ editingId=id; renderCards(); }
+function cancelEdit(){ editingId=null; renderCards(); }
+function saveEdit(id){
+  cards=cards.map(function(c){
+    if(c.id!==id) return c;
+    return {
+      id:c.id,
+      name:document.getElementById("ef-name").value,
+      balance:parseFloat(document.getElementById("ef-balance").value)||0,
+      limit:parseFloat(document.getElementById("ef-limit").value)||0,
+      apr:parseFloat(document.getElementById("ef-apr").value)||0,
+      minPayment:parseFloat(document.getElementById("ef-min").value)||25
+    };
+  });
+  editingId=null;
+  persist();
+  renderCards();
 }
 
 // ── COMPARE TAB ────────────────────────────────────────────────────────────
 function renderCompare(){
-  const el=document.getElementById("compare-content");
-  const valid=STATE.cards.filter(c=>c.balance>0&&c.apr>0);
-  if(!valid.length){
-    el.innerHTML=`<div class="empty"><div class="empty-icon">📊</div><div class="empty-text">Add cards with a balance and APR to compare strategies</div></div>`;
+  var el=document.getElementById("compare-content");
+  var v=validCards();
+  if(!v.length){
+    el.innerHTML='<div class="empty"><div class="empty-icon">📊</div><div class="empty-text">Add cards with a balance and APR in the Cards tab</div></div>';
     return;
   }
-  const R=getResults();
+  var R=getResults();
+  var BAR_H=110;
+  var maxM=0;
+  v.forEach(function(c){
+    ["avalanche","snowball","hybrid"].forEach(function(s){
+      var m=R[s].byCard[c.id]||0;
+      if(m>maxM) maxM=m;
+    });
+  });
 
-  // Bar chart
-  const maxM=Math.max(...valid.flatMap(c=>[R.avalanche.byCard[c.id]||0,R.snowball.byCard[c.id]||0,R.hybrid.byCard[c.id]||0]));
-  const BAR_H=110;
-  const groups=valid.map((card,i)=>{
-    const color=COLORS[i%COLORS.length];
-    const bars=["avalanche","snowball","hybrid"].map(sid=>{
-      const m=R[sid].byCard[card.id]||0;
-      const h=maxM>0?Math.max(4,Math.round((m/maxM)*BAR_H)):4;
-      return`<div style="display:flex;flex-direction:column;align-items:center">
-        <div class="bar" style="height:${h}px;background:${STRAT_COLORS[sid]}">
-          <span class="bar-val">${m}</span>
-        </div>
-      </div>`;
+  var groups=v.map(function(card,i){
+    var color=COLORS[i%COLORS.length];
+    var bars=["avalanche","snowball","hybrid"].map(function(sid){
+      var m=R[sid].byCard[card.id]||0;
+      var h=maxM>0?Math.max(4,Math.round((m/maxM)*BAR_H)):4;
+      return '<div style="display:flex;flex-direction:column;align-items:center">'+
+        '<div class="bar" style="height:'+h+'px;background:'+STRAT_COLORS[sid]+'">'+
+          '<span class="bar-val">'+m+'</span>'+
+        '</div></div>';
     }).join("");
-    return`<div class="chart-group">
-      <div class="chart-bars">${bars}</div>
-      <div class="group-label" style="color:${color}">${card.name}</div>
-    </div>`;
+    return '<div class="chart-group"><div class="chart-bars">'+bars+'</div>'+
+      '<div class="group-label" style="color:'+color+'">'+card.name+'</div></div>';
   }).join("");
 
-  // Strategy summary cards
-  const stratCards=STRATS.map(s=>{
-    const r=R[s.id],isRec=R.recommended===s.id,isActive=activeStrat===s.id;
-    const sav=R.avalanche.totalInterest-r.totalInterest;
-    const md=R.avalanche.months-r.months;
-    const pill=s.id!=="avalanche"?`<div class="savings-pill ${sav>=0?"pos":"neg"}">${sav>=0?`Saves ${fmt(sav)} vs avalanche`:`Costs ${fmt(Math.abs(sav))} more`}${md!==0?` · ${Math.abs(md)}mo ${md>0?"faster":"slower"}`:""}</div>`:"";
-    return`<div class="strat-card${isRec?" recommended":""}${isActive?" active":""}" onclick="toggleStrat('${s.id}')">
-      ${isRec?`<div class="rec-badge">⭐ Recommended</div>`:""}
-      <div class="strat-top"><div class="strat-name">${s.name}</div><div class="strat-icon">${s.icon}</div></div>
-      <div class="strat-desc">${s.desc}</div>
-      <div class="strat-stats">
-        <div><div class="ss-label">Payoff time</div><div class="ss-val blue">${fmtM(r.months)}</div></div>
-        <div><div class="ss-label">Total interest</div><div class="ss-val red">${fmt(r.totalInterest)}</div></div>
-      </div>${pill}
-    </div>`;
+  var stratCards=STRATS.map(function(s){
+    var r=R[s.id];
+    var isRec=R.recommended===s.id;
+    var isActive=activeStrat===s.id;
+    var sav=R.avalanche.totalInterest-r.totalInterest;
+    var md=R.avalanche.months-r.months;
+    var pill="";
+    if(s.id!=="avalanche"){
+      var cls=sav>=0?"pos":"neg";
+      var txt=sav>=0?"Saves "+fmt(sav)+" vs avalanche":"Costs "+fmt(Math.abs(sav))+" more";
+      if(md!==0) txt+=" · "+Math.abs(md)+"mo "+(md>0?"faster":"slower");
+      pill='<div class="savings-pill '+cls+'">'+txt+'</div>';
+    }
+    return '<div class="strat-card'+(isRec?" recommended":"")+(isActive?" active":"")+'" onclick="toggleStrat(\''+s.id+'\')">'+(isRec?'<div class="rec-badge">⭐ Recommended</div>':"")+
+      '<div class="strat-top"><div class="strat-name">'+s.name+'</div><div class="strat-icon">'+s.icon+'</div></div>'+
+      '<div class="strat-desc">'+s.desc+'</div>'+
+      '<div class="strat-stats">'+
+        '<div><div class="ss-label">Payoff time</div><div class="ss-val blue">'+fmtM(r.months)+'</div></div>'+
+        '<div><div class="ss-label">Total interest</div><div class="ss-val red">'+fmt(r.totalInterest)+'</div></div>'+
+      '</div>'+pill+'</div>';
   }).join("");
 
-  const rec=R.recommended,r=R[rec],s=STRATS.find(x=>x.id===rec);
-  const iDiff=Math.abs(R.avalanche.totalInterest-R.snowball.totalInterest);
-  const mDiff=Math.abs(R.avalanche.months-R.snowball.months);
-  const body={
-    avalanche:`The avalanche method saves the most money overall. Focus payments on your highest-rate card first.`,
-    snowball:`Snowball gives you quick wins. The interest difference vs. avalanche is only ${fmt(iDiff)} — the motivation is worth it.`,
-    hybrid:`Hybrid clears small balances fast then attacks high-APR cards before interest compounds further.`,
-  }[rec];
+  var rec=R.recommended;
+  var r=R[rec];
+  var s=STRATS.filter(function(x){return x.id===rec;})[0];
+  var iDiff=Math.abs(R.avalanche.totalInterest-R.snowball.totalInterest);
+  var mDiff=Math.abs(R.avalanche.months-R.snowball.months);
+  var bodyMap={
+    avalanche:"The avalanche method saves the most money. Focus payments on your highest-rate card first.",
+    snowball:"Snowball gets you quick wins. The interest difference vs. avalanche is only "+fmt(iDiff)+" — motivation is worth it.",
+    hybrid:"Hybrid clears small balances fast then attacks high-APR cards before interest compounds."
+  };
 
-  el.innerHTML=`
-    <div class="chart-wrap">
-      <div class="chart-title">Payoff Month by Card &amp; Strategy</div>
-      <div class="chart-legend">
-        <div class="legend-item"><div class="legend-dot" style="background:#4DABF7"></div>Avalanche</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#69DB7C"></div>Snowball</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#DA77F2"></div>Hybrid</div>
-      </div>
-      <div class="chart-scroll"><div class="chart-inner" style="min-height:${BAR_H+40}px">${groups}</div></div>
-    </div>
-    <div class="strat-grid">${stratCards}</div>
-    <div class="rec-box">
-      <div class="rec-title">Recommendation</div>
-      <div class="rec-headline">${s.icon} <strong>${s.name}</strong> — ${fmtM(r.months)} payoff · ${fmt(r.totalInterest)} interest</div>
-      <div class="rec-body">${body}</div>
-      ${iDiff>0?`<div class="rec-footer">Avalanche vs Snowball: ${fmt(iDiff)} interest · ${mDiff}mo difference</div>`:""}
-    </div>`;
+  el.innerHTML=
+    '<div class="chart-wrap">'+
+      '<div class="chart-title">Payoff Month by Card &amp; Strategy</div>'+
+      '<div class="chart-legend">'+
+        '<div class="legend-item"><div class="legend-dot" style="background:#4DABF7"></div>Avalanche</div>'+
+        '<div class="legend-item"><div class="legend-dot" style="background:#69DB7C"></div>Snowball</div>'+
+        '<div class="legend-item"><div class="legend-dot" style="background:#DA77F2"></div>Hybrid</div>'+
+      '</div>'+
+      '<div class="chart-scroll"><div class="chart-inner" style="min-height:'+(BAR_H+40)+'px">'+groups+'</div></div>'+
+    '</div>'+
+    '<div class="strat-grid">'+stratCards+'</div>'+
+    '<div class="rec-box">'+
+      '<div class="rec-title">Recommendation</div>'+
+      '<div class="rec-headline">'+s.icon+' <strong>'+s.name+'</strong> — '+fmtM(r.months)+' payoff · '+fmt(r.totalInterest)+' interest</div>'+
+      '<div class="rec-body">'+bodyMap[rec]+'</div>'+
+      (iDiff>0?'<div class="rec-footer">Avalanche vs Snowball: '+fmt(iDiff)+' interest · '+mDiff+'mo</div>':"")+
+    '</div>';
 }
+
+function toggleStrat(id){ activeStrat=(activeStrat===id)?null:id; renderCompare(); }
 
 // ── ALLOCATOR TAB ──────────────────────────────────────────────────────────
 function setGoal(g){
   allocGoal=g;
   document.getElementById("goal-payoff").classList.toggle("active",g==="payoff");
   document.getElementById("goal-date").classList.toggle("active",g==="date");
-  document.getElementById("goal-date-input").style.display=g==="date"?"block":"none";
+  document.getElementById("goal-date-input").style.display=(g==="date")?"block":"none";
 }
 
 function calcAllocator(){
-  const valid=STATE.cards.filter(c=>c.balance>0&&c.apr>0);
-  const el=document.getElementById("alloc-results");
-  if(!valid.length){el.innerHTML=`<div class="empty"><div class="empty-icon">💳</div><div class="empty-text">Add cards with a balance and APR first</div></div>`;return;}
-
-  const budget=+(document.getElementById("alloc-budget").value)||0;
-  const strategy=document.getElementById("alloc-strat").value;
-  const totalMin=valid.reduce((s,c)=>s+c.minPayment,0);
+  var el=document.getElementById("alloc-output");
+  var v=validCards();
+  if(!v.length){
+    el.innerHTML='<div class="empty"><div class="empty-icon">💳</div><div class="empty-text">Add cards with a balance and APR in the Cards tab</div></div>';
+    return;
+  }
+  var budget=parseFloat(document.getElementById("alloc-budget").value)||0;
+  var strategy=document.getElementById("alloc-strat").value;
+  var totalMin=v.reduce(function(s,c){return s+c.minPayment;},0);
 
   if(budget<totalMin){
-    el.innerHTML=`<div class="warn-box"><div class="warn-title">Budget Too Low</div><div class="warn-body">Your budget of ${fmt(budget)} is less than the total minimums of ${fmt(totalMin)}. Increase to at least ${fmt(Math.ceil(totalMin))}.</div></div>`;
+    el.innerHTML='<div class="warn-box"><div class="warn-title">Budget Too Low</div><div class="warn-body">Budget of '+fmt(budget)+' is less than total minimums of '+fmt(totalMin)+'. Increase to at least '+fmt(Math.ceil(totalMin))+'.</div></div>';
     return;
   }
 
-  let targetMonths=null;
+  var targetMonths=null;
   if(allocGoal==="date"){
-    const dateVal=document.getElementById("alloc-date").value;
-    if(!dateVal){alert("Please pick a target date.");return;}
-    const [y,m]=dateVal.split("-").map(Number);
-    const now=new Date();
-    targetMonths=(y-now.getFullYear())*12+(m-now.getMonth());
+    var dv=document.getElementById("alloc-date").value;
+    if(!dv){alert("Please pick a target date.");return;}
+    var parts=dv.split("-");
+    var now=new Date();
+    targetMonths=(parseInt(parts[0])-now.getFullYear())*12+(parseInt(parts[1])-now.getMonth()-1);
     if(targetMonths<1){alert("Target date must be in the future.");return;}
   }
 
-  // Order cards by strategy
-  let ordered;
-  if(strategy==="avalanche")ordered=[...valid].sort((a,b)=>b.apr-a.apr);
-  else if(strategy==="snowball")ordered=[...valid].sort((a,b)=>a.balance-b.balance);
-  else ordered=[...valid].sort((a,b)=>{
-    if(a.balance<500&&b.balance>=500)return -1;
-    if(b.balance<500&&a.balance>=500)return 1;
+  var ordered;
+  if(strategy==="avalanche") ordered=v.slice().sort(function(a,b){return b.apr-a.apr;});
+  else if(strategy==="snowball") ordered=v.slice().sort(function(a,b){return a.balance-b.balance;});
+  else ordered=v.slice().sort(function(a,b){
+    if(a.balance<500&&b.balance>=500) return -1;
+    if(b.balance<500&&a.balance>=500) return 1;
     return b.apr-a.apr;
   });
 
-  // Assign minimums, pour extra into priority card
-  const allocs=valid.map(c=>({...c,payment:c.minPayment}));
-  const priorityAlloc=allocs.find(a=>a.id===ordered[0].id);
-  priorityAlloc.payment+=budget-totalMin;
+  var allocs=v.map(function(c){return {id:c.id,name:c.name,apr:c.apr,balance:c.balance,payment:c.minPayment,minPayment:c.minPayment};});
+  var priorityId=ordered[0].id;
+  allocs.forEach(function(a){ if(a.id===priorityId) a.payment+=budget-totalMin; });
 
-  // Simulate payoff per card with fixed payment
-  function monthsToPayoff(card,payment){
-    let bal=card.balance,m=0;
-    const r=card.apr/100/12;
-    while(bal>0.01&&m<600){m++;bal=bal*(1+r)-payment;if(bal<0)bal=0;}
+  function monthsToPayoff(balance,apr,payment){
+    var bal=balance, m=0, r=apr/100/12;
+    while(bal>0.01&&m<600){ m++; bal=bal*(1+r)-payment; if(bal<0)bal=0; }
     return bal<=0.01?m:999;
   }
 
-  const payoffData=allocs.map(a=>({...a,months:monthsToPayoff(a,a.payment)}));
-  const totalMonths=Math.max(...payoffData.map(p=>p.months));
-  const goalMet=targetMonths?totalMonths<=targetMonths:true;
+  var payoffData=allocs.map(function(a){
+    return {id:a.id,name:a.name,payment:a.payment,minPayment:a.minPayment,months:monthsToPayoff(a.balance,a.apr,a.payment)};
+  });
+  var totalMonths=payoffData.reduce(function(mx,p){return Math.max(mx,p.months);},0);
+  var goalMet=targetMonths?totalMonths<=targetMonths:true;
 
-  let topHtml="";
+  var topHtml="";
   if(targetMonths&&!goalMet){
-    // Estimate needed budget
-    const ratio=totalMonths/targetMonths;
-    const needed=Math.ceil(budget*ratio);
-    topHtml=`<div class="warn-box"><div class="warn-title">Goal Not Reachable</div><div class="warn-body">At ${fmt(budget)}/mo you'll finish in ${fmtM(totalMonths)}, past your target. You'd need roughly ${fmt(needed)}/mo to hit that date.</div></div>`;
+    var needed=Math.ceil(budget*(totalMonths/targetMonths));
+    topHtml='<div class="warn-box"><div class="warn-title">Goal Not Reachable</div><div class="warn-body">At '+fmt(budget)+'/mo you finish in '+fmtM(totalMonths)+'. You\'d need ~'+fmt(needed)+'/mo to hit your date.</div></div>';
   } else if(targetMonths&&goalMet){
-    topHtml=`<div class="ok-box"><div class="ok-title">Goal Achievable ✓</div><div class="ok-body">At ${fmt(budget)}/mo you'll be debt free in ${fmtM(totalMonths)}, within your target.</div></div>`;
+    topHtml='<div class="ok-box"><div class="ok-title">Goal Achievable ✓</div><div class="ok-body">At '+fmt(budget)+'/mo you\'ll be debt free in '+fmtM(totalMonths)+', within your target.</div></div>';
   }
 
-  const cardsHtml=payoffData.map(a=>{
-    const idx=STATE.cards.findIndex(c=>c.id===a.id);
-    const color=COLORS[idx%COLORS.length];
-    const isPriority=a.id===ordered[0].id;
-    const extra=a.payment-a.minPayment;
-    return`<div class="alloc-card" style="--accent:${color}">
-      <div class="alloc-card-name">${a.name}${isPriority?` <span style="font-size:11px;color:#9f7aea">★ PRIORITY</span>`:""}</div>
-      <div class="alloc-amount">${fmt(a.payment)}<span style="font-size:13px;color:#5a5270">/mo</span></div>
-      <div class="alloc-detail">Min ${fmt(a.minPayment)}${extra>0?` + ${fmt(extra)} extra`:""} · Paid off in ${a.months<999?fmtM(a.months):"Never (increase payment)"}</div>
-    </div>`;
+  var cardsHtml=payoffData.map(function(a){
+    var idx=cards.findIndex(function(c){return c.id===a.id;});
+    var color=COLORS[idx%COLORS.length];
+    var extra=a.payment-a.minPayment;
+    var isPriority=a.id===priorityId;
+    return '<div class="alloc-card" style="--accent:'+color+'">'+
+      '<div class="alloc-card-name">'+a.name+(isPriority?' <span style="font-size:11px;color:#9f7aea">★ PRIORITY</span>':"")+' </div>'+
+      '<div class="alloc-amount">'+fmt(a.payment)+'<span style="font-size:13px;color:#5a5270">/mo</span></div>'+
+      '<div class="alloc-detail">Min '+fmt(a.minPayment)+(extra>0?" + "+fmt(extra)+" extra":"")+" · "+(a.months<999?fmtM(a.months)+" to payoff":"Increase payment")+'</div>'+
+    '</div>';
   }).join("");
 
-  const summaryHtml=`<div class="alloc-summary">
-    <div class="sum-row"><span>Monthly budget</span><span>${fmt(budget)}</span></div>
-    <div class="sum-row"><span>Total minimums</span><span>${fmt(totalMin)}</span></div>
-    <div class="sum-row"><span>Extra to priority</span><span>${fmt(budget-totalMin)}</span></div>
-    <div class="sum-row"><span>Full payoff</span><span>${fmtM(totalMonths)}</span></div>
-  </div>`;
+  var summaryHtml='<div class="summary-box">'+
+    '<div class="sum-row"><span>Monthly budget</span><span>'+fmt(budget)+'</span></div>'+
+    '<div class="sum-row"><span>Total minimums</span><span>'+fmt(totalMin)+'</span></div>'+
+    '<div class="sum-row"><span>Extra to priority</span><span>'+fmt(budget-totalMin)+'</span></div>'+
+    '<div class="sum-row"><span>Full payoff</span><span>'+fmtM(totalMonths)+'</span></div>'+
+  '</div>';
 
-  el.innerHTML=topHtml+`<div class="alloc-results">${cardsHtml}</div>`+summaryHtml;
+  el.innerHTML=topHtml+'<div class="result-cards">'+cardsHtml+'</div>'+summaryHtml;
 }
 
 // ── UTILIZATION TAB ────────────────────────────────────────────────────────
 function calcUtil(){
-  const dateVal=document.getElementById("util-date").value;
-  if(!dateVal){alert("Please pick a target date.");return;}
-  const [y,m]=dateVal.split("-").map(Number);
-  const now=new Date();
-  const months=(y-now.getFullYear())*12+(m-now.getMonth());
+  var el=document.getElementById("util-output");
+  var dv=document.getElementById("util-date").value;
+  if(!dv){alert("Please pick a target date.");return;}
+  var parts=dv.split("-");
+  var now=new Date();
+  var months=(parseInt(parts[0])-now.getFullYear())*12+(parseInt(parts[1])-now.getMonth()-1);
   if(months<1){alert("Target date must be in the future.");return;}
 
-  const valid=STATE.cards.filter(c=>c.limit>0);
-  const el=document.getElementById("util-results");
-  if(!valid.length){el.innerHTML=`<div class="empty"><div class="empty-icon">📉</div><div class="empty-text">Add cards with credit limits first</div></div>`;return;}
+  var v=cards.filter(function(c){return c.limit>0;});
+  if(!v.length){
+    el.innerHTML='<div class="empty"><div class="empty-icon">📉</div><div class="empty-text">Add cards with credit limits in the Cards tab</div></div>';
+    return;
+  }
 
-  const html=valid.map(card=>{
-    const idx=STATE.cards.findIndex(c=>c.id===card.id);
-    const color=COLORS[idx%COLORS.length];
-    const currentUtil=card.balance/card.limit*100;
-    const target=card.limit*0.30;
+  var html=v.map(function(card){
+    var idx=cards.findIndex(function(c){return c.id===card.id;});
+    var color=COLORS[idx%COLORS.length];
+    var currentUtil=card.balance/card.limit*100;
+    var target=card.limit*0.30;
 
     if(card.balance<=target){
-      return`<div class="util-card" style="--accent:${color}">
-        <div class="util-card-name">${card.name}</div>
-        <div class="util-already">✓ Already at ${currentUtil.toFixed(0)}% — under 30%</div>
-        <div class="progress-bar"><div class="progress-fill" style="width:${Math.min(currentUtil,100)}%;background:#69DB7C"></div></div>
-        <div class="progress-labels"><span>Now: ${currentUtil.toFixed(0)}%</span><span style="color:#69DB7C">Goal: 30%</span></div>
-      </div>`;
+      return '<div class="util-card" style="--accent:'+color+'">'+
+        '<div class="util-card-name">'+card.name+'</div>'+
+        '<div class="util-already">✓ Already at '+currentUtil.toFixed(0)+'% — under 30%</div>'+
+        '<div class="progress-bar"><div class="progress-fill" style="width:'+Math.min(currentUtil,100)+'%;background:#69DB7C"></div></div>'+
+        '<div class="progress-labels"><span>Now: '+currentUtil.toFixed(0)+'%</span><span style="color:#69DB7C">Goal: 30%</span></div>'+
+      '</div>';
     }
 
-    // Payment to reduce from card.balance to target in `months` months
-    // bal_n = bal*(1+r)^n - pay*((1+r)^n-1)/r = target
-    // pay = (bal*(1+r)^n - target) * r / ((1+r)^n - 1)
-    const r=card.apr/100/12;
-    let payment;
-    if(r<0.0001){
-      payment=(card.balance-target)/months;
-    } else {
-      const factor=Math.pow(1+r,months);
-      payment=(card.balance*factor-target)*r/(factor-1);
-    }
+    var r=card.apr/100/12;
+    var payment;
+    if(r<0.0001){ payment=(card.balance-target)/months; }
+    else { var f=Math.pow(1+r,months); payment=(card.balance*f-target)*r/(f-1); }
 
     if(payment<=0||!isFinite(payment)){
-      return`<div class="util-card" style="--accent:${color}">
-        <div class="util-card-name">${card.name}</div>
-        <div class="util-impossible">Interest alone prevents reaching 30% by this date. Try a later date or a balance transfer to 0% APR.</div>
-        <div class="progress-bar"><div class="progress-fill" style="width:${Math.min(currentUtil,100)}%"></div></div>
-        <div class="progress-labels"><span>Now: ${currentUtil.toFixed(0)}%</span><span>Goal: 30%</span></div>
-      </div>`;
+      return '<div class="util-card" style="--accent:'+color+'">'+
+        '<div class="util-card-name">'+card.name+'</div>'+
+        '<div class="util-impossible">Interest prevents reaching 30% by this date. Try a later date or a 0% balance transfer.</div>'+
+        '<div class="progress-bar"><div class="progress-fill" style="width:'+Math.min(currentUtil,100)+'%"></div></div>'+
+        '<div class="progress-labels"><span>Now: '+currentUtil.toFixed(0)+'%</span><span>Goal: 30%</span></div>'+
+      '</div>';
     }
 
-    const minPay=card.minPayment||Math.max(25,card.balance*0.02);
-    const finalPay=Math.max(payment,minPay);
-    const extra=finalPay>minPay?finalPay-minPay:0;
+    var minPay=card.minPayment||Math.max(25,card.balance*0.02);
+    var finalPay=Math.max(payment,minPay);
+    var extra=finalPay>minPay?finalPay-minPay:0;
 
-    return`<div class="util-card" style="--accent:${color}">
-      <div class="util-card-name">${card.name}</div>
-      <div class="util-amount">${fmt(Math.ceil(finalPay))}<span style="font-size:13px;color:#5a5270">/mo for ${months}mo</span></div>
-      <div class="util-months">Brings ${currentUtil.toFixed(0)}% → 30% utilization${extra>0?`<br>Min ${fmt(minPay)} + ${fmt(Math.ceil(extra))} extra`:""}</div>
-      <div class="progress-bar">
-        <div class="progress-fill" style="width:${Math.min(currentUtil,100)}%"></div>
-      </div>
-      <div class="progress-labels"><span>Now: ${currentUtil.toFixed(0)}%</span><span style="color:${color}">Goal: 30%</span></div>
-    </div>`;
+    return '<div class="util-card" style="--accent:'+color+'">'+
+      '<div class="util-card-name">'+card.name+'</div>'+
+      '<div class="util-amount">'+fmt(Math.ceil(finalPay))+'<span style="font-size:13px;color:#5a5270">/mo for '+months+'mo</span></div>'+
+      '<div class="util-months">Brings '+currentUtil.toFixed(0)+'% → 30%'+(extra>0?"<br>Min "+fmt(minPay)+" + "+fmt(Math.ceil(extra))+" extra":"")+' </div>'+
+      '<div class="progress-bar"><div class="progress-fill" style="width:'+Math.min(currentUtil,100)+'%"></div></div>'+
+      '<div class="progress-labels"><span>Now: '+currentUtil.toFixed(0)+'%</span><span style="color:'+color+'">Goal: 30%</span></div>'+
+    '</div>';
   }).join("");
 
   el.innerHTML=html;
 }
-
-// ── CARD ACTIONS ───────────────────────────────────────────────────────────
-function addCard(){
-  const id=Date.now();
-  STATE.cards.push({id,name:"New Card",balance:0,limit:0,apr:0,minPayment:25});
-  editingId=id;saveState();render();
-}
-function removeCard(id){
-  STATE.cards=STATE.cards.filter(c=>c.id!==id);
-  if(editingId===id)editingId=null;
-  saveState();render();
-}
-function startEdit(id){editingId=id;render();}
-function cancelEdit(){editingId=null;render();}
-function saveEdit(id){
-  STATE.cards=STATE.cards.map(c=>c.id===id?{...c,
-    name:document.getElementById("ef-name").value,
-    balance:+document.getElementById("ef-balance").value,
-    limit:+document.getElementById("ef-limit").value,
-    apr:+document.getElementById("ef-apr").value,
-    minPayment:+document.getElementById("ef-min").value,
-  }:c);
-  editingId=null;saveState();render();
-}
-function toggleStrat(id){activeStrat=activeStrat===id?null:id;renderCompare();}
-
-// ── INIT ───────────────────────────────────────────────────────────────────
-const now=new Date();
-const defaultDate=`${now.getFullYear()+1}-${String(now.getMonth()+1).padStart(2,"0")}`;
-document.getElementById("alloc-date").value=defaultDate;
-document.getElementById("util-date").value=defaultDate;
-document.getElementById("extra").value=STATE.extra;
-
-render();
 </script>
 
 </body>
