@@ -439,6 +439,139 @@ function saveEdit(id) {
 }
 
 // ── COMPARE ────────────────────────────────────────────────────────────────
+function simulateWaterfall(list, strategy, ex) {
+  // Returns per-card segments: [{id, name, startMonth, endMonth, payment}]
+  // and tracks when freed payment cascades to next priority card
+  var bal = list.map(function(c) {
+    return {id:c.id, name:c.name, remaining:c.balance, apr:c.apr||0, minPayment:c.minPayment||25};
+  });
+  var months = 0;
+  var segments = {}; // id -> [{start, end, payment}]
+  bal.forEach(function(c){ segments[c.id] = []; });
+
+  // Track current payment per card each month
+  var currentPayments = {};
+  bal.forEach(function(c){ currentPayments[c.id] = c.minPayment; });
+
+  while (bal.some(function(c){return c.remaining > 0.01;}) && months < 600) {
+    months++;
+
+    // Accrue interest
+    bal.forEach(function(c) {
+      if (c.remaining > 0) c.remaining += c.remaining * (c.apr / 100 / 12);
+    });
+
+    // Determine priority order
+    var active = bal.filter(function(c){return c.remaining > 0.01;});
+    var ord;
+    if (strategy === "avalanche") ord = active.slice().sort(function(a,b){return b.apr-a.apr;});
+    else if (strategy === "snowball") ord = active.slice().sort(function(a,b){return a.remaining-b.remaining;});
+    else ord = active.slice().sort(function(a,b){
+      if (a.remaining<500 && b.remaining>=500) return -1;
+      if (b.remaining<500 && a.remaining>=500) return 1;
+      return b.apr-a.apr;
+    });
+
+    // Assign payments: min to all, extra to priority
+    var newPayments = {};
+    bal.forEach(function(c){ newPayments[c.id] = c.remaining > 0.01 ? c.minPayment : 0; });
+    if (ord.length) newPayments[ord[0].id] += ex;
+
+    // Also cascade freed minimums from paid-off cards
+    var freed = 0;
+    bal.forEach(function(c){ if (c.remaining <= 0.01) freed += c.minPayment; });
+    if (ord.length) newPayments[ord[0].id] += freed;
+
+    // Apply payments and record segments
+    bal.forEach(function(c) {
+      if (c.remaining <= 0.01) return;
+      var pay = Math.min(newPayments[c.id] || c.minPayment, c.remaining);
+
+      // Check if payment changed — start new segment
+      var segs = segments[c.id];
+      if (!segs.length || segs[segs.length-1].payment !== Math.round(pay)) {
+        if (segs.length) segs[segs.length-1].end = months - 1;
+        segs.push({start: months, end: null, payment: Math.round(pay)});
+      }
+      c.remaining = Math.max(0, c.remaining - pay);
+      if (c.remaining <= 0.01) {
+        segs[segs.length-1].end = months;
+      }
+    });
+  }
+
+  // Close any open segments
+  bal.forEach(function(c) {
+    var segs = segments[c.id];
+    if (segs.length && segs[segs.length-1].end === null) segs[segs.length-1].end = months;
+  });
+
+  return {segments: segments, totalMonths: months};
+}
+
+function buildGantt(list, strategy, ex, stratName, stratIcon, stratColor, totalInterest) {
+  if (!list.length) return "";
+  var sim = simulateWaterfall(list, strategy, ex);
+  var totalM = sim.totalMonths;
+  var segs   = sim.segments;
+
+  // Time axis labels
+  var axisLabels = "";
+  var step = totalM <= 24 ? 3 : totalM <= 60 ? 6 : 12;
+  for (var m = 0; m <= totalM; m += step) {
+    var pct = (m / totalM * 100).toFixed(1);
+    var lbl = m === 0 ? "Now" : (m >= 12 && m % 12 === 0 ? "Yr "+(m/12) : m+"mo");
+    axisLabels += '<div style="position:absolute;left:'+pct+'%;transform:translateX(-50%);font-size:9px;color:#5a5270;white-space:nowrap;">'+lbl+'</div>';
+  }
+
+  // Card rows
+  var rows = list.map(function(card, i) {
+    var color    = COLORS[i % COLORS.length];
+    var cardSegs = segs[card.id] || [];
+    var bars     = cardSegs.map(function(seg) {
+      var left  = (seg.start - 1) / totalM * 100;
+      var width = (seg.end - seg.start + 1) / totalM * 100;
+      var isActive = seg.payment > (card.minPayment + 1);
+      var bg = isActive ? color : color+"55";
+      var endM = seg.end;
+      var endLbl = endM >= 12 ? (endM/12).toFixed(1)+"y" : endM+"mo";
+      var isLast = seg === cardSegs[cardSegs.length-1];
+      return '<div style="position:absolute;left:'+left.toFixed(2)+'%;width:'+width.toFixed(2)+'%;height:100%;background:'+bg+';border-radius:4px;display:flex;align-items:center;justify-content:center;overflow:hidden;">'+
+        '<span style="font-size:9px;color:#fff;white-space:nowrap;padding:0 4px;font-weight:'+(isActive?"600":"400")+'">'+(width>8?fmt(seg.payment)+'/mo':'')+'</span>'+
+        (isLast?'<div style="position:absolute;right:-1px;top:0;bottom:0;width:2px;background:#fff;border-radius:1px;opacity:0.7"></div>':'') +
+      '</div>';
+    }).join("");
+
+    var payoffMonth = cardSegs.length ? cardSegs[cardSegs.length-1].end : totalM;
+    var payoffPct   = (payoffMonth / totalM * 100).toFixed(1);
+    var payoffLbl   = payoffMonth >= 12 ? (payoffMonth/12).toFixed(1)+"y" : payoffMonth+"mo";
+
+    return '<div style="margin-bottom:14px;">'+
+      '<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;">'+
+        '<span style="font-size:12px;font-weight:500;color:'+color+'">'+card.name+'</span>'+
+        '<span style="font-size:10px;color:#5a5270;">Paid off: <strong style="color:'+color+'">'+payoffLbl+'</strong></span>'+
+      '</div>'+
+      '<div style="position:relative;height:28px;background:#1e1e2e;border-radius:4px;overflow:visible;">'+
+        bars+
+        '<div style="position:absolute;left:'+payoffPct+'%;top:-4px;width:2px;height:36px;background:'+color+';opacity:0.5;"></div>'+
+      '</div>'+
+    '</div>';
+  }).join("");
+
+  return '<div style="background:#12101e;border:1px solid #1e1e2e;border-radius:14px;padding:16px;margin-bottom:16px;">'+
+    '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">'+
+      '<div style="font-size:15px;font-weight:500;">'+stratIcon+' '+stratName+'</div>'+
+      '<div style="font-size:12px;color:#5a5270;">'+fmtM(totalM)+' · '+fmt(totalInterest)+' interest</div>'+
+    '</div>'+
+    '<div style="display:flex;gap:12px;margin-bottom:14px;flex-wrap:wrap;">'+
+      '<div style="display:flex;align-items:center;gap:5px;font-size:11px;color:#a09ab8;"><div style="width:12px;height:8px;border-radius:2px;background:'+stratColor+'"></div>Active payoff</div>'+
+      '<div style="display:flex;align-items:center;gap:5px;font-size:11px;color:#a09ab8;"><div style="width:12px;height:8px;border-radius:2px;background:'+stratColor+'55"></div>Minimum only</div>'+
+    '</div>'+
+    rows+
+    '<div style="position:relative;height:16px;margin-top:6px;">'+axisLabels+'</div>'+
+  '</div>';
+}
+
 function renderCompare() {
   var el = document.getElementById("compare-content");
   var v  = cards.filter(function(c){ return c.balance > 0; });
@@ -447,52 +580,16 @@ function renderCompare() {
     return;
   }
   var R = getResults();
-  var BAR_H = 110;
-  var maxM  = 0;
-  v.forEach(function(c) {
-    ["avalanche","snowball","hybrid"].forEach(function(s) {
-      var m = R[s].byCard[c.id] || 0;
-      if (m > maxM) maxM = m;
-    });
-  });
+  var ex = extraPayment;
 
-  var groups = v.map(function(card, i) {
-    var color = COLORS[i % COLORS.length];
-    var bars  = ["avalanche","snowball","hybrid"].map(function(sid) {
-      var m = R[sid].byCard[card.id] || 0;
-      var h = maxM > 0 ? Math.max(4, Math.round((m/maxM)*BAR_H)) : 4;
-      return '<div style="display:flex;flex-direction:column;align-items:center">'+
-        '<div class="bar" style="height:'+h+'px;background:'+STRAT_COLORS[sid]+'">'+
-          '<span class="bar-val">'+m+'</span></div></div>';
-    }).join("");
-    return '<div class="chart-group"><div class="chart-bars">'+bars+'</div>'+
-      '<div class="group-label" style="color:'+color+'">'+card.name+'</div></div>';
-  }).join("");
+  var charts =
+    buildGantt(v, "avalanche", ex, "Avalanche", "❄️", "#4DABF7", R.avalanche.totalInterest) +
+    buildGantt(v, "snowball",  ex, "Snowball",  "🔮", "#69DB7C", R.snowball.totalInterest)  +
+    buildGantt(v, "hybrid",    ex, "Hybrid",    "⚡", "#DA77F2", R.hybrid.totalInterest);
 
-  var stratCards = STRATS.map(function(s) {
-    var r      = R[s.id];
-    var isRec  = R.recommended === s.id;
-    var sav    = R.avalanche.totalInterest - r.totalInterest;
-    var md     = R.avalanche.months - r.months;
-    var pill   = "";
-    if (s.id !== "avalanche") {
-      var cls = sav >= 0 ? "pos" : "neg";
-      var txt = sav >= 0 ? "Saves "+fmt(sav)+" vs avalanche" : "Costs "+fmt(Math.abs(sav))+" more";
-      if (md !== 0) txt += " · "+Math.abs(md)+"mo "+(md > 0 ? "faster" : "slower");
-      pill = '<div class="savings-pill '+cls+'">'+txt+'</div>';
-    }
-    return '<div class="strat-card'+(isRec?" recommended":"")+'">'+(isRec?'<div class="rec-badge">⭐ Recommended</div>':"")+
-      '<div class="strat-top"><div class="strat-name">'+s.name+'</div><div class="strat-icon">'+s.icon+'</div></div>'+
-      '<div class="strat-desc">'+s.desc+'</div>'+
-      '<div class="strat-stats">'+
-        '<div><div class="ss-label">Payoff time</div><div class="ss-val blue">'+fmtM(r.months)+'</div></div>'+
-        '<div><div class="ss-label">Total interest</div><div class="ss-val red">'+fmt(r.totalInterest)+'</div></div>'+
-      '</div>'+pill+'</div>';
-  }).join("");
-
-  var rec  = R.recommended;
-  var r    = R[rec];
-  var s    = STRATS.filter(function(x){return x.id===rec;})[0];
+  var rec   = R.recommended;
+  var r     = R[rec];
+  var s     = STRATS.filter(function(x){return x.id===rec;})[0];
   var iDiff = Math.abs(R.avalanche.totalInterest - R.snowball.totalInterest);
   var mDiff = Math.abs(R.avalanche.months - R.snowball.months);
   var bodyMap = {
@@ -501,22 +598,12 @@ function renderCompare() {
     hybrid:    "Hybrid clears small balances fast then attacks high-APR cards before interest compounds."
   };
 
-  el.innerHTML =
-    '<div class="chart-wrap">'+
-      '<div class="chart-title">Payoff Month by Card &amp; Strategy</div>'+
-      '<div class="chart-legend">'+
-        '<div class="legend-item"><div class="legend-dot" style="background:#4DABF7"></div>Avalanche</div>'+
-        '<div class="legend-item"><div class="legend-dot" style="background:#69DB7C"></div>Snowball</div>'+
-        '<div class="legend-item"><div class="legend-dot" style="background:#DA77F2"></div>Hybrid</div>'+
-      '</div>'+
-      '<div class="chart-scroll"><div class="chart-inner" style="min-height:'+(BAR_H+40)+'px">'+groups+'</div></div>'+
-    '</div>'+
-    '<div class="strat-grid">'+stratCards+'</div>'+
+  el.innerHTML = charts +
     '<div class="rec-box">'+
       '<div class="rec-title">Recommendation</div>'+
       '<div class="rec-headline">'+s.icon+' <strong>'+s.name+'</strong> — '+fmtM(r.months)+' payoff · '+fmt(r.totalInterest)+' interest</div>'+
       '<div class="rec-body">'+bodyMap[rec]+'</div>'+
-      (iDiff > 0 ? '<div class="rec-footer">Avalanche vs Snowball: '+fmt(iDiff)+' interest · '+mDiff+'mo</div>' : "")+
+      (iDiff > 0 ? '<div class="rec-footer">Avalanche vs Snowball: '+fmt(iDiff)+' · '+mDiff+'mo difference</div>' : "")+
     '</div>';
 }
 
