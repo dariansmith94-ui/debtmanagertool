@@ -1,4 +1,4 @@
-const CACHE = “debtfree-v1”;
+const CACHE = “debtfree-v2”;
 const ASSETS = [”/”, “/index.html”, “/manifest.webmanifest”];
 
 self.addEventListener(“install”, function(e) {
@@ -14,8 +14,9 @@ self.addEventListener(“activate”, function(e) {
 e.waitUntil(
 caches.keys().then(function(keys) {
 return Promise.all(
-keys.filter(function(k){ return k !== CACHE; })
-.map(function(k){ return caches.delete(k); })
+keys
+.filter(function(k) { return k !== CACHE; })
+.map(function(k) { return caches.delete(k); })
 );
 })
 );
@@ -23,17 +24,26 @@ self.clients.claim();
 });
 
 self.addEventListener(“fetch”, function(e) {
+// Only handle GET requests
+if (e.request.method !== “GET”) return;
+
 e.respondWith(
 caches.match(e.request).then(function(cached) {
-return cached || fetch(e.request).then(function(response) {
-// Cache new requests as they come in
-var clone = response.clone();
-caches.open(CACHE).then(function(cache){ cache.put(e.request, clone); });
+if (cached) return cached;
+return fetch(e.request).then(function(response) {
+// Only cache valid responses
+if (!response || response.status !== 200 || response.type === “opaque”) {
 return response;
+}
+var clone = response.clone();
+caches.open(CACHE).then(function(cache) {
+cache.put(e.request, clone);
 });
+return response;
 }).catch(function() {
-// Offline fallback
+// Offline fallback — serve index.html for any failed request
 return caches.match(”/index.html”);
+});
 })
 );
 });
