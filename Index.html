@@ -19,7 +19,7 @@ button{-webkit-appearance:none;appearance:none;touch-action:manipulation}
 input,select{-webkit-appearance:none;appearance:none}
 nav{position:sticky;top:0;z-index:20;background:#0a0a0f;border-bottom:1px solid #1e1e2e;display:flex;overflow-x:auto;scrollbar-width:none;padding-top:env(safe-area-inset-top)}
 nav::-webkit-scrollbar{display:none}
-.nav-tab{flex-shrink:0;padding:14px 18px;font-size:13px;letter-spacing:1px;color:#5a5270;background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;font-family:inherit;white-space:nowrap}
+.nav-tab{flex-shrink:0;padding:12px 14px;font-size:12px;letter-spacing:1px;color:#5a5270;background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;font-family:inherit;white-space:nowrap}
 .nav-tab.active{color:#9f7aea;border-bottom-color:#9f7aea}
 main{max-width:640px;margin:0 auto;padding:20px 16px 80px}
 .eyebrow{font-size:10px;letter-spacing:4px;color:#7c6fa0;text-transform:uppercase;margin-bottom:6px}
@@ -52,8 +52,6 @@ select.field-input option{background:#12101e}
 .sum-card{background:#12101e;border:1px solid #1e1e2e;border-radius:12px;padding:12px}
 .sum-label{font-size:10px;letter-spacing:2px;color:#5a5270;text-transform:uppercase;margin-bottom:3px}
 .sum-val{font-size:clamp(14px,3.5vw,20px);font-weight:300}
-
-/* EXTRA PAYMENT BOX */
 .payment-box{background:#12101e;border:1px solid #1e1e2e;border-radius:14px;padding:18px;margin-bottom:24px}
 .payment-title{font-size:11px;letter-spacing:3px;color:#7c6fa0;text-transform:uppercase;margin-bottom:14px}
 .payment-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #1a1a2e}
@@ -67,14 +65,11 @@ select.field-input option{background:#12101e}
 .extra-input-label{font-size:13px;color:#7c6fa0;flex:1}
 .dollar{color:#7c6fa0;font-size:18px}
 .extra-input{background:none;border:none;color:#e8e4f0;font-size:20px;width:80px;text-align:right;font-family:inherit;outline:none}
-
-/* STRATEGY CARDS */
 .strat-card{background:#12101e;border:1px solid #1e1e2e;border-radius:14px;padding:18px;position:relative;margin-bottom:16px}
 .strat-card.recommended{border-color:#9f7aea}
 .rec-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:#4a2ea0;color:#e8e4f0;font-size:10px;letter-spacing:2px;padding:3px 12px;border-radius:20px;white-space:nowrap;text-transform:uppercase}
 .strat-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
 .strat-name{font-size:17px;font-weight:500}
-.strat-icon{font-size:22px}
 .strat-tagline{font-size:13px;color:#a09ab8;margin-bottom:10px;line-height:1.5}
 .strat-desc{font-size:12px;color:#5a5270;margin-bottom:14px;line-height:1.6;padding:10px 12px;background:#0a0a0f;border-radius:8px;border-left:2px solid #3d2e6b}
 .strat-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
@@ -86,11 +81,9 @@ select.field-input option{background:#12101e}
 .savings-pill.pos{background:#0d1f0d;color:#69DB7C}
 .savings-pill.neg{background:#1f0d0d;color:#FF6B6B}
 .btn-learn{width:100%;background:none;border:1px solid #3d2e6b;color:#9f7aea;padding:11px;border-radius:10px;cursor:pointer;font-size:13px;font-family:inherit;letter-spacing:1px}
-
-/* MODAL */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:100;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:20px 16px;padding-top:calc(20px + env(safe-area-inset-top))}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:100;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:20px 16px;padding-top:calc(20px + env(safe-area-inset-top))}
 .modal-overlay.open{display:block}
-.modal{background:#12101e;border:1px solid #1e1e2e;border-radius:20px;max-width:600px;margin:0 auto;padding:24px 20px;padding-bottom:40px}
+.modal{background:#12101e;border:1px solid #1e1e2e;border-radius:20px;max-width:600px;margin:0 auto;padding:24px 20px 40px}
 .modal-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px}
 .modal-title{font-size:20px;font-weight:400}
 .modal-close{background:none;border:1px solid #2a2040;color:#5a5270;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -100,29 +93,19 @@ select.field-input option{background:#12101e}
 .modal-body p{margin-bottom:12px}
 .modal-body strong{color:#e8e4f0}
 .modal-card-breakdown{display:flex;flex-direction:column;gap:10px;margin-top:10px}
-.modal-card-row{background:#0a0a0f;border-radius:10px;padding:12px 14px;border-left:3px solid var(–accent,#9f7aea)}
+.modal-card-row{background:#0a0a0f;border-radius:10px;padding:12px 14px;border-left:3px solid var(--accent,#9f7aea)}
 .modal-card-name{font-size:13px;font-weight:500;margin-bottom:4px}
 .modal-card-detail{font-size:12px;color:#5a5270;line-height:1.6}
 .highlight-box{background:#1a1030;border:1px solid #3d2e6b;border-radius:10px;padding:14px;margin-top:12px}
 .highlight-box p{font-size:13px;color:#c4b5fd;line-height:1.7;margin:0}
-
 .rec-box{background:linear-gradient(135deg,#1a1030,#12101e);border:1px solid #3d2e6b;border-radius:14px;padding:20px;margin-bottom:20px}
 .rec-title{font-size:10px;letter-spacing:3px;color:#7c6fa0;text-transform:uppercase;margin-bottom:10px}
 .rec-headline{font-size:16px;margin-bottom:8px;line-height:1.4}
 .rec-body{font-size:13px;color:#a09ab8;line-height:1.7}
 .rec-footer{margin-top:10px;font-size:12px;color:#6b6080}
-
-.chart-wrap{background:#12101e;border:1px solid #1e1e2e;border-radius:14px;padding:16px;margin-bottom:4px}
-.chart-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-
 .alloc-controls,.util-controls{background:#12101e;border:1px solid #1e1e2e;border-radius:14px;padding:16px;margin-bottom:16px}
-.alloc-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
-.goal-tabs{display:flex;gap:8px;margin-bottom:4px}
-.goal-tab{flex:1;padding:10px;border-radius:8px;border:1px solid #2a2040;background:none;color:#5a5270;font-size:13px;font-family:inherit;cursor:pointer;min-height:44px}
-.goal-tab.active{background:#4a2ea0;border-color:#4a2ea0;color:#fff}
-.btn-calc{width:100%;background:#4a2ea0;border:none;color:#fff;padding:14px;border-radius:10px;cursor:pointer;font-size:15px;font-family:inherit;margin-top:8px;min-height:44px}
 .result-cards{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
-.alloc-card,.util-card{background:#12101e;border:1px solid #1e1e2e;border-radius:12px;padding:14px;border-left:3px solid var(–accent,#9f7aea)}
+.alloc-card,.util-card{background:#12101e;border:1px solid #1e1e2e;border-radius:12px;padding:14px;border-left:3px solid var(--accent,#9f7aea)}
 .alloc-card-name,.util-card-name{font-size:14px;font-weight:500;margin-bottom:8px}
 .alloc-amount,.util-amount{font-size:22px;color:#9f7aea;margin-bottom:4px}
 .alloc-detail,.util-months{font-size:12px;color:#5a5270;line-height:1.5}
@@ -132,7 +115,7 @@ select.field-input option{background:#12101e}
 .sum-row{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;border-bottom:1px solid #1e1e2e}
 .sum-row:last-child{border-bottom:none;font-weight:500;color:#9f7aea;padding-top:8px}
 .progress-bar{height:6px;background:#1e1e2e;border-radius:3px;overflow:hidden;margin:8px 0 4px}
-.progress-fill{height:100%;border-radius:3px;background:var(–accent,#9f7aea)}
+.progress-fill{height:100%;border-radius:3px;background:var(--accent,#9f7aea)}
 .progress-labels{display:flex;justify-content:space-between;font-size:10px;color:#5a5270}
 .warn-box{background:#1f0d0d;border:1px solid #5a1a1a;border-radius:12px;padding:16px;margin-bottom:12px}
 .warn-title{font-size:10px;letter-spacing:3px;color:#FF6B6B;text-transform:uppercase;margin-bottom:8px}
@@ -143,678 +126,587 @@ select.field-input option{background:#12101e}
 .empty{text-align:center;padding:50px 0;color:#3a3050}
 .empty-icon{font-size:40px;margin-bottom:12px}
 .empty-text{font-size:14px}
-.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#4a2ea0;color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:50;white-space:nowrap}
+/* HISTORY & CHART */
+.chart-canvas-wrap{background:#12101e;border:1px solid #1e1e2e;border-radius:14px;padding:16px;margin-bottom:20px;overflow-x:auto}
+.chart-canvas-wrap canvas{display:block}
+.section-box{background:#12101e;border:1px solid #1e1e2e;border-radius:14px;padding:16px;margin-bottom:16px}
+.section-box-title{font-size:10px;letter-spacing:3px;color:#7c6fa0;text-transform:uppercase;margin-bottom:14px}
+.asset-row{display:flex;gap:8px;align-items:center;margin-bottom:10px}
+.asset-row input{flex:1;background:#0a0a0f;border:1px solid #2a2040;border-radius:8px;color:#e8e4f0;padding:9px 12px;font-size:15px;font-family:inherit}
+.asset-row .asset-val{width:110px}
+.btn-icon{background:none;border:1px solid #2a2040;color:#5a5270;width:36px;height:36px;border-radius:8px;cursor:pointer;font-size:16px;flex-shrink:0}
+.nw-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px}
+.nw-card{background:#12101e;border:1px solid #1e1e2e;border-radius:12px;padding:14px}
+.nw-label{font-size:10px;letter-spacing:2px;color:#5a5270;text-transform:uppercase;margin-bottom:4px}
+.nw-val{font-size:20px;font-weight:300}
+/* EXPORT/IMPORT */
+.data-box{background:#12101e;border:1px solid #1e1e2e;border-radius:14px;padding:16px;margin-bottom:16px}
+.data-box-title{font-size:10px;letter-spacing:3px;color:#7c6fa0;text-transform:uppercase;margin-bottom:12px}
+.btn-export{width:100%;background:#1a2a1a;border:1px solid #2a4a2a;color:#69DB7C;padding:13px;border-radius:10px;cursor:pointer;font-size:14px;font-family:inherit;margin-bottom:10px}
+.btn-import{width:100%;background:#1a1a2a;border:1px solid #2a2a4a;color:#9f7aea;padding:13px;border-radius:10px;cursor:pointer;font-size:14px;font-family:inherit}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#4a2ea0;color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:200;white-space:nowrap}
 .toast.show{opacity:1}
 </style>
-
 </head>
 <body>
-
 <nav>
   <button class="nav-tab active" onclick="showTab('cards')">💳 Cards</button>
   <button class="nav-tab" onclick="showTab('compare')">📊 Compare</button>
   <button class="nav-tab" onclick="showTab('allocator')">🎯 Allocator</button>
-  <button class="nav-tab" onclick="showTab('utilization')">📉 Utilization</button>
+  <button class="nav-tab" onclick="showTab('utilization')">📉 Util</button>
+  <button class="nav-tab" onclick="showTab('history')">📈 History</button>
 </nav>
-
 <main>
-  <!-- CARDS -->
-  <div id="tab-cards">
-    <div style="margin-bottom:20px">
-      <div class="eyebrow">Debt Manager</div>
-      <h2>Your Cards</h2>
-      <div class="section-desc">Add your cards. All tabs update automatically.</div>
-    </div>
-    <div id="summary-grid" class="summary-grid" style="display:none"></div>
-    <div id="card-list"></div>
-    <button class="btn-add" onclick="addCard()">+ Add Card</button>
-    <div class="payment-box">
-      <div class="payment-title">Monthly Payment Budget</div>
-      <div id="payment-breakdown"></div>
-      <div class="extra-input-row">
-        <span class="extra-input-label">Extra I can afford</span>
-        <span class="dollar">$</span>
-        <input class="extra-input" type="number" inputmode="decimal" id="extra" value="0" oninput="onExtraChange()"/>
-      </div>
+<!-- CARDS -->
+<div id="tab-cards">
+  <div style="margin-bottom:20px"><div class="eyebrow">Debt Manager</div><h2>Your Cards</h2><div class="section-desc">Add your cards. All tabs update automatically.</div></div>
+  <div id="summary-grid" class="summary-grid" style="display:none"></div>
+  <div id="card-list"></div>
+  <button class="btn-add" onclick="addCard()">+ Add Card</button>
+  <div class="payment-box">
+    <div class="payment-title">Monthly Payment Budget</div>
+    <div id="payment-breakdown"></div>
+    <div class="extra-input-row">
+      <span class="extra-input-label">Extra I can afford</span>
+      <span class="dollar">$</span>
+      <input class="extra-input" type="number" inputmode="decimal" id="extra" value="0" oninput="onExtraChange()"/>
     </div>
   </div>
-
-  <!-- COMPARE -->
-
-  <div id="tab-compare" style="display:none">
-    <div style="margin-bottom:20px">
-      <div class="eyebrow">Strategy Compare</div>
-      <h2>Choose Your Method</h2>
-      <div class="section-desc">Three proven strategies — tap "Understand This Method" on any to learn exactly what it means for your cards before committing.</div>
-    </div>
-    <div id="compare-content"></div>
+  <!-- EXPORT/IMPORT -->
+  <div class="data-box">
+    <div class="data-box-title">Data &amp; Backup</div>
+    <button class="btn-export" onclick="exportData()">⬇️ Export Data (JSON)</button>
+    <button class="btn-import" onclick="document.getElementById('import-file').click()">⬆️ Import Data (JSON)</button>
+    <input type="file" id="import-file" accept=".json" style="display:none" onchange="importData(event)"/>
   </div>
-
-  <!-- ALLOCATOR -->
-
-  <div id="tab-allocator" style="display:none">
-    <div style="margin-bottom:20px">
-      <div class="eyebrow">Budget Allocator</div>
-      <h2>Optimal Split</h2>
-      <div class="section-desc">Enter your budget and goal. Results update automatically.</div>
+</div>
+<!-- COMPARE -->
+<div id="tab-compare" style="display:none">
+  <div style="margin-bottom:20px"><div class="eyebrow">Strategy Compare</div><h2>Choose Your Method</h2><div class="section-desc">Three proven strategies — tap "Understand This Method" to learn what it means for your cards before committing.</div></div>
+  <div id="compare-content"></div>
+</div>
+<!-- ALLOCATOR -->
+<div id="tab-allocator" style="display:none">
+  <div style="margin-bottom:20px"><div class="eyebrow">Lump Sum Allocator</div><h2>Best Use of Cash</h2><div class="section-desc">You have money right now. See all 3 ways to deploy it and which saves the most.</div></div>
+  <div class="alloc-controls">
+    <label class="field-label">Amount I have available ($)</label>
+    <div style="display:flex;align-items:center;gap:8px;background:#0a0a0f;border:1px solid #2a2040;border-radius:10px;padding:10px 14px;margin-top:6px">
+      <span style="color:#7c6fa0;font-size:18px">$</span>
+      <input style="background:none;border:none;color:#e8e4f0;font-size:24px;width:100%;font-family:inherit;outline:none" type="number" inputmode="decimal" id="alloc-lump" value="1000" oninput="renderAllocator()"/>
     </div>
-    <div class="alloc-controls">
-      <div class="alloc-row">
-        <div>
-          <label class="field-label">Monthly Budget ($)</label>
-          <input class="field-input" type="number" inputmode="decimal" id="alloc-budget" value="500" oninput="renderAllocator()"/>
-        </div>
-        <div>
-          <label class="field-label">Strategy</label>
-          <select class="field-input" id="alloc-strat" onchange="renderAllocator()">
-            <option value="avalanche">Avalanche</option>
-            <option value="snowball">Snowball</option>
-            <option value="hybrid">Hybrid</option>
-          </select>
-        </div>
-      </div>
-      <div style="margin-bottom:12px">
-        <label class="field-label" style="margin-bottom:8px">Goal</label>
-        <div class="goal-tabs">
-          <button class="goal-tab active" id="goal-payoff" onclick="setGoal('payoff')">Full Payoff</button>
-          <button class="goal-tab" id="goal-date" onclick="setGoal('date')">By Date</button>
-        </div>
-      </div>
-      <div id="goal-date-input" style="display:none;margin-bottom:12px">
-        <label class="field-label">Target Date</label>
-        <input class="field-input" type="month" id="alloc-date" onchange="renderAllocator()"/>
-      </div>
-    </div>
-    <div id="alloc-output"></div>
   </div>
-
-  <!-- UTILIZATION -->
-
-  <div id="tab-utilization" style="display:none">
-    <div style="margin-bottom:20px">
-      <div class="eyebrow">Utilization Planner</div>
-      <h2>Hit 30% or Less</h2>
-      <div class="section-desc">Pick a target date. Minimum payments to get each card under 30% utilization.</div>
-    </div>
-    <div class="util-controls">
-      <div style="margin-bottom:12px">
-        <label class="field-label">Target Date</label>
-        <input class="field-input" type="month" id="util-date" onchange="renderUtil()"/>
-      </div>
-    </div>
-    <div id="util-output"></div>
+  <div id="alloc-output"></div>
+</div>
+<!-- UTILIZATION -->
+<div id="tab-utilization" style="display:none">
+  <div style="margin-bottom:20px"><div class="eyebrow">Utilization Planner</div><h2>Hit 30% or Less</h2><div class="section-desc">Pick a target date. Minimum payments to get each card under 30%.</div></div>
+  <div class="util-controls">
+    <div style="margin-bottom:12px"><label class="field-label">Target Date</label><input class="field-input" type="month" id="util-date" onchange="renderUtil()"/></div>
   </div>
+  <div id="util-output"></div>
+</div>
+<!-- HISTORY -->
+<div id="tab-history" style="display:none">
+  <div style="margin-bottom:20px"><div class="eyebrow">Progress Tracker</div><h2>History &amp; Net Worth</h2><div class="section-desc">Snapshots are saved automatically once per day when you open the app.</div></div>
+  <div id="history-content"></div>
+</div>
 </main>
-
-<!-- STRATEGY MODAL -->
-
+<!-- MODAL -->
 <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
   <div class="modal" id="modal-content"></div>
 </div>
-
 <div class="toast" id="toast">Saved ✓</div>
-
 <script>
-var COLORS = ["#4DABF7","#69DB7C","#FF6B6B","#FFA94D","#DA77F2","#F783AC","#FFD43B","#63E6BE"];
-var STRAT_COLORS = {avalanche:"#4DABF7", snowball:"#69DB7C", hybrid:"#DA77F2"};
-var STRATS = [
-  {id:"avalanche", name:"Avalanche", icon:"❄️",
-   tagline:"Pay the highest interest rate first. Mathematically saves the most money.",
-   desc:"You pay the minimum on every card each month, then put every extra dollar toward whichever card has the highest APR (interest rate). Once that card is paid off, its full payment rolls to the next highest-rate card.",
-   why:"Best if you want to minimize total interest paid and can stay disciplined without needing quick wins.",
-   risk:"It can feel slow at first if your highest-rate card also has a large balance."},
-  {id:"snowball", name:"Snowball", icon:"🔮",
-   tagline:"Pay the smallest balance first. Builds momentum through quick wins.",
-   desc:"You pay the minimum on every card, then put every extra dollar toward the card with the smallest balance — regardless of interest rate. When it's paid off, that payment rolls to the next smallest.",
-   why:"Best if you need motivation. Paying off a card completely feels like a real win and keeps you going.",
-   risk:"You may pay more total interest than the avalanche method if your small-balance cards have low rates."},
-  {id:"hybrid", name:"Hybrid", icon:"⚡",
-   tagline:"Clear small balances fast, then attack high-interest debt.",
-   desc:"A blend of both methods. Any card under $500 gets priority to eliminate it quickly, then the strategy shifts to targeting the highest APR card. You get some quick wins without sacrificing too much on interest.",
-   why:"Best if you have a mix of small nuisance balances and larger high-rate cards.",
-   risk:"More complex to follow mentally. The switching point ($500) is a rule of thumb, not a perfect formula."}
+var COLORS=["#4DABF7","#69DB7C","#FF6B6B","#FFA94D","#DA77F2","#F783AC","#FFD43B","#63E6BE"];
+var STRAT_COLORS={avalanche:"#4DABF7",snowball:"#69DB7C",hybrid:"#DA77F2"};
+var STRATS=[
+  {id:"avalanche",name:"Avalanche",icon:"❄️",tagline:"Pay the highest interest rate first. Mathematically saves the most money.",desc:"You pay the minimum on every card each month, then put every extra dollar toward whichever card has the highest APR. Once that card is paid off, its full payment rolls to the next highest-rate card.",why:"Best if you want to minimize total interest paid and can stay disciplined without needing quick wins.",risk:"It can feel slow at first if your highest-rate card also has a large balance."},
+  {id:"snowball",name:"Snowball",icon:"🔮",tagline:"Pay the smallest balance first. Builds momentum through quick wins.",desc:"You pay the minimum on every card, then put every extra dollar toward the card with the smallest balance. When it's paid off, that payment rolls to the next smallest.",why:"Best if you need motivation. Paying off a card completely feels like a real win and keeps you going.",risk:"You may pay more total interest than the avalanche method if your small-balance cards have low rates."},
+  {id:"hybrid",name:"Hybrid",icon:"⚡",tagline:"Clear small balances fast, then attack high-interest debt.",desc:"Any card under $500 gets priority to eliminate it quickly, then the strategy shifts to targeting the highest APR card.",why:"Best if you have a mix of small nuisance balances and larger high-rate cards.",risk:"More complex to follow mentally. The $500 switching point is a rule of thumb, not a perfect formula."}
 ];
 
-var cards = [];
-var extraPayment = 0;
-var editingId = null;
-var allocGoal = "payoff";
-var currentTab = "cards";
+// ── STATE ──────────────────────────────────────────────────────────────────
+var cards=[], extraPayment=0, assets=[], snapshots=[];
+var editingId=null, currentTab=“cards”;
 
 // ── PERSISTENCE ────────────────────────────────────────────────────────────
-function persist() {
-  try { localStorage.setItem("debtfree_v6", JSON.stringify({cards:cards, extra:extraPayment})); } catch(e) {}
-  var t = document.getElementById("toast");
-  t.classList.add("show");
-  clearTimeout(persist._t);
-  persist._t = setTimeout(function(){ t.classList.remove("show"); }, 1400);
+function persist(){
+try{localStorage.setItem(“debtfree_v7”,JSON.stringify({cards:cards,extra:extraPayment,assets:assets,snapshots:snapshots}));}catch(e){}
+showToast(“Saved ✓”);
+}
+function loadData(){
+try{
+var raw=localStorage.getItem(“debtfree_v7”);
+if(raw){var s=JSON.parse(raw);if(s&&Array.isArray(s.cards)){cards=s.cards;extraPayment=s.extra||0;assets=s.assets||[];snapshots=s.snapshots||[];return;}}
+}catch(e){}
+cards=[];extraPayment=0;assets=[];snapshots=[];
 }
 
-function loadData() {
-  try {
-    var raw = localStorage.getItem("debtfree_v6");
-    if (raw) {
-      var s = JSON.parse(raw);
-      if (s && Array.isArray(s.cards)) { cards = s.cards; extraPayment = s.extra || 0; return; }
-    }
-  } catch(e) {}
-  cards = [];
-  extraPayment = 0;
+// ── EXPORT / IMPORT ────────────────────────────────────────────────────────
+function exportData(){
+var data=JSON.stringify({cards:cards,extra:extraPayment,assets:assets,snapshots:snapshots},null,2);
+var blob=new Blob([data],{type:“application/json”});
+var url=URL.createObjectURL(blob);
+var a=document.createElement(“a”);
+a.href=url;
+a.download=“debtfree-backup-”+new Date().toISOString().slice(0,10)+”.json”;
+a.click();
+URL.revokeObjectURL(url);
+showToast(“Exported ✓”);
+}
+function importData(e){
+var file=e.target.files[0];
+if(!file)return;
+var reader=new FileReader();
+reader.onload=function(ev){
+try{
+var d=JSON.parse(ev.target.result);
+if(!d.cards)throw new Error(“Invalid file”);
+cards=d.cards||[];
+extraPayment=d.extra||0;
+assets=d.assets||[];
+snapshots=d.snapshots||[];
+persist();
+document.getElementById(“extra”).value=extraPayment;
+renderAll();
+showToast(“Imported ✓”);
+}catch(err){showToast(“Import failed — invalid file”);}
+};
+reader.readAsText(file);
+e.target.value=””;
+}
+
+// ── AUTO SNAPSHOT ──────────────────────────────────────────────────────────
+function maybeSnapshot(){
+var today=new Date().toISOString().slice(0,10);
+if(snapshots.length&&snapshots[snapshots.length-1].date===today)return;
+if(!cards.filter(function(c){return c.balance>0;}).length)return;
+var totalDebt=cards.reduce(function(s,c){return s+c.balance;},0);
+var totalAssets=assets.reduce(function(s,a){return s+(parseFloat(a.value)||0);},0);
+var cardSnap=cards.map(function(c){return {id:c.id,name:c.name,balance:c.balance};});
+snapshots.push({date:today,totalDebt:totalDebt,totalAssets:totalAssets,netWorth:totalAssets-totalDebt,cards:cardSnap});
+// Keep max 365 snapshots
+if(snapshots.length>365)snapshots=snapshots.slice(snapshots.length-365);
+persist();
 }
 
 // ── MATH ───────────────────────────────────────────────────────────────────
-function totalMinPayments() {
-  return cards.filter(function(c){return c.balance>0;}).reduce(function(s,c){return s+c.minPayment;},0);
+function totalMinPayments(){return cards.filter(function(c){return c.balance>0;}).reduce(function(s,c){return s+c.minPayment;},0);}
+function fmt(n){return n.toLocaleString(“en-US”,{style:“currency”,currency:“USD”,maximumFractionDigits:0});}
+function fmtM(m){return m>=12?Math.floor(m/12)+“y “+m%12+“m”:m+“mo”;}
+
+function calcPayoff(list,strategy,ex){
+if(!list.length)return null;
+var bal=list.map(function(c){return{id:c.id,name:c.name,remaining:c.balance,apr:c.apr||0,minPayment:c.minPayment||25,paidMonth:null};});
+var months=0,totalInterest=0;
+while(bal.some(function(c){return c.remaining>0.01;})&&months<600){
+months++;
+bal.forEach(function(c){if(c.remaining>0){var i=c.remaining*(c.apr/100/12);totalInterest+=i;c.remaining+=i;}});
+var active=bal.filter(function(c){return c.remaining>0.01;});
+var ord;
+if(strategy===“avalanche”)ord=active.slice().sort(function(a,b){return b.apr-a.apr;});
+else if(strategy===“snowball”)ord=active.slice().sort(function(a,b){return a.remaining-b.remaining;});
+else ord=active.slice().sort(function(a,b){if(a.remaining<500&&b.remaining>=500)return -1;if(b.remaining<500&&a.remaining>=500)return 1;return b.apr-a.apr;});
+var e2=ex;
+ord.forEach(function(c,i){
+var min=Math.min(c.minPayment||Math.max(25,c.remaining*0.02),c.remaining);
+var pay=min+(i===0?e2:0);
+if(pay>c.remaining){e2=pay-c.remaining;pay=c.remaining;}else e2=0;
+c.remaining=Math.max(0,c.remaining-pay);
+if(c.remaining<=0.01&&!c.paidMonth)c.paidMonth=months;
+});
 }
-
-function calcPayoff(list, strategy, ex) {
-  if (!list.length) return null;
-  var bal = list.map(function(c){return {id:c.id,name:c.name,remaining:c.balance,apr:c.apr||0,minPayment:c.minPayment||25,paidMonth:null};});
-  var months=0, totalInterest=0;
-  while (bal.some(function(c){return c.remaining>0.01;}) && months<600) {
-    months++;
-    bal.forEach(function(c){ if(c.remaining>0){var i=c.remaining*(c.apr/100/12);totalInterest+=i;c.remaining+=i;} });
-    var active=bal.filter(function(c){return c.remaining>0.01;});
-    var ord;
-    if(strategy==="avalanche") ord=active.slice().sort(function(a,b){return b.apr-a.apr;});
-    else if(strategy==="snowball") ord=active.slice().sort(function(a,b){return a.remaining-b.remaining;});
-    else ord=active.slice().sort(function(a,b){
-      if(a.remaining<500&&b.remaining>=500)return -1;
-      if(b.remaining<500&&a.remaining>=500)return 1;
-      return b.apr-a.apr;
-    });
-    var e2=ex;
-    ord.forEach(function(c,i){
-      var min=Math.min(c.minPayment||Math.max(25,c.remaining*0.02),c.remaining);
-      var pay=min+(i===0?e2:0);
-      if(pay>c.remaining){e2=pay-c.remaining;pay=c.remaining;}else e2=0;
-      c.remaining=Math.max(0,c.remaining-pay);
-      if(c.remaining<=0.01&&!c.paidMonth)c.paidMonth=months;
-    });
-  }
-  var byCard={};
-  bal.forEach(function(c){byCard[c.id]=c.paidMonth||months;});
-  return {months:months,totalInterest:totalInterest,byCard:byCard};
+var byCard={};
+bal.forEach(function(c){byCard[c.id]=c.paidMonth||months;});
+return{months:months,totalInterest:totalInterest,byCard:byCard};
 }
-
-function getResults() {
-  var v=cards.filter(function(c){return c.balance>0;});
-  if(!v.length) return null;
-  var av=calcPayoff(v,"avalanche",extraPayment);
-  var sb=calcPayoff(v,"snowball",extraPayment);
-  var hy=calcPayoff(v,"hybrid",extraPayment);
-  var ranked=[{r:av,id:"avalanche"},{r:sb,id:"snowball"},{r:hy,id:"hybrid"}];
-  ranked.sort(function(a,b){return a.r.totalInterest-b.r.totalInterest;});
-  return {avalanche:av,snowball:sb,hybrid:hy,recommended:ranked[0].id};
+function getResults(){
+var v=cards.filter(function(c){return c.balance>0;});
+if(!v.length)return null;
+var av=calcPayoff(v,“avalanche”,extraPayment),sb=calcPayoff(v,“snowball”,extraPayment),hy=calcPayoff(v,“hybrid”,extraPayment);
+var ranked=[{r:av,id:“avalanche”},{r:sb,id:“snowball”},{r:hy,id:“hybrid”}];
+ranked.sort(function(a,b){return a.r.totalInterest-b.r.totalInterest;});
+return{avalanche:av,snowball:sb,hybrid:hy,recommended:ranked[0].id};
 }
-
-function simulateWaterfall(list, strategy, ex) {
-  var bal=list.map(function(c){return {id:c.id,name:c.name,remaining:c.balance,apr:c.apr||0,minPayment:c.minPayment||25};});
-  var months=0;
-  var segments={};
-  bal.forEach(function(c){segments[c.id]=[];});
-
-  while(bal.some(function(c){return c.remaining>0.01;})&&months<600){
-    months++;
-    bal.forEach(function(c){if(c.remaining>0)c.remaining+=c.remaining*(c.apr/100/12);});
-    var active=bal.filter(function(c){return c.remaining>0.01;});
-    var ord;
-    if(strategy==="avalanche")ord=active.slice().sort(function(a,b){return b.apr-a.apr;});
-    else if(strategy==="snowball")ord=active.slice().sort(function(a,b){return a.remaining-b.remaining;});
-    else ord=active.slice().sort(function(a,b){
-      if(a.remaining<500&&b.remaining>=500)return -1;
-      if(b.remaining<500&&a.remaining>=500)return 1;
-      return b.apr-a.apr;
-    });
-    var freed=bal.reduce(function(s,c){return s+(c.remaining<=0.01?c.minPayment:0);},0);
-    var newPay={};
-    bal.forEach(function(c){newPay[c.id]=c.remaining>0.01?c.minPayment:0;});
-    if(ord.length)newPay[ord[0].id]+=ex+freed;
-
-    bal.forEach(function(c){
-      if(c.remaining<=0.01)return;
-      var pay=Math.min(newPay[c.id]||c.minPayment,c.remaining);
-      var segs=segments[c.id];
-      var rounded=Math.round(pay);
-      if(!segs.length||segs[segs.length-1].payment!==rounded){
-        if(segs.length)segs[segs.length-1].end=months-1;
-        segs.push({start:months,end:null,payment:rounded});
-      }
-      c.remaining=Math.max(0,c.remaining-pay);
-      if(c.remaining<=0.01)segs[segs.length-1].end=months;
-    });
-  }
-  bal.forEach(function(c){var segs=segments[c.id];if(segs.length&&segs[segs.length-1].end===null)segs[segs.length-1].end=months;});
-  return {segments:segments,totalMonths:months};
+function simulateWaterfall(list,strategy,ex){
+var bal=list.map(function(c){return{id:c.id,name:c.name,remaining:c.balance,apr:c.apr||0,minPayment:c.minPayment||25};});
+var months=0,segments={};
+bal.forEach(function(c){segments[c.id]=[];});
+while(bal.some(function(c){return c.remaining>0.01;})&&months<600){
+months++;
+bal.forEach(function(c){if(c.remaining>0)c.remaining+=c.remaining*(c.apr/100/12);});
+var active=bal.filter(function(c){return c.remaining>0.01;});
+var ord;
+if(strategy===“avalanche”)ord=active.slice().sort(function(a,b){return b.apr-a.apr;});
+else if(strategy===“snowball”)ord=active.slice().sort(function(a,b){return a.remaining-b.remaining;});
+else ord=active.slice().sort(function(a,b){if(a.remaining<500&&b.remaining>=500)return -1;if(b.remaining<500&&a.remaining>=500)return 1;return b.apr-a.apr;});
+var freed=bal.reduce(function(s,c){return s+(c.remaining<=0.01?c.minPayment:0);},0);
+var newPay={};
+bal.forEach(function(c){newPay[c.id]=c.remaining>0.01?c.minPayment:0;});
+if(ord.length)newPay[ord[0].id]+=ex+freed;
+bal.forEach(function(c){
+if(c.remaining<=0.01)return;
+var pay=Math.min(newPay[c.id]||c.minPayment,c.remaining);
+var segs=segments[c.id],rounded=Math.round(pay);
+if(!segs.length||segs[segs.length-1].payment!==rounded){if(segs.length)segs[segs.length-1].end=months-1;segs.push({start:months,end:null,payment:rounded});}
+c.remaining=Math.max(0,c.remaining-pay);
+if(c.remaining<=0.01)segs[segs.length-1].end=months;
+});
 }
-
-// ── FORMATTERS ─────────────────────────────────────────────────────────────
-function fmt(n){return n.toLocaleString("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0});}
-function fmtM(m){return m>=12?Math.floor(m/12)+"y "+m%12+"m":m+"mo";}
-
-// ── MASTER RENDER ──────────────────────────────────────────────────────────
-function renderAll(){
-  renderSummary();
-  renderCardList();
-  renderPaymentBox();
-  if(currentTab==="compare")renderCompare();
-  if(currentTab==="allocator")renderAllocator();
-  if(currentTab==="utilization")renderUtil();
+bal.forEach(function(c){var segs=segments[c.id];if(segs.length&&segs[segs.length-1].end===null)segs[segs.length-1].end=months;});
+return{segments:segments,totalMonths:months};
 }
 
 // ── TABS ───────────────────────────────────────────────────────────────────
 function showTab(id){
-  currentTab=id;
-  ["cards","compare","allocator","utilization"].forEach(function(t){
-    document.getElementById("tab-"+t).style.display=(t===id)?"block":"none";
-  });
-  document.querySelectorAll(".nav-tab").forEach(function(btn,i){
-    btn.classList.toggle("active",["cards","compare","allocator","utilization"][i]===id);
-  });
-  if(id==="compare")renderCompare();
-  if(id==="allocator")renderAllocator();
-  if(id==="utilization")renderUtil();
+currentTab=id;
+[“cards”,“compare”,“allocator”,“utilization”,“history”].forEach(function(t){document.getElementById(“tab-”+t).style.display=(t===id)?“block”:“none”;});
+document.querySelectorAll(”.nav-tab”).forEach(function(btn,i){btn.classList.toggle(“active”,[“cards”,“compare”,“allocator”,“utilization”,“history”][i]===id);});
+if(id===“compare”)renderCompare();
+if(id===“allocator”)renderAllocator();
+if(id===“utilization”)renderUtil();
+if(id===“history”)renderHistory();
+}
+function renderAll(){
+renderSummary();renderCardList();renderPaymentBox();
+if(currentTab===“compare”)renderCompare();
+if(currentTab===“allocator”)renderAllocator();
+if(currentTab===“utilization”)renderUtil();
+if(currentTab===“history”)renderHistory();
+}
+
+// ── TOAST ──────────────────────────────────────────────────────────────────
+function showToast(msg){
+var t=document.getElementById(“toast”);
+t.textContent=msg;t.classList.add(“show”);
+clearTimeout(showToast._t);
+showToast._t=setTimeout(function(){t.classList.remove(“show”);},1600);
 }
 
 // ── CARDS TAB ──────────────────────────────────────────────────────────────
-function onExtraChange(){
-  extraPayment=parseFloat(document.getElementById("extra").value)||0;
-  persist();
-  renderAll();
-}
-
+function onExtraChange(){extraPayment=parseFloat(document.getElementById(“extra”).value)||0;persist();renderAll();}
 function renderPaymentBox(){
-  var totalMin=totalMinPayments();
-  var total=totalMin+extraPayment;
-  document.getElementById("payment-breakdown").innerHTML=
-    '<div class="payment-row">'+
-      '<span class="payment-row-label">Total minimum payments</span>'+
-      '<span class="payment-row-val red">'+fmt(totalMin)+'</span>'+
-    '</div>'+
-    '<div class="payment-row">'+
-      '<span class="payment-row-label">Extra toward debt</span>'+
-      '<span class="payment-row-val purple">'+fmt(extraPayment)+'</span>'+
-    '</div>'+
-    '<div class="payment-row">'+
-      '<span class="payment-row-label">Total monthly payment</span>'+
-      '<span class="payment-row-val green">'+fmt(total)+'</span>'+
-    '</div>';
+var totalMin=totalMinPayments(),total=totalMin+extraPayment;
+document.getElementById(“payment-breakdown”).innerHTML=
+‘<div class="payment-row"><span class="payment-row-label">Total minimum payments</span><span class="payment-row-val red">’+fmt(totalMin)+’</span></div>’+
+‘<div class="payment-row"><span class="payment-row-label">Extra toward debt</span><span class="payment-row-val purple">’+fmt(extraPayment)+’</span></div>’+
+‘<div class="payment-row"><span class="payment-row-label">Total monthly payment</span><span class="payment-row-val green">’+fmt(total)+’</span></div>’;
 }
-
 function renderSummary(){
-  var td=cards.reduce(function(s,c){return s+c.balance;},0);
-  var tl=cards.reduce(function(s,c){return s+c.limit;},0);
-  var util=tl>0?(td/tl*100).toFixed(1):0;
-  var el=document.getElementById("summary-grid");
-  if(!td){el.style.display="none";return;}
-  el.style.display="grid";
-  el.innerHTML=[
-    {label:"Total Debt",  value:fmt(td),  color:"#FF6B6B"},
-    {label:"Credit Limit",value:fmt(tl),  color:"#4DABF7"},
-    {label:"Utilization", value:util+"%", color:util>30?"#FFA94D":"#69DB7C"}
-  ].map(function(s){
-    return '<div class="sum-card"><div class="sum-label">'+s.label+'</div><div class="sum-val" style="color:'+s.color+'">'+s.value+'</div></div>';
-  }).join("");
+var td=cards.reduce(function(s,c){return s+c.balance;},0),tl=cards.reduce(function(s,c){return s+c.limit;},0);
+var util=tl>0?(td/tl*100).toFixed(1):0;
+var el=document.getElementById(“summary-grid”);
+if(!td){el.style.display=“none”;return;}
+el.style.display=“grid”;
+el.innerHTML=[{label:“Total Debt”,value:fmt(td),color:”#FF6B6B”},{label:“Credit Limit”,value:fmt(tl),color:”#4DABF7”},{label:“Utilization”,value:util+”%”,color:util>30?”#FFA94D”:”#69DB7C”}]
+.map(function(s){return ‘<div class="sum-card"><div class="sum-label">’+s.label+’</div><div class="sum-val" style="color:'+s.color+'">’+s.value+’</div></div>’;}).join(””);
 }
-
 function renderCardList(){
-  document.getElementById("card-list").innerHTML=cards.map(function(card,i){
-    var color=COLORS[i%COLORS.length];
-    var util=card.limit>0?(card.balance/card.limit*100):0;
-    if(editingId===card.id){
-      return '<div class="card-box editing" style="--accent:'+color+'">'+
-        '<div class="edit-grid">'+
-          '<div class="edit-full"><label class="field-label">Card Name</label><input class="field-input" id="ef-name" value="'+card.name+'"/></div>'+
-          '<div><label class="field-label">Balance ($)</label><input class="field-input" type="number" inputmode="decimal" id="ef-balance" value="'+card.balance+'"/></div>'+
-          '<div><label class="field-label">Limit ($)</label><input class="field-input" type="number" inputmode="decimal" id="ef-limit" value="'+card.limit+'"/></div>'+
-          '<div><label class="field-label">APR (%)</label><input class="field-input" type="number" inputmode="decimal" id="ef-apr" value="'+card.apr+'"/></div>'+
-          '<div><label class="field-label">Min Pay ($)</label><input class="field-input" type="number" inputmode="decimal" id="ef-min" value="'+card.minPayment+'"/></div>'+
-        '</div>'+
-        '<div class="edit-actions">'+
-          '<button class="btn-save" onclick="saveEdit('+card.id+')">Save</button>'+
-          '<button class="btn-cancel" onclick="cancelEdit()">Cancel</button>'+
-        '</div></div>';
-    }
-    return '<div class="card-box" style="--accent:'+color+'">'+
-      '<div class="row">'+
-        '<div class="card-name">'+card.name+'</div>'+
-        '<div class="btn-row">'+
-          '<button class="btn-sm" onclick="startEdit('+card.id+')">Edit</button>'+
-          '<button class="btn-sm del" onclick="removeCard('+card.id+')">✕</button>'+
-        '</div>'+
-      '</div>'+
-      '<div class="stats-row">'+
-        '<div><div class="stat-label">Balance</div><div class="stat-val red">'+fmt(card.balance)+'</div></div>'+
-        '<div><div class="stat-label">APR</div><div class="stat-val">'+card.apr+'%</div></div>'+
-        '<div><div class="stat-label">Min Pay</div><div class="stat-val">'+fmt(card.minPayment)+'</div></div>'+
-      '</div>'+
-      '<div class="util-bar"><div class="util-fill" style="width:'+Math.min(util,100)+'%"></div></div>'+
-      '<div class="util-txt">'+util.toFixed(0)+'% utilized</div>'+
-    '</div>';
-  }).join("");
+document.getElementById(“card-list”).innerHTML=cards.map(function(card,i){
+var color=COLORS[i%COLORS.length],util=card.limit>0?(card.balance/card.limit*100):0;
+if(editingId===card.id)return’<div class="card-box editing" style="--accent:'+color+'"><div class="edit-grid"><div class="edit-full"><label class="field-label">Card Name</label><input class="field-input" id="ef-name" value="'+card.name+'"/></div><div><label class="field-label">Balance ($)</label><input class="field-input" type="number" inputmode="decimal" id="ef-balance" value="'+card.balance+'"/></div><div><label class="field-label">Limit ($)</label><input class="field-input" type="number" inputmode="decimal" id="ef-limit" value="'+card.limit+'"/></div><div><label class="field-label">APR (%)</label><input class="field-input" type="number" inputmode="decimal" id="ef-apr" value="'+card.apr+'"/></div><div><label class="field-label">Min Pay ($)</label><input class="field-input" type="number" inputmode="decimal" id="ef-min" value="'+card.minPayment+'"/></div></div><div class="edit-actions"><button class="btn-save" onclick="saveEdit('+card.id+')">Save</button><button class="btn-cancel" onclick="cancelEdit()">Cancel</button></div></div>’;
+return’<div class="card-box" style="--accent:'+color+'"><div class="row"><div class="card-name">’+card.name+’</div><div class="btn-row"><button class="btn-sm" onclick="startEdit('+card.id+')">Edit</button><button class="btn-sm del" onclick="removeCard('+card.id+')">✕</button></div></div><div class="stats-row"><div><div class="stat-label">Balance</div><div class="stat-val red">’+fmt(card.balance)+’</div></div><div><div class="stat-label">APR</div><div class="stat-val">’+card.apr+’%</div></div><div><div class="stat-label">Min Pay</div><div class="stat-val">’+fmt(card.minPayment)+’</div></div></div><div class="util-bar"><div class="util-fill" style="width:'+Math.min(util,100)+'%"></div></div><div class="util-txt">’+util.toFixed(0)+’% utilized</div></div>’;
+}).join(””);
 }
-
-function addCard(){var id=Date.now();cards.push({id:id,name:"New Card",balance:0,limit:0,apr:0,minPayment:25});editingId=id;persist();renderAll();}
+function addCard(){var id=Date.now();cards.push({id:id,name:“New Card”,balance:0,limit:0,apr:0,minPayment:25});editingId=id;persist();renderAll();}
 function removeCard(id){cards=cards.filter(function(c){return c.id!==id;});if(editingId===id)editingId=null;persist();renderAll();}
 function startEdit(id){editingId=id;renderCardList();}
 function cancelEdit(){editingId=null;renderCardList();}
 function saveEdit(id){
-  cards=cards.map(function(c){
-    if(c.id!==id)return c;
-    return {id:c.id,name:document.getElementById("ef-name").value,balance:parseFloat(document.getElementById("ef-balance").value)||0,limit:parseFloat(document.getElementById("ef-limit").value)||0,apr:parseFloat(document.getElementById("ef-apr").value)||0,minPayment:parseFloat(document.getElementById("ef-min").value)||25};
-  });
-  editingId=null;persist();renderAll();
+cards=cards.map(function(c){if(c.id!==id)return c;return{id:c.id,name:document.getElementById(“ef-name”).value,balance:parseFloat(document.getElementById(“ef-balance”).value)||0,limit:parseFloat(document.getElementById(“ef-limit”).value)||0,apr:parseFloat(document.getElementById(“ef-apr”).value)||0,minPayment:parseFloat(document.getElementById(“ef-min”).value)||25};});
+editingId=null;persist();renderAll();
 }
 
 // ── COMPARE ────────────────────────────────────────────────────────────────
-function buildGantt(list, strategy, ex, strat) {
-  if(!list.length)return "";
-  var sim=simulateWaterfall(list,strategy,ex);
-  var totalM=sim.totalMonths;
-  var segs=sim.segments;
-  var R=getResults();
-  var totalInterest=R[strategy].totalInterest;
-  var color=STRAT_COLORS[strategy];
-
-  var step=totalM<=24?3:totalM<=60?6:12;
-  var axisLabels="";
-  for(var m=0;m<=totalM;m+=step){
-    var pct=(m/totalM*100).toFixed(1);
-    var lbl=m===0?"Now":(m>=12&&m%12===0?"Yr "+(m/12):m+"mo");
-    axisLabels+='<div style="position:absolute;left:'+pct+'%;transform:translateX(-50%);font-size:9px;color:#5a5270;white-space:nowrap;">'+lbl+'</div>';
-  }
-
-  var rows=list.map(function(card,i){
-    var cardColor=COLORS[i%COLORS.length];
-    var cardSegs=segs[card.id]||[];
-    var bars=cardSegs.map(function(seg){
-      var left=(seg.start-1)/totalM*100;
-      var width=(seg.end-seg.start+1)/totalM*100;
-      var isActive=seg.payment>(card.minPayment+1);
-      var bg=isActive?cardColor:cardColor+"44";
-      var isLast=seg===cardSegs[cardSegs.length-1];
-      return '<div style="position:absolute;left:'+left.toFixed(2)+'%;width:'+width.toFixed(2)+'%;height:100%;background:'+bg+';border-radius:4px;display:flex;align-items:center;justify-content:center;overflow:hidden;">'+
-        '<span style="font-size:9px;color:#fff;white-space:nowrap;padding:0 3px;font-weight:'+(isActive?"600":"400")+'">'+(width>10?fmt(seg.payment)+'/mo':'')+'</span>'+
-        (isLast?'<div style="position:absolute;right:0;top:0;bottom:0;width:2px;background:#fff;opacity:0.6;border-radius:1px;"></div>':'')+
-      '</div>';
-    }).join("");
-    var payoffM=cardSegs.length?cardSegs[cardSegs.length-1].end:totalM;
-    var payoffPct=(payoffM/totalM*100).toFixed(1);
-    var payoffLbl=payoffM>=12?(payoffM/12).toFixed(1)+"y":payoffM+"mo";
-    return '<div style="margin-bottom:14px;">'+
-      '<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;">'+
-        '<span style="font-size:12px;font-weight:500;color:'+cardColor+'">'+card.name+'</span>'+
-        '<span style="font-size:10px;color:#5a5270;">Paid off: <strong style="color:'+cardColor+'">'+payoffLbl+'</strong></span>'+
-      '</div>'+
-      '<div style="position:relative;height:28px;background:#1e1e2e;border-radius:4px;overflow:visible;">'+bars+
-        '<div style="position:absolute;left:'+payoffPct+'%;top:-4px;width:2px;height:36px;background:'+cardColor+';opacity:0.4;"></div>'+
-      '</div>'+
-    '</div>';
-  }).join("");
-
-  var isRec=R.recommended===strategy;
-  return '<div class="strat-card'+(isRec?" recommended":"")+'" style="margin-bottom:20px;">'+(isRec?'<div class="rec-badge">⭐ Recommended</div>':"")+
-    '<div class="strat-header">'+
-      '<div>'+
-        '<div class="strat-name">'+strat.icon+' '+strat.name+'</div>'+
-        '<div style="font-size:12px;color:#5a5270;margin-top:2px;">'+fmtM(totalM)+' total · '+fmt(totalInterest)+' interest</div>'+
-      '</div>'+
-    '</div>'+
-    '<div class="strat-tagline">'+strat.tagline+'</div>'+
-    '<div class="strat-desc">'+strat.desc+'</div>'+
-    '<div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap;">'+
-      '<div style="display:flex;align-items:center;gap:5px;font-size:11px;color:#a09ab8;"><div style="width:12px;height:8px;border-radius:2px;background:'+color+'"></div>Active payoff</div>'+
-      '<div style="display:flex;align-items:center;gap:5px;font-size:11px;color:#a09ab8;"><div style="width:12px;height:8px;border-radius:2px;background:'+color+'44"></div>Minimum only</div>'+
-    '</div>'+
-    '<div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">'+
-      '<div style="min-width:min-content;padding-top:4px;">'+rows+'</div>'+
-      '<div style="position:relative;height:18px;margin-top:4px;">'+axisLabels+'</div>'+
-    '</div>'+
-    '<button class="btn-learn" onclick="openModal(\''+strategy+'\')">📖 Understand This Method →</button>'+
-  '</div>';
+function buildGantt(list,strategy,ex,strat){
+if(!list.length)return””;
+var sim=simulateWaterfall(list,strategy,ex);
+var totalM=sim.totalMonths,segs=sim.segments;
+var R=getResults(),totalInterest=R[strategy].totalInterest,color=STRAT_COLORS[strategy];
+var step=totalM<=24?3:totalM<=60?6:12,axisLabels=””;
+for(var m=0;m<=totalM;m+=step){var pct=(m/totalM*100).toFixed(1),lbl=m===0?“Now”:(m>=12&&m%12===0?“Yr “+(m/12):m+“mo”);axisLabels+=’<div style="position:absolute;left:'+pct+'%;transform:translateX(-50%);font-size:9px;color:#5a5270;white-space:nowrap;">’+lbl+’</div>’;}
+var rows=list.map(function(card,i){
+var cardColor=COLORS[i%COLORS.length],cardSegs=segs[card.id]||[];
+var bars=cardSegs.map(function(seg){
+var left=(seg.start-1)/totalM*100,width=(seg.end-seg.start+1)/totalM*100,isActive=seg.payment>(card.minPayment+1),bg=isActive?cardColor:cardColor+“44”,isLast=seg===cardSegs[cardSegs.length-1];
+return’<div style="position:absolute;left:'+left.toFixed(2)+'%;width:'+width.toFixed(2)+'%;height:100%;background:'+bg+';border-radius:4px;display:flex;align-items:center;justify-content:center;overflow:hidden;"><span style=“font-size:9px;color:#fff;white-space:nowrap;padding:0 3px;font-weight:’+(isActive?“600”:“400”)+’”>’+(width>10?fmt(seg.payment)+’/mo’:’’)+’</span>’+(isLast?’<div style="position:absolute;right:0;top:0;bottom:0;width:2px;background:#fff;opacity:0.6;border-radius:1px;"></div>’:’’)+’ </div>’;
+}).join(””);
+var payoffM=cardSegs.length?cardSegs[cardSegs.length-1].end:totalM,payoffPct=(payoffM/totalM*100).toFixed(1),payoffLbl=payoffM>=12?(payoffM/12).toFixed(1)+“y”:payoffM+“mo”;
+return’<div style="margin-bottom:14px;"><div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;"><span style="font-size:12px;font-weight:500;color:'+cardColor+'">’+card.name+’</span><span style="font-size:10px;color:#5a5270;">Paid off: <strong style="color:'+cardColor+'">’+payoffLbl+’</strong></span></div><div style="position:relative;height:28px;background:#1e1e2e;border-radius:4px;overflow:visible;">’+bars+’<div style="position:absolute;left:'+payoffPct+'%;top:-4px;width:2px;height:36px;background:'+cardColor+';opacity:0.4;"></div></div></div>’;
+}).join(””);
+var isRec=R.recommended===strategy;
+return’<div class=“strat-card’+(isRec?” recommended”:””)+’” style=“margin-bottom:20px;”>’+(isRec?’<div class="rec-badge">⭐ Recommended</div>’:””)+
+‘<div class="strat-header"><div><div class="strat-name">’+strat.icon+’ ‘+strat.name+’</div><div style="font-size:12px;color:#5a5270;margin-top:2px;">’+fmtM(totalM)+’ total · ‘+fmt(totalInterest)+’ interest</div></div></div>’+
+‘<div class="strat-tagline">’+strat.tagline+’</div>’+
+‘<div class="strat-desc">’+strat.desc+’</div>’+
+‘<div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap;"><div style="display:flex;align-items:center;gap:5px;font-size:11px;color:#a09ab8;"><div style="width:12px;height:8px;border-radius:2px;background:'+color+'"></div>Active payoff</div><div style="display:flex;align-items:center;gap:5px;font-size:11px;color:#a09ab8;"><div style="width:12px;height:8px;border-radius:2px;background:'+color+'44"></div>Minimum only</div></div>’+
+‘<div style="overflow-x:auto;-webkit-overflow-scrolling:touch;"><div style="min-width:min-content;padding-top:4px;">’+rows+’</div><div style="position:relative;height:18px;margin-top:4px;">’+axisLabels+’</div></div>’+
+‘<button class="btn-learn" onclick="openModal(\''+strategy+'\')">📖 Understand This Method →</button>’+
+‘</div>’;
 }
-
 function renderCompare(){
-  var el=document.getElementById("compare-content");
-  var v=cards.filter(function(c){return c.balance>0;});
-  if(!v.length){
-    el.innerHTML='<div class="empty"><div class="empty-icon">📊</div><div class="empty-text">Add cards with a balance in the Cards tab</div></div>';
-    return;
-  }
-  var R=getResults();
-  var ex=extraPayment;
-  var charts=
-    buildGantt(v,"avalanche",ex,STRATS[0])+
-    buildGantt(v,"snowball",ex,STRATS[1])+
-    buildGantt(v,"hybrid",ex,STRATS[2]);
-
-  var rec=R.recommended;
-  var r=R[rec];
-  var s=STRATS.filter(function(x){return x.id===rec;})[0];
-  var iDiff=Math.abs(R.avalanche.totalInterest-R.snowball.totalInterest);
-  var mDiff=Math.abs(R.avalanche.months-R.snowball.months);
-
-  el.innerHTML=charts+
-    '<div class="rec-box">'+
-      '<div class="rec-title">Our Recommendation</div>'+
-      '<div class="rec-headline">'+s.icon+' <strong>'+s.name+'</strong> — '+fmtM(r.months)+' to pay off · '+fmt(r.totalInterest)+' total interest</div>'+
-      '<div class="rec-body">'+s.tagline+' Tap "Understand This Method" above to see exactly what this means for each of your cards before committing.</div>'+
-      (iDiff>0?'<div class="rec-footer">Avalanche vs Snowball: '+fmt(iDiff)+' interest difference · '+mDiff+'mo</div>':"")+
-    '</div>';
+var el=document.getElementById(“compare-content”),v=cards.filter(function(c){return c.balance>0;});
+if(!v.length){el.innerHTML=’<div class="empty"><div class="empty-icon">📊</div><div class="empty-text">Add cards with a balance in the Cards tab</div></div>’;return;}
+var R=getResults();
+var charts=buildGantt(v,“avalanche”,extraPayment,STRATS[0])+buildGantt(v,“snowball”,extraPayment,STRATS[1])+buildGantt(v,“hybrid”,extraPayment,STRATS[2]);
+var rec=R.recommended,r=R[rec],s=STRATS.filter(function(x){return x.id===rec;})[0];
+var iDiff=Math.abs(R.avalanche.totalInterest-R.snowball.totalInterest),mDiff=Math.abs(R.avalanche.months-R.snowball.months);
+el.innerHTML=charts+’<div class="rec-box"><div class="rec-title">Our Recommendation</div><div class="rec-headline">’+s.icon+’ <strong>’+s.name+’</strong> — ‘+fmtM(r.months)+’ to pay off · ‘+fmt(r.totalInterest)+’ total interest</div><div class="rec-body">’+s.tagline+’ Tap “Understand This Method” above to see exactly what this means for each of your cards before committing.</div>’+(iDiff>0?’<div class="rec-footer">Avalanche vs Snowball: ‘+fmt(iDiff)+’ interest difference · ‘+mDiff+‘mo</div>’:””)+’ </div>’;
 }
 
 // ── MODAL ──────────────────────────────────────────────────────────────────
 function openModal(stratId){
-  var strat=STRATS.filter(function(s){return s.id===stratId;})[0];
-  var v=cards.filter(function(c){return c.balance>0;});
-  var R=getResults();
-  var r=R[stratId];
-  var color=STRAT_COLORS[stratId];
-
-  // Build per-card explanation
-  var ordered;
-  if(stratId==="avalanche")ordered=v.slice().sort(function(a,b){return b.apr-a.apr;});
-  else if(stratId==="snowball")ordered=v.slice().sort(function(a,b){return a.balance-b.balance;});
-  else ordered=v.slice().sort(function(a,b){
-    if(a.balance<500&&b.balance>=500)return -1;
-    if(b.balance<500&&a.balance>=500)return 1;
-    return b.apr-a.apr;
-  });
-
-  var totalMin=totalMinPayments();
-  var cardRows=ordered.map(function(card,i){
-    var idx=cards.findIndex(function(c){return c.id===card.id;});
-    var cardColor=COLORS[idx%COLORS.length];
-    var payoffM=r.byCard[card.id]||0;
-    var payoffLbl=payoffM>=12?(payoffM/12).toFixed(1)+"y":payoffM+"mo";
-    var role=i===0?"Gets your extra $"+extraPayment+" on top of minimum":"Pays minimum only until a card above it is paid off, then receives the freed-up payment";
-    return '<div class="modal-card-row" style="--accent:'+cardColor+'">'+
-      '<div class="modal-card-name">'+card.name+'</div>'+
-      '<div class="modal-card-detail">'+
-        '<strong>Balance:</strong> '+fmt(card.balance)+' · <strong>APR:</strong> '+card.apr+'% · <strong>Min:</strong> '+fmt(card.minPayment)+'<br/>'+
-        '<strong>Priority:</strong> #'+(i+1)+' — '+role+'<br/>'+
-        '<strong>Paid off:</strong> '+payoffLbl+
-      '</div>'+
-    '</div>';
-  }).join("");
-
-  var waterfallNote=ordered.length>1?
-    '<div class="highlight-box"><p>'+
-      '💧 <strong>The waterfall in action:</strong> When <strong>'+ordered[0].name+'</strong> is paid off in '+
-      (r.byCard[ordered[0].id]>=12?(r.byCard[ordered[0].id]/12).toFixed(1)+"y":r.byCard[ordered[0].id]+"mo")+
-      ', its full payment — minimums plus your extra — automatically rolls to <strong>'+(ordered[1]?ordered[1].name:"the next card")+'</strong>. '+
-      'You never need to recalculate. Just keep paying the same total each month.</p>'+
-    '</div>':"";
-
-  document.getElementById("modal-content").innerHTML=
-    '<div class="modal-header">'+
-      '<div>'+
-        '<div style="font-size:11px;letter-spacing:3px;color:'+color+';text-transform:uppercase;margin-bottom:4px;">Strategy Deep Dive</div>'+
-        '<div class="modal-title">'+strat.icon+' '+strat.name+'</div>'+
-      '</div>'+
-      '<button class="modal-close" onclick="closeModal()">✕</button>'+
-    '</div>'+
-
-    '<div class="modal-section">'+
-      '<div class="modal-section-title">What is it?</div>'+
-      '<div class="modal-body"><p>'+strat.desc+'</p></div>'+
-    '</div>'+
-
-    '<div class="modal-section">'+
-      '<div class="modal-section-title">Why choose this?</div>'+
-      '<div class="modal-body"><p>'+strat.why+'</p></div>'+
-    '</div>'+
-
-    '<div class="modal-section">'+
-      '<div class="modal-section-title">What to watch out for</div>'+
-      '<div class="modal-body"><p>'+strat.risk+'</p></div>'+
-    '</div>'+
-
-    '<div class="modal-section">'+
-      '<div class="modal-section-title">How it plays out with your cards</div>'+
-      '<div class="modal-body">'+
-        '<p>Every month you pay <strong>'+fmt(totalMin)+'</strong> in minimums across all cards, plus your extra <strong>'+fmt(extraPayment)+'</strong> — a total of <strong>'+fmt(totalMin+extraPayment)+'</strong>. Here\'s the order this method uses:</p>'+
-      '</div>'+
-      '<div class="modal-card-breakdown">'+cardRows+'</div>'+
-      waterfallNote+
-    '</div>'+
-
-    '<div class="modal-section">'+
-      '<div class="modal-section-title">By the numbers</div>'+
-      '<div class="modal-body">'+
-        '<p>Using the '+strat.name+' method you\'ll be completely debt free in <strong>'+fmtM(r.months)+'</strong>, paying a total of <strong>'+fmt(r.totalInterest)+'</strong> in interest on top of your current balances.</p>'+
-      '</div>'+
-    '</div>';
-
-  document.getElementById("modal-overlay").classList.add("open");
-  document.body.style.overflow="hidden";
+var strat=STRATS.filter(function(s){return s.id===stratId;})[0],v=cards.filter(function(c){return c.balance>0;});
+var R=getResults(),r=R[stratId],color=STRAT_COLORS[stratId];
+var ordered;
+if(stratId===“avalanche”)ordered=v.slice().sort(function(a,b){return b.apr-a.apr;});
+else if(stratId===“snowball”)ordered=v.slice().sort(function(a,b){return a.balance-b.balance;});
+else ordered=v.slice().sort(function(a,b){if(a.balance<500&&b.balance>=500)return -1;if(b.balance<500&&a.balance>=500)return 1;return b.apr-a.apr;});
+var totalMin=totalMinPayments();
+var cardRows=ordered.map(function(card,i){
+var idx=cards.findIndex(function(c){return c.id===card.id;}),cardColor=COLORS[idx%COLORS.length];
+var payoffM=r.byCard[card.id]||0,payoffLbl=payoffM>=12?(payoffM/12).toFixed(1)+“y”:payoffM+“mo”;
+var role=i===0?“Gets your extra $”+extraPayment+” on top of minimum”:“Pays minimum only until a higher-priority card is paid off, then receives the freed payment”;
+return’<div class="modal-card-row" style="--accent:'+cardColor+'"><div class="modal-card-name">’+card.name+’</div><div class="modal-card-detail"><strong>Balance:</strong> ‘+fmt(card.balance)+’ · <strong>APR:</strong> ‘+card.apr+’% · <strong>Min:</strong> ‘+fmt(card.minPayment)+’<br/><strong>Priority:</strong> #’+(i+1)+’ — ‘+role+’<br/><strong>Paid off:</strong> ‘+payoffLbl+’</div></div>’;
+}).join(””);
+var waterfallNote=ordered.length>1?’<div class="highlight-box"><p>💧 <strong>The waterfall:</strong> When <strong>’+ordered[0].name+’</strong> is paid off, its full payment rolls automatically to <strong>’+(ordered[1]?ordered[1].name:“the next card”)+’</strong>. You never need to recalculate — just keep paying the same total each month.</p></div>’:””;
+document.getElementById(“modal-content”).innerHTML=
+‘<div class="modal-header"><div><div style="font-size:11px;letter-spacing:3px;color:'+color+';text-transform:uppercase;margin-bottom:4px;">Strategy Deep Dive</div><div class="modal-title">’+strat.icon+’ ‘+strat.name+’</div></div><button class="modal-close" onclick="closeModal()">✕</button></div>’+
+‘<div class="modal-section"><div class="modal-section-title">What is it?</div><div class="modal-body"><p>’+strat.desc+’</p></div></div>’+
+‘<div class="modal-section"><div class="modal-section-title">Why choose this?</div><div class="modal-body"><p>’+strat.why+’</p></div></div>’+
+‘<div class="modal-section"><div class="modal-section-title">What to watch out for</div><div class="modal-body"><p>’+strat.risk+’</p></div></div>’+
+‘<div class="modal-section"><div class="modal-section-title">How it plays out with your cards</div><div class="modal-body"><p>Every month you pay <strong>’+fmt(totalMin)+’</strong> in minimums plus your extra <strong>’+fmt(extraPayment)+’</strong> — a total of <strong>’+fmt(totalMin+extraPayment)+’</strong>. Priority order:</p></div><div class="modal-card-breakdown">’+cardRows+’</div>’+waterfallNote+’</div>’+
+‘<div class="modal-section"><div class="modal-section-title">By the numbers</div><div class="modal-body"><p>Using ‘+strat.name+’ you'll be debt free in <strong>’+fmtM(r.months)+’</strong>, paying <strong>’+fmt(r.totalInterest)+’</strong> in total interest.</p></div></div>’;
+document.getElementById(“modal-overlay”).classList.add(“open”);
+document.body.style.overflow=“hidden”;
 }
-
 function closeModal(e){
-  if(e&&e.target!==document.getElementById("modal-overlay"))return;
-  document.getElementById("modal-overlay").classList.remove("open");
-  document.body.style.overflow="";
+if(e&&e.target!==document.getElementById(“modal-overlay”))return;
+document.getElementById(“modal-overlay”).classList.remove(“open”);
+document.body.style.overflow=””;
 }
 
 // ── ALLOCATOR ──────────────────────────────────────────────────────────────
-function setGoal(g){
-  allocGoal=g;
-  document.getElementById("goal-payoff").classList.toggle("active",g==="payoff");
-  document.getElementById("goal-date").classList.toggle("active",g==="date");
-  document.getElementById("goal-date-input").style.display=(g==="date")?"block":"none";
-  renderAllocator();
+function interestSavedByAlloc(allocMap){
+var v=cards.filter(function(c){return c.balance>0;});
+var bal=v.map(function(c){var applied=allocMap[c.id]||0;return{id:c.id,remaining:Math.max(0,c.balance-applied),apr:c.apr||0,minPayment:c.minPayment||25};});
+var months=0,totalInterest=0;
+while(bal.some(function(c){return c.remaining>0.01;})&&months<600){months++;bal.forEach(function(c){if(c.remaining>0){var i=c.remaining*(c.apr/100/12);totalInterest+=i;c.remaining+=i;c.remaining=Math.max(0,c.remaining-c.minPayment);}});}
+return{totalInterest:totalInterest,months:months};
 }
-
 function renderAllocator(){
-  var el=document.getElementById("alloc-output");
-  var v=cards.filter(function(c){return c.balance>0;});
-  if(!v.length){el.innerHTML='<div class="empty"><div class="empty-icon">💳</div><div class="empty-text">Add cards with a balance in the Cards tab</div></div>';return;}
-  var budget=parseFloat(document.getElementById("alloc-budget").value)||0;
-  var strategy=document.getElementById("alloc-strat").value;
-  var totalMin=v.reduce(function(s,c){return s+c.minPayment;},0);
-  if(budget<totalMin){el.innerHTML='<div class="warn-box"><div class="warn-title">Budget Too Low</div><div class="warn-body">'+fmt(budget)+' is less than total minimums of '+fmt(totalMin)+'. Increase to at least '+fmt(Math.ceil(totalMin))+'.</div></div>';return;}
-  var targetMonths=null;
-  if(allocGoal==="date"){
-    var dv=document.getElementById("alloc-date").value;
-    if(!dv){el.innerHTML='<div class="empty"><div class="empty-icon">📅</div><div class="empty-text">Pick a target date above</div></div>';return;}
-    var parts=dv.split("-");
-    var now=new Date();
-    targetMonths=(parseInt(parts[0])-now.getFullYear())*12+(parseInt(parts[1])-(now.getMonth()+1));
-    if(targetMonths<1){el.innerHTML='<div class="warn-box"><div class="warn-title">Invalid Date</div><div class="warn-body">Target date must be in the future.</div></div>';return;}
-  }
-  var ordered;
-  if(strategy==="avalanche")ordered=v.slice().sort(function(a,b){return b.apr-a.apr;});
-  else if(strategy==="snowball")ordered=v.slice().sort(function(a,b){return a.balance-b.balance;});
-  else ordered=v.slice().sort(function(a,b){
-    if(a.balance<500&&b.balance>=500)return -1;
-    if(b.balance<500&&a.balance>=500)return 1;
-    return b.apr-a.apr;
-  });
-  var priorityId=ordered[0].id;
-  var allocs=v.map(function(c){return {id:c.id,name:c.name,apr:c.apr||0,balance:c.balance,minPayment:c.minPayment||25,payment:c.id===priorityId?c.minPayment+(budget-totalMin):c.minPayment};});
-  function mtp(balance,apr,payment){var bal=balance,m=0,r=apr/100/12;while(bal>0.01&&m<600){m++;bal=bal*(1+r)-payment;if(bal<0)bal=0;}return bal<=0.01?m:999;}
-  var payoffData=allocs.map(function(a){return {id:a.id,name:a.name,payment:a.payment,minPayment:a.minPayment,months:mtp(a.balance,a.apr,a.payment)};});
-  var totalMonths=payoffData.reduce(function(mx,p){return Math.max(mx,p.months);},0);
-  var goalMet=targetMonths?totalMonths<=targetMonths:true;
-  var topHtml="";
-  if(targetMonths&&!goalMet){var needed=Math.ceil(budget*(totalMonths/targetMonths));topHtml='<div class="warn-box"><div class="warn-title">Goal Not Reachable</div><div class="warn-body">At '+fmt(budget)+'/mo you finish in '+fmtM(totalMonths)+'. You\'d need ~'+fmt(needed)+'/mo to hit your date.</div></div>';}
-  else if(targetMonths&&goalMet){topHtml='<div class="ok-box"><div class="ok-title">Goal Achievable ✓</div><div class="ok-body">At '+fmt(budget)+'/mo you\'ll be debt free in '+fmtM(totalMonths)+', within your target.</div></div>';}
-  var cardsHtml=payoffData.map(function(a){
-    var idx=cards.findIndex(function(c){return c.id===a.id;});
-    var color=COLORS[idx%COLORS.length];
-    var extra=a.payment-a.minPayment;
-    return '<div class="alloc-card" style="--accent:'+color+'">'+
-      '<div class="alloc-card-name">'+a.name+(a.id===priorityId?' <span style="font-size:11px;color:#9f7aea">★ PRIORITY</span>':"")+' </div>'+
-      '<div class="alloc-amount">'+fmt(a.payment)+'<span style="font-size:13px;color:#5a5270">/mo</span></div>'+
-      '<div class="alloc-detail">Min '+fmt(a.minPayment)+(extra>0?" + "+fmt(extra)+" extra":"")+" · "+(a.months<999?fmtM(a.months)+" to payoff":"Increase payment")+'</div>'+
-    '</div>';
-  }).join("");
-  el.innerHTML=topHtml+'<div class="result-cards">'+cardsHtml+'</div>'+
-    '<div class="summary-box">'+
-      '<div class="sum-row"><span>Monthly budget</span><span>'+fmt(budget)+'</span></div>'+
-      '<div class="sum-row"><span>Total minimums</span><span>'+fmt(totalMin)+'</span></div>'+
-      '<div class="sum-row"><span>Extra to priority</span><span>'+fmt(budget-totalMin)+'</span></div>'+
-      '<div class="sum-row"><span>Full payoff</span><span>'+fmtM(totalMonths)+'</span></div>'+
-    '</div>';
+var el=document.getElementById(“alloc-output”),v=cards.filter(function(c){return c.balance>0;});
+if(!v.length){el.innerHTML=’<div class="empty"><div class="empty-icon">💳</div><div class="empty-text">Add cards with a balance in the Cards tab</div></div>’;return;}
+var lump=parseFloat(document.getElementById(“alloc-lump”).value)||0;
+if(lump<=0){el.innerHTML=’<div class="empty"><div class="empty-icon">💵</div><div class="empty-text">Enter an amount above to see your options</div></div>’;return;}
+var baseline=interestSavedByAlloc({});
+// Option 1: Highest APR
+var opt1alloc={},rem1=lump;
+v.slice().sort(function(a,b){return b.apr-a.apr;}).forEach(function(c){if(rem1<=0)return;var a=Math.min(rem1,c.balance);opt1alloc[c.id]=a;rem1-=a;});
+var opt1=interestSavedByAlloc(opt1alloc),opt1saved=baseline.totalInterest-opt1.totalInterest;
+// Option 2: Snowball
+var opt2alloc={},rem2=lump;
+v.slice().sort(function(a,b){return a.balance-b.balance;}).forEach(function(c){if(rem2<=0)return;if(c.balance<=rem2){opt2alloc[c.id]=c.balance;rem2-=c.balance;}else{opt2alloc[c.id]=rem2;rem2=0;}});
+var opt2=interestSavedByAlloc(opt2alloc),opt2saved=baseline.totalInterest-opt2.totalInterest;
+var opt2paid=v.filter(function(c){return(opt2alloc[c.id]||0)>=c.balance;});
+// Option 3: Under 30%
+var opt3alloc={},rem3=lump;
+v.filter(function(c){return c.limit>0&&c.balance>c.limit*0.3;}).slice().sort(function(a,b){return(b.balance/b.limit)-(a.balance/a.limit);}).forEach(function(c){if(rem3<=0)return;var needed=c.balance-(c.limit*0.3),apply=Math.min(needed,rem3);opt3alloc[c.id]=apply;rem3-=apply;});
+if(rem3>0){var lt=v.slice().sort(function(a,b){return b.apr-a.apr;})[0];if(lt)opt3alloc[lt.id]=(opt3alloc[lt.id]||0)+rem3;}
+var opt3=interestSavedByAlloc(opt3alloc),opt3saved=baseline.totalInterest-opt3.totalInterest;
+var opt3under=v.filter(function(c){return c.limit>0&&(c.balance-(opt3alloc[c.id]||0))<=c.limit*0.3;});
+var opts=[{key:“apr”,saved:opt1saved},{key:“snowball”,saved:opt2saved},{key:“util”,saved:opt3saved}];
+opts.sort(function(a,b){return b.saved-a.saved;});
+var bestKey=opts[0].key;
+function buildOpt(key,alloc,result,saved,label,icon,desc,highlight){
+var isBest=key===bestKey;
+var cardRows=v.map(function(card,i){
+var color=COLORS[i%COLORS.length],applied=alloc[card.id]||0,newBal=Math.max(0,card.balance-applied),newUtil=card.limit>0?(newBal/card.limit*100):null;
+if(applied<=0)return’<div class="modal-card-row" style="--accent:'+color+';opacity:0.45"><div class="modal-card-name">’+card.name+’</div><div class="modal-card-detail">No change · stays at ‘+fmt(card.balance)+’</div></div>’;
+return’<div class="modal-card-row" style="--accent:'+color+'"><div class="modal-card-name">’+card.name+’ → <span style="color:#69DB7C">’+fmt(applied)+’ applied</span></div><div class="modal-card-detail">’+fmt(card.balance)+’ → <strong style="color:#69DB7C">’+fmt(newBal)+’</strong>’+(newUtil!==null?’ · ‘+newUtil.toFixed(0)+’% util’:’’)+(newBal<0.01?’ · <strong style="color:#69DB7C">PAID OFF ✓</strong>’:’’)+’ </div></div>’;
+}).join(””);
+return’<div style="background:#12101e;border:1px solid '+(isBest?'#9f7aea':'#1e1e2e')+';border-radius:14px;padding:18px;margin-bottom:16px;position:relative;">’+(isBest?’<div class="rec-badge">💰 Saves Most Interest</div>’:””)+
+‘<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;"><div style="font-size:16px;font-weight:500;">’+icon+’ ‘+label+’</div><div style="text-align:right;"><div style="font-size:13px;color:#69DB7C;font-weight:500;">’+fmt(saved)+’ saved</div><div style="font-size:11px;color:#5a5270;">’+fmtM(result.months)+’ to payoff</div></div></div>’+
+‘<div style="font-size:12px;color:#5a5270;margin-bottom:12px;line-height:1.6;padding:8px 10px;background:#0a0a0f;border-radius:8px;border-left:2px solid #3d2e6b;">’+desc+’</div>’+
+(highlight?’<div style="font-size:12px;color:#c4b5fd;margin-bottom:12px;padding:8px 10px;background:#1a1030;border-radius:8px;">’+highlight+’</div>’:””)+
+‘<div style="display:flex;flex-direction:column;gap:8px;">’+cardRows+’</div></div>’;
+}
+var byApr=v.slice().sort(function(a,b){return b.apr-a.apr;});
+var o1desc=“Put all “+fmt(lump)+” toward “+byApr[0].name+” (”+byApr[0].apr+”% APR) — the card costing you the most in interest right now.”;
+var o2desc=“Use “+fmt(lump)+” to completely eliminate “+(opt2paid.length?opt2paid.map(function(c){return c.name;}).join(” & “):“the smallest balance card(s)”)+”. Fewer cards, fewer bills, real momentum.”;
+var o2h=opt2paid.length?“✓ Fully pays off: “+opt2paid.map(function(c){return c.name+” (”+fmt(c.balance)+”)”;}).join(”, “):null;
+var o3desc=“Spread “+fmt(lump)+” across overloaded cards to get each under 30% utilization — the threshold credit bureaus consider healthy.”;
+var o3h=opt3under.length?“✓ Gets under 30%: “+opt3under.map(function(c){return c.name;}).join(”, “):null;
+el.innerHTML=
+‘<div style="background:#1a1030;border:1px solid #3d2e6b;border-radius:12px;padding:14px 16px;margin-bottom:20px;">’+
+‘<div style="font-size:10px;letter-spacing:3px;color:#7c6fa0;text-transform:uppercase;margin-bottom:6px;">Without this payment</div>’+
+‘<div style="font-size:13px;color:#a09ab8;">Paying only minimums, you'd pay <strong style="color:#FF6B6B;">’+fmt(baseline.totalInterest)+’</strong> in total interest over <strong>’+fmtM(baseline.months)+’</strong>. Applying ‘+fmt(lump)+’ now reduces that.</div>’+
+‘</div>’+
+buildOpt(“apr”,opt1alloc,opt1,opt1saved,“Attack Highest APR”,“❄️”,o1desc,null)+
+buildOpt(“snowball”,opt2alloc,opt2,opt2saved,“Pay Off Smallest Card”,“🔮”,o2desc,o2h)+
+buildOpt(“util”,opt3alloc,opt3,opt3saved,“Get Under 30% Utilization”,“📉”,o3desc,o3h);
 }
 
 // ── UTILIZATION ────────────────────────────────────────────────────────────
 function renderUtil(){
-  var el=document.getElementById("util-output");
-  var dv=document.getElementById("util-date").value;
-  if(!dv)return;
-  var parts=dv.split("-");
-  var now=new Date();
-  var months=(parseInt(parts[0])-now.getFullYear())*12+(parseInt(parts[1])-(now.getMonth()+1));
-  if(months<1){el.innerHTML='<div class="warn-box"><div class="warn-title">Invalid Date</div><div class="warn-body">Target date must be in the future.</div></div>';return;}
-  var v=cards.filter(function(c){return c.limit>0;});
-  if(!v.length){el.innerHTML='<div class="empty"><div class="empty-icon">📉</div><div class="empty-text">Add cards with credit limits in the Cards tab</div></div>';return;}
-  el.innerHTML=v.map(function(card){
-    var idx=cards.findIndex(function(c){return c.id===card.id;});
-    var color=COLORS[idx%COLORS.length];
-    var currentUtil=card.balance/card.limit*100;
-    var target=card.limit*0.30;
-    if(card.balance<=target){
-      return '<div class="util-card" style="--accent:'+color+'">'+
-        '<div class="util-card-name">'+card.name+'</div>'+
-        '<div class="util-already">✓ Already at '+currentUtil.toFixed(0)+'% — under 30%</div>'+
-        '<div class="progress-bar"><div class="progress-fill" style="width:'+Math.min(currentUtil,100)+'%;background:#69DB7C"></div></div>'+
-        '<div class="progress-labels"><span>Now: '+currentUtil.toFixed(0)+'%</span><span style="color:#69DB7C">Goal: 30%</span></div>'+
-      '</div>';
-    }
-    var r=card.apr/100/12;
-    var payment;
-    if(r<0.0001){payment=(card.balance-target)/months;}
-    else{var f=Math.pow(1+r,months);payment=(card.balance*f-target)*r/(f-1);}
-    if(payment<=0||!isFinite(payment)){
-      return '<div class="util-card" style="--accent:'+color+'">'+
-        '<div class="util-card-name">'+card.name+'</div>'+
-        '<div class="util-impossible">Interest prevents reaching 30% by this date. Try a later date or a 0% balance transfer.</div>'+
-      '</div>';
-    }
-    var minPay=card.minPayment||Math.max(25,card.balance*0.02);
-    var finalPay=Math.max(payment,minPay);
-    var extra=finalPay>minPay?finalPay-minPay:0;
-    return '<div class="util-card" style="--accent:'+color+'">'+
-      '<div class="util-card-name">'+card.name+'</div>'+
-      '<div class="util-amount">'+fmt(Math.ceil(finalPay))+'<span style="font-size:13px;color:#5a5270">/mo for '+months+'mo</span></div>'+
-      '<div class="util-months">Brings '+currentUtil.toFixed(0)+'% → 30%'+(extra>0?"<br>Min "+fmt(minPay)+" + "+fmt(Math.ceil(extra))+" extra":"")+' </div>'+
-      '<div class="progress-bar"><div class="progress-fill" style="width:'+Math.min(currentUtil,100)+'%"></div></div>'+
-      '<div class="progress-labels"><span>Now: '+currentUtil.toFixed(0)+'%</span><span style="color:'+color+'">Goal: 30%</span></div>'+
-    '</div>';
-  }).join("");
+var el=document.getElementById(“util-output”),dv=document.getElementById(“util-date”).value;
+if(!dv)return;
+var parts=dv.split(”-”),now=new Date();
+var months=(parseInt(parts[0])-now.getFullYear())*12+(parseInt(parts[1])-(now.getMonth()+1));
+if(months<1){el.innerHTML=’<div class="warn-box"><div class="warn-title">Invalid Date</div><div class="warn-body">Target date must be in the future.</div></div>’;return;}
+var v=cards.filter(function(c){return c.limit>0;});
+if(!v.length){el.innerHTML=’<div class="empty"><div class="empty-icon">📉</div><div class="empty-text">Add cards with credit limits in the Cards tab</div></div>’;return;}
+el.innerHTML=v.map(function(card){
+var idx=cards.findIndex(function(c){return c.id===card.id;}),color=COLORS[idx%COLORS.length];
+var currentUtil=card.balance/card.limit*100,target=card.limit*0.30;
+if(card.balance<=target)return’<div class="util-card" style="--accent:'+color+'"><div class="util-card-name">’+card.name+’</div><div class="util-already">✓ Already at ‘+currentUtil.toFixed(0)+’% — under 30%</div><div class="progress-bar"><div class="progress-fill" style="width:'+Math.min(currentUtil,100)+'%;background:#69DB7C"></div></div><div class="progress-labels"><span>Now: ‘+currentUtil.toFixed(0)+’%</span><span style="color:#69DB7C">Goal: 30%</span></div></div>’;
+var r=card.apr/100/12,payment;
+if(r<0.0001){payment=(card.balance-target)/months;}else{var f=Math.pow(1+r,months);payment=(card.balance*f-target)*r/(f-1);}
+if(payment<=0||!isFinite(payment))return’<div class="util-card" style="--accent:'+color+'"><div class="util-card-name">’+card.name+’</div><div class="util-impossible">Interest prevents reaching 30% by this date. Try a later date or a 0% balance transfer.</div></div>’;
+var minPay=card.minPayment||Math.max(25,card.balance*0.02),finalPay=Math.max(payment,minPay),extra=finalPay>minPay?finalPay-minPay:0;
+return’<div class="util-card" style="--accent:'+color+'"><div class="util-card-name">’+card.name+’</div><div class="util-amount">’+fmt(Math.ceil(finalPay))+’<span style="font-size:13px;color:#5a5270">/mo for ‘+months+‘mo</span></div><div class="util-months">Brings ‘+currentUtil.toFixed(0)+’% → 30%’+(extra>0?”<br>Min “+fmt(minPay)+” + “+fmt(Math.ceil(extra))+” extra”:””)+’ </div><div class="progress-bar"><div class="progress-fill" style="width:'+Math.min(currentUtil,100)+'%"></div></div><div class="progress-labels"><span>Now: ‘+currentUtil.toFixed(0)+’%</span><span style="color:'+color+'">Goal: 30%</span></div></div>’;
+}).join(””);
+}
+
+// ── HISTORY ────────────────────────────────────────────────────────────────
+function renderHistory(){
+var el=document.getElementById(“history-content”);
+if(snapshots.length<2){
+el.innerHTML=’<div class="empty"><div class="empty-icon">📈</div><div class="empty-text">Snapshots are saved automatically once per day. Come back tomorrow to see your first trend.</div></div>’+renderAssetsSection();
+return;
+}
+
+// Total debt trend chart
+var totalDebtChart=buildLineChart(
+snapshots.map(function(s){return s.date.slice(5);}),// MM-DD labels
+[{label:“Total Debt”,color:”#FF6B6B”,data:snapshots.map(function(s){return s.totalDebt;})}],
+“Total Debt Over Time”
+);
+
+// Per-card balance charts
+// Collect all card IDs that appear in snapshots
+var cardIds={};
+snapshots.forEach(function(s){s.cards.forEach(function(c){cardIds[c.id]=c.name;});});
+var cardSeries=[];
+var keys=Object.keys(cardIds);
+keys.forEach(function(id,i){
+var data=snapshots.map(function(s){
+var found=s.cards.filter(function(c){return String(c.id)===String(id);});
+return found.length?found[0].balance:null;
+});
+cardSeries.push({label:cardIds[id],color:COLORS[i%COLORS.length],data:data});
+});
+var cardChart=buildLineChart(
+snapshots.map(function(s){return s.date.slice(5);}),
+cardSeries,
+“Balance Per Card Over Time”
+);
+
+// Net worth chart
+var nwChart=buildLineChart(
+snapshots.map(function(s){return s.date.slice(5);}),
+[{label:“Net Worth”,color:”#69DB7C”,data:snapshots.map(function(s){return s.netWorth;})}],
+“Net Worth Over Time”
+);
+
+// Insights
+var first=snapshots[0],last=snapshots[snapshots.length-1];
+var debtChange=last.totalDebt-first.totalDebt;
+var nwChange=last.netWorth-first.netWorth;
+var daysDiff=Math.round((new Date(last.date)-new Date(first.date))/(1000*60*60*24))||1;
+var insights=’<div class="section-box" style="margin-bottom:16px;">’+
+‘<div class="section-box-title">Insights</div>’+
+‘<div style="display:flex;flex-direction:column;gap:10px;">’+
+‘<div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px solid #1e1e2e;"><span style="color:#a09ab8;">Debt change (’+daysDiff+’ days)</span><span style=“color:’+(debtChange<0?”#69DB7C”:”#FF6B6B”)+’;”>’+(debtChange<0?“↓ “:“↑ “)+fmt(Math.abs(debtChange))+’</span></div>’+
+‘<div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px solid #1e1e2e;"><span style="color:#a09ab8;">Net worth change</span><span style=“color:’+(nwChange>=0?”#69DB7C”:”#FF6B6B”)+’;”>’+(nwChange>=0?“↑ “:“↓ “)+fmt(Math.abs(nwChange))+’</span></div>’+
+‘<div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 0;"><span style="color:#a09ab8;">Snapshots recorded</span><span>’+snapshots.length+’</span></div>’+
+‘</div>’+
+‘</div>’;
+
+el.innerHTML=insights+totalDebtChart+cardChart+nwChart+renderAssetsSection();
+}
+
+function renderAssetsSection(){
+var totalA=assets.reduce(function(s,a){return s+(parseFloat(a.value)||0);},0);
+var totalD=cards.reduce(function(s,c){return s+c.balance;},0);
+var nw=totalA-totalD;
+return’<div class="nw-grid">’+
+‘<div class="nw-card"><div class="nw-label">Assets</div><div class="nw-val" style="color:#69DB7C;">’+fmt(totalA)+’</div></div>’+
+‘<div class="nw-card"><div class="nw-label">Debt</div><div class="nw-val" style="color:#FF6B6B;">’+fmt(totalD)+’</div></div>’+
+‘<div class="nw-card"><div class="nw-label">Net Worth</div><div class=“nw-val” style=“color:’+(nw>=0?”#69DB7C”:”#FF6B6B”)+’;”>’+fmt(nw)+’</div></div>’+
+‘</div>’+
+‘<div class="section-box">’+
+‘<div class="section-box-title">Your Assets</div>’+
+‘<div id="asset-list">’+assets.map(function(a,i){
+return’<div class="asset-row"><input placeholder="Asset name" value="'+a.name+'" oninput="updateAsset('+i+',\'name\',this.value)"/><input class="asset-val" placeholder="Value $" type="number" inputmode="decimal" value="'+a.value+'" oninput="updateAsset('+i+',\'value\',this.value)"/><button class="btn-icon" onclick="removeAsset('+i+')">✕</button></div>’;
+}).join(””)+’</div>’+
+‘<button style="width:100%;background:none;border:1px dashed #3d2e6b;color:#9f7aea;padding:11px;border-radius:10px;cursor:pointer;font-size:14px;font-family:inherit;margin-top:8px;" onclick="addAsset()">+ Add Asset</button>’+
+‘</div>’;
+}
+
+function addAsset(){assets.push({name:””,value:0});persist();if(currentTab===“history”)renderHistory();}
+function removeAsset(i){assets.splice(i,1);persist();if(currentTab===“history”)renderHistory();}
+function updateAsset(i,key,val){assets[i][key]=key===“value”?(parseFloat(val)||0):val;persist();}
+
+// ── SVG LINE CHART ─────────────────────────────────────────────────────────
+function buildLineChart(labels,series,title){
+var W=320,H=140,PL=10,PR=10,PT=20,PB=30;
+var cW=W-PL-PR,cH=H-PT-PB;
+var allVals=[];
+series.forEach(function(s){s.data.forEach(function(v){if(v!==null)allVals.push(v);});});
+if(!allVals.length)return””;
+var minV=Math.min.apply(null,allVals),maxV=Math.max.apply(null,allVals);
+if(minV===maxV){minV=minV-1;maxV=maxV+1;}
+var n=labels.length;
+function xOf(i){return PL+(i/(n-1||1))*cW;}
+function yOf(v){return PT+cH-(((v-minV)/(maxV-minV))*cH);}
+
+var paths=series.map(function(s){
+var pts=s.data.map(function(v,i){return v!==null?xOf(i)+”,”+yOf(v):null;}).filter(Boolean);
+if(!pts.length)return””;
+var d=“M”+pts.join(” L”);
+return’<path d="'+d+'" fill="none" stroke="'+s.color+'" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>’;
+}).join(””);
+
+// Dots for last point
+var dots=series.map(function(s){
+var last=null,lastIdx=0;
+s.data.forEach(function(v,i){if(v!==null){last=v;lastIdx=i;}});
+if(last===null)return””;
+return’<circle cx="'+xOf(lastIdx)+'" cy="'+yOf(last)+'" r="3" fill="'+s.color+'"/>’;
+}).join(””);
+
+// X axis labels (show first, middle, last)
+var axisX=””;
+[0,Math.floor((n-1)/2),n-1].forEach(function(i){
+if(i<labels.length)axisX+=’<text x="'+xOf(i)+'" y="'+(H-4)+'" text-anchor="middle" font-size="8" fill="#5a5270">’+labels[i]+’</text>’;
+});
+
+// Y axis labels
+var axisY=’<text x="'+PL+'" y="'+(PT+4)+'" font-size="8" fill="#5a5270">’+fmt(maxV)+’</text>’+
+‘<text x="'+PL+'" y="'+(PT+cH)+'" font-size="8" fill="#5a5270">’+fmt(minV)+’</text>’;
+
+// Legend
+var legend=series.map(function(s,i){
+return’<text x="'+(PL+i*90)+'" y="'+(PT-6)+'" font-size="8" fill="'+s.color+'">⬤ ‘+s.label+’</text>’;
+}).join(””);
+
+var svg=’<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;max-width:'+W+'px;display:block">’+
+‘<rect width="'+W+'" height="'+H+'" fill="none"/>’+
+legend+paths+dots+axisX+axisY+
+‘</svg>’;
+
+return’<div class="chart-canvas-wrap"><div style="font-size:11px;letter-spacing:2px;color:#7c6fa0;text-transform:uppercase;margin-bottom:10px;">’+title+’</div>’+svg+’</div>’;
 }
 
 // ── BOOT ───────────────────────────────────────────────────────────────────
 loadData();
-document.getElementById("extra").value=extraPayment;
-var now2=new Date();
-var yr=now2.getFullYear()+1;
-var mo=String(now2.getMonth()+1).padStart(2,"0");
-document.getElementById("alloc-date").value=yr+"-"+mo;
-document.getElementById("util-date").value=yr+"-"+mo;
+document.getElementById(“extra”).value=extraPayment;
+var now2=new Date(),yr=now2.getFullYear()+1,mo=String(now2.getMonth()+1).padStart(2,“0”);
+document.getElementById(“util-date”).value=yr+”-”+mo;
+maybeSnapshot();
 renderAll();
-if("serviceWorker" in navigator)navigator.serviceWorker.register("/sw.js");
+if(“serviceWorker” in navigator)navigator.serviceWorker.register(”/sw.js”);
 </script>
 
 </body>
