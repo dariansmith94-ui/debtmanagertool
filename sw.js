@@ -1,4 +1,4 @@
-const CACHE = “debtfree-v2”;
+const CACHE = “debtfree-v3”;
 const ASSETS = [”/”, “/index.html”, “/manifest.webmanifest”];
 
 self.addEventListener(“install”, function(e) {
@@ -24,14 +24,12 @@ self.clients.claim();
 });
 
 self.addEventListener(“fetch”, function(e) {
-// Only handle GET requests
 if (e.request.method !== “GET”) return;
 
 e.respondWith(
 caches.match(e.request).then(function(cached) {
 if (cached) return cached;
 return fetch(e.request).then(function(response) {
-// Only cache valid responses
 if (!response || response.status !== 200 || response.type === “opaque”) {
 return response;
 }
@@ -41,7 +39,6 @@ cache.put(e.request, clone);
 });
 return response;
 }).catch(function() {
-// Offline fallback — serve index.html for any failed request
 return caches.match(”/index.html”);
 });
 })
