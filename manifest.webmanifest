@@ -1,12 +1,13 @@
 {
 “name”: “DebtFree — Debt Strategy Analyzer”,
 “short_name”: “DebtFree”,
-“description”: “Track cards and find the fastest, cheapest path to zero debt.”,
+“description”: “Track your cards, compare payoff strategies, and find the fastest path to zero debt.”,
 “start_url”: “/”,
+“scope”: “/”,
 “display”: “standalone”,
+“orientation”: “portrait”,
 “background_color”: “#0a0a0f”,
 “theme_color”: “#0a0a0f”,
-“orientation”: “portrait”,
 “icons”: [
 {
 “src”: “/icon-192.png”,
